@@ -12,5 +12,10 @@ class Board < ActiveRecord::Base
   foreign_key: :board_id,
   primary_key: :id
   
+  has_many :catagories,
+  class_name: "Catagory",
+  foreign_key: :board_id,
+  primary_key: :id
+  
   has_many :members, through: :memberships, source: :user
 end
