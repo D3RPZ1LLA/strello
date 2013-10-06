@@ -19,4 +19,14 @@ module SessionsHelper
     current_user.save
     session[:token] = nil
   end
+  
+  private
+  def logged_in_clearance
+    unless logged_in?
+      redirect_to new_session_url
+    end
+  end
+  
+  def member_clearance
+  end
 end

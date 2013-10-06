@@ -5,6 +5,19 @@ class User < ActiveRecord::Base
 
   attr_accessible :token, :bio, :email, :password_digest, :username, :password, :password_verify
   attr_accessor :password, :password_verify
+  
+  has_many :created_boards,
+  inverse_of: :creator,
+  class_name: "Board",
+  foreign_key: :creator_id,
+  primary_key: :id
+  
+  has_many :memberships,
+  class_name: "Membership",
+  foreign_key: :user_id,
+  primary_key: :id
+  
+  has_many :member_boards, through: :memberships, source: :board
 
   validates_presence_of :email
   validates_presence_of :password, :password_verify, on: :create
