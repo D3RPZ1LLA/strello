@@ -23,6 +23,7 @@ module SessionsHelper
   private
   def logged_in_clearance
     unless logged_in?
+      flash[:errors] = "You must be logged in to do that."
       redirect_to new_session_url
     end
   end
