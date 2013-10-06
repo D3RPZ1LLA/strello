@@ -1,1 +1,10 @@
 <h1>Welcome, <%= @user.email %></h1>
+
+<h4>Board</h4>
+<ul>
+	<% @user.member_boards.each do |board| %>
+	<li>
+		<%= link_to "#{board.title}", board_url(board) %>
+	</li>
+	<% end %>
+</ul>

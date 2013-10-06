@@ -1,0 +1,12 @@
+<form action="<%= board_catagories_url(board) %>" method="POST" accept-charset="utf-8">
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+	
+	<label>Title
+		<input type="text"
+		name="catagory[title]">
+	</label>
+
+	<p><input type="submit" value="Add Catagory"></p>
+</form>

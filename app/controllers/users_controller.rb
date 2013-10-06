@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user = User.find_by_id(params[:id])
+    if @user = User.includes(:member_boards).find_by_id(params[:id])
       render :show
     else
       flash[:errors] = "User not found"

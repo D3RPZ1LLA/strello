@@ -1,12 +1,21 @@
 <h1><%= @board.title %></h1>
 
-<table>
-	<tr>
-		<th>Members</th>
-	</tr>
+<h3>Members</h3>
+<ul>
 	<% @board.members.each do |member| %>
-	<tr>
-		<td><%= member.email %></td>
-	</tr>
+	<li>
+		<%= member.email %>
+	</li>
 	<% end %>
-</table>
+</ul>
+
+<h2>Catagories</h2>
+<ul>
+	<% @board.catagories.each do |catagory| %>
+	<li>
+		<%= link_to "#{catagory.title}", catagory_url(catagory) %>
+	</li>
+	<% end %>
+</ul>
+
+<%= render partial: "catagories/new", locals: { board: @board } %>

@@ -23,7 +23,7 @@ class BoardsController < ApplicationController
   end
   
   def show
-    if @board ||= Board.includes(:members).find_by_id(params[:id])
+    if @board ||= Board.includes(:members, :catagories).find_by_id(params[:id])
       render :show
     else
       flash[:errors] = "Board not found"
