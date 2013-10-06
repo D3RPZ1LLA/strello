@@ -1,0 +1,33 @@
+<h1>Sign Up</h1>
+
+<% if @user.errors.any? %>
+<ul>
+	<% @user.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+</ul>
+<% end %>
+
+<form action="<%= users_url %>" method="POST" accept-charset="utf-8">
+	<input type="hidden" 
+	name="authenticity_token" 
+	value="<%= form_authenticity_token %>">
+	
+	<label>Email
+		<input type="text" 
+		name="user[email]"
+		value="<%= @user.email %>">
+	</label>
+	
+	<label>Password
+		<input type="password"
+		name="user[password]">
+	</label>
+	
+	<label>Password (again)
+		<input type="password"
+		name="user[password_verify]">
+	</label>
+
+	<p><input type="submit" value="Sign Up"></p>
+</form>
