@@ -5,8 +5,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
 	<ul>
+		<% if logged_in? %>
+		<li>Hello <%= current_user.email %></li>
+		<li><%= button_to "Logout", session_url, method: :delete %></li>
+		<% else %>
+		<li><%= link_to "Sign Up", new_user_url %></li>
+		<li><%= link_to "Login", new_session_url %></li>
+		<% end %>
 	</ul>
 	
 	<%= flash[:errors] %>
