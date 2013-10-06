@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_filter :logged_in_clearance
-  before_filter :member_clearance, only: :show
+  # before_filter :member_clearance, only: :show
   
   def index
     @boards = Board.includes(:members).select { |board| board.members.include?(current_user) }
@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.created_boards.build(params[:board])
     if @board.save
-      Membership.new(user_id: current_user.id, board_id: @board.id, admin: true)
+      Membership.create(user_id: current_user.id, board_id: @board.id, admin: true)
       redirect_to board_url(@board)
     else
       render :new
@@ -23,7 +23,7 @@ class BoardsController < ApplicationController
   end
   
   def show
-    if @board ||= Board.find(params[:id])
+    if @board ||= Board.includes(:members).find_by_id(params[:id])
       render :show
     else
       flash[:errors] = "Board not found"

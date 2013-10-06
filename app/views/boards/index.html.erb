@@ -1,0 +1,8 @@
+<h1>Your Boards</h1>
+<table>
+	<% @boards.each do |board| %>
+	<tr>
+		<td><%= link_to "#{board.title}", board_url(board) %></td>
+	</tr>
+	<% end %>
+</table>

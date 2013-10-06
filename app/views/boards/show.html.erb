@@ -1,0 +1,12 @@
+<h1><%= @board.title %></h1>
+
+<table>
+	<tr>
+		<th>Members</th>
+	</tr>
+	<% @board.members.each do |member| %>
+	<tr>
+		<td><%= member.email %></td>
+	</tr>
+	<% end %>
+</table>

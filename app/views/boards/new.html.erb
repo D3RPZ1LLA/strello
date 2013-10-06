@@ -1,0 +1,14 @@
+<h1>New Board</h1>
+<form action="<%= boards_url %>" method="POST" accept-charset="utf-8">
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+	
+	<label>Title
+		<input type="text"
+		name="board[title]"
+		value="<%= @board.title %>">
+	</label>
+
+	<p><input type="submit" value="Create Board"></p>
+</form>
