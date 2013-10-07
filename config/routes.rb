@@ -16,4 +16,6 @@ Clairvoyance::Application.routes.draw do
   resources :checklist_items, only: [:update, :destroy]
 
   resources :participations, only: [:create, :destroy]
+
+  root to: "users#home"
 end

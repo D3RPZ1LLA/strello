@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   # before_filter :personal_clearance, only: [:show, :update, :destroy]
+  before_filter :logged_in_clearance, only: :home
 
   def new
     @user = User.new
@@ -29,5 +30,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def home
+    render :home
   end
 end

@@ -1,8 +1,10 @@
 CV.Routers.BoardsRouter = Backbone.Router.extend({
   routes: {
     "":                   "current",
+    "/future":            "future",
+    "/current":           "current",
     "/pending":           "pending",
-    "/future":            "future"
+    "/setting":           "settings"
   },
 
   initialize: function($finished, $current, $pending) {

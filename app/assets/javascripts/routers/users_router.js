@@ -1,7 +1,9 @@
 CV.Routers.UsersRouter = Backbone.Router.extend({
   routes: {
-    "":                   "home",
-    "/:id":               "userShow",
+    "":                   "current",
+    "/finished":          "finished",
+    "/current":           "current",
+    "/pending":           "pending",
     "/edit":              "userEdit"
   },
 
@@ -10,20 +12,28 @@ CV.Routers.UsersRouter = Backbone.Router.extend({
     this.$sections = $sections
   },
 
-  home: function () {
+  current: function () {
+    var finishedView = new CV.Views.Finished({
+      el: this.$sections.finished,
+      collection: CV.user.get('finished_cards')
+    });
+
     var currentView = new CV.Views.Current({
       el: this.$sections.current,
       collection: CV.user.get('current_cards')
     });
 
+    var pendingView = new CV.Views.Pending({
+      el: this.$sections.pending,
+      collection: CV.user.get('pending_cards')
+    });
+
+    finishedView.render();
     currentView.render();
+    pendingView.render();
   },
 
-  userShow: function (id) {
-
-  },
-
-  userEdit: function () {
+  edit: function () {
 
   }
 });
