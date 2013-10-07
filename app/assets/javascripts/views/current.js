@@ -1,8 +1,11 @@
 CV.Views.Current = Backbone.View.extend({
   initialize: function() {
-    var dat = this;
-    console.log(dat.$el);
   },
   events: {},
-  render: function () {}
+  render: function () {
+    var dat = this;
+    this.$el.html(JST['card_set']({
+      cards: dat.collection.models
+    }));
+  }
 });

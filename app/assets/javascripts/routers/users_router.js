@@ -12,9 +12,11 @@ CV.Routers.UsersRouter = Backbone.Router.extend({
 
   home: function () {
     var currentView = new CV.Views.Current({
-      el: this.$sections.current
-      // collection: CV.user.cards
+      el: this.$sections.current,
+      collection: CV.user.get('current_cards')
     });
+
+    currentView.render();
   },
 
   userShow: function (id) {
