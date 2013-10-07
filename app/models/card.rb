@@ -7,4 +7,9 @@ class Card < ActiveRecord::Base
   class_name: "Catagory",
   foreign_key: :catagory_id,
   primary_key: :id
+  
+  has_many :checklist_items,
+  class_name: "ChecklistItem",
+  foreign_key: :card_id,
+  primary_key: :id
 end
