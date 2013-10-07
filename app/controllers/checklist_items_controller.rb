@@ -12,7 +12,7 @@ class ChecklistItemsController < ApplicationController
   
   def update
     if @checklist_item = ChecklistItem.find_by_id(params[:id])
-      ###
+      ### update here!!!
     else
       flash[:errors] = "404"
       redirect_to user_url(current_user)

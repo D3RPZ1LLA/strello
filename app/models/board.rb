@@ -2,6 +2,7 @@ class Board < ActiveRecord::Base
   attr_accessible :title, :creator_id
   
   validates_presence_of :title, :creator_id
+  validates :title, uniqueness: { scope: :creator_id }
   
   belongs_to :creator,
   inverse_of: :created_boards,
