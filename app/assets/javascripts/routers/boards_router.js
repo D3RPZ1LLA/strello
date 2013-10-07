@@ -1,15 +1,25 @@
 CV.Routers.BoardsRouter = Backbone.Router.extend({
   routes: {
-    "":                   "boardPersonal",
-    "b/:id":              "boardShow"
+    "":                   "current",
+    "/pending":           "pending",
+    "/future":            "future"
   },
 
-  initialize: function($finished, $current, $pending, $sidebar) {
+  initialize: function($finished, $current, $pending) {
     this.$finished = $finished;
     this.$current = $current;
     this.$pending = $pending;
-    this.$sidebar = $sidebar;
+  },
 
+  current: function () {
+
+  },
+
+  pending: function () {
+
+  },
+
+  future: function () {
 
   }
 });
