@@ -1,0 +1,2 @@
+module CatagoryTagsHelper
+end

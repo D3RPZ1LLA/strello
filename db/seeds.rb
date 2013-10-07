@@ -5,4 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(email: "kitty", password: "codefu", password_verify: "codefu")
+kitty = User.create(
+  email: 'kitty',
+  password: 'codefu',
+  password_verify: 'codefu'
+)
+first_board = kitty.created_boards.create(title: 'first_board')
+first_catagory = first_board.catagories.create(
+  title: "first_catagory"
+)
+
+first_card = first_board.cards.create(
+  title:"first_cards",
+  start_date: Time.now,
+  due_date: 1.week.from_now
+)
+
+first_card.catagories += [first_catagory]

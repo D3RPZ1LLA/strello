@@ -8,7 +8,7 @@ window.CV = {
     new CV.Routers.BoardsRouter($finished, $current, $pending, $sidebar);
 
     var data = JSON.parse($('#bootstrap').html());
-    CV.boardCollection = new CV.Collections.Boards(data.boards);
+    CV.board = new CV.Models.Boards(data.board);
 
     Backbone.history.start();
   }

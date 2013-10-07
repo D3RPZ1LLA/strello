@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007002609) do
+ActiveRecord::Schema.define(:version => 20131007160813) do
 
   create_table "boards", :force => true do |t|
     t.string   "title",      :null => false
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(:version => 20131007002609) do
     t.string   "description"
     t.datetime "start_date"
     t.datetime "due_date"
-    t.integer  "catagory_id", :null => false
+    t.integer  "board_id",    :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "cards", ["catagory_id"], :name => "index_cards_on_catagory_id"
+  add_index "cards", ["board_id"], :name => "index_cards_on_catagory_id"
 
   create_table "catagories", :force => true do |t|
     t.string   "title"
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(:version => 20131007002609) do
 
   add_index "catagories", ["board_id"], :name => "index_catagories_on_board_id"
   add_index "catagories", ["title", "board_id"], :name => "index_catagories_on_title_and_board_id", :unique => true
+
+  create_table "catagory_tags", :force => true do |t|
+    t.integer  "card_id"
+    t.integer  "catagory_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "checklist_items", :force => true do |t|
+    t.string   "title",      :null => false
+    t.integer  "card_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "checklist_items", ["card_id"], :name => "index_checklist_items_on_card_id"
 
   create_table "memberships", :force => true do |t|
     t.integer  "user_id",                       :null => false
@@ -55,6 +71,17 @@ ActiveRecord::Schema.define(:version => 20131007002609) do
   add_index "memberships", ["board_id"], :name => "index_memberships_on_board_id"
   add_index "memberships", ["user_id", "board_id"], :name => "index_memberships_on_user_id_and_board_id", :unique => true
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
+
+  create_table "participations", :force => true do |t|
+    t.integer  "card_id",    :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "participations", ["card_id", "user_id"], :name => "index_participations_on_card_id_and_user_id", :unique => true
+  add_index "participations", ["card_id"], :name => "index_participations_on_card_id"
+  add_index "participations", ["user_id"], :name => "index_participations_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",           :null => false
