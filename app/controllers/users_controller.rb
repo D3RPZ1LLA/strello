@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # before_filter :personal_clearance, only: [:show, :update, :destroy]
+
   def new
     @user = User.new
     render :new
@@ -15,11 +17,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user = User.includes(:member_boards).find_by_id(params[:id])
+    if @user = User.includes(:member_boards, :cards).find_by_id(params[:id])
       render :show
     else
       flash[:errors] = "User not found"
       redirect_to new_user_url
     end
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end

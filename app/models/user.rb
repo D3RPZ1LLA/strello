@@ -3,7 +3,8 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
 
-  attr_accessible :token, :bio, :email, :password_digest, :username, :password, :password_verify
+  attr_accessible :token, :bio, :email, :password_digest,
+     :username, :password, :password_verify
   attr_accessor :password, :password_verify
 
   has_many :created_boards,

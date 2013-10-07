@@ -1,10 +1,15 @@
-<h1>Welcome, <%= @user.email %></h1>
+<script type="application/json" id="bootstrapped_user">
+  { "user": <%= @user.to_json.html_safe %> }
+</script>
 
-<h4>Board</h4>
-<ul>
-	<% @user.member_boards.each do |board| %>
-	<li>
-		<%= link_to "#{board.title}", board_url(board) %>
-	</li>
-	<% end %>
-</ul>
+<script>
+  $(document).ready(function () {
+    CV.usersInitialize({
+      header: $('header'),
+      finished: $('#finished'),
+      current: $('#current'),
+      pending: $('#pending'),
+      footer: $('footers')
+    });
+  });
+</script>

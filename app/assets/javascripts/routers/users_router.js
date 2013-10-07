@@ -5,8 +5,8 @@ CV.Routers.UsersRouter = Backbone.Router.extend({
     "/edit":              "userEdit"
   },
 
-  initialize: function ($finished, $current, $pending) {
-
+  initialize: function ($sections) {
+    console.log("user router init");
   },
 
   home: function () {

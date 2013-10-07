@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Clairvoyance</title>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,8 +15,14 @@
 		<li><%= link_to "Login", new_session_url %></li>
 		<% end %>
 	</ul>
-	
+
 	<%= flash[:errors] %>
+
+  <header></header>
+  <section id="finished"></section>
+  <section id="current"></section>
+  <section id="pending"></section>
+  <footer></footer>
 
 <%= yield %>
 
