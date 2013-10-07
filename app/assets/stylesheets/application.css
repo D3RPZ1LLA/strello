@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
  */
+body, header, article, ul, li {
+  margin: 0px;
+  padding: 0px;
+  text: inherit;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+header {
+  padding: 20px;
+}

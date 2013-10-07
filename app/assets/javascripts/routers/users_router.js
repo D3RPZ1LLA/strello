@@ -13,24 +13,23 @@ CV.Routers.UsersRouter = Backbone.Router.extend({
   },
 
   current: function () {
-    var finishedView = new CV.Views.Finished({
-      el: this.$sections.finished,
-      collection: CV.user.get('finished_cards')
-    });
+    this.$sections.finished.html("<button>Finished</button>");
+    this.$sections.pending.html("<button>Pending</button");
 
-    var currentView = new CV.Views.Current({
+    var currentView = new CV.Views.CardSet({
       el: this.$sections.current,
       collection: CV.user.get('current_cards')
     });
 
-    var pendingView = new CV.Views.Pending({
-      el: this.$sections.pending,
-      collection: CV.user.get('pending_cards')
-    });
+    // var pendingView = new CV.Views.Pending({
+//       el: this.$sections.pending,
+//       collection: CV.user.get('pending_cards')
+//     });
 
-    finishedView.render();
+    // finishedView.render();
     currentView.render();
-    pendingView.render();
+    // pendingView.render();
+
   },
 
   edit: function () {

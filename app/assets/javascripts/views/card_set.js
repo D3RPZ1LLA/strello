@@ -1,4 +1,4 @@
-CV.Views.Current = Backbone.View.extend({
+CV.Views.CardSet = Backbone.View.extend({
   initialize: function() {
   },
   events: {},
