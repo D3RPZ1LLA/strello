@@ -2,8 +2,9 @@ CV.Models.User = Backbone.Model.extend({
   rootUrl: '/users',
 
   initialize: function () {
-    if (!!this.cards) {
-      this.cards = new CV.Collections.Cards(this.cards);
+    var cards = this.get('cards');
+    if (!!cards) {
+      this.set('cards', new CV.Collections.Cards(cards));
     }
   }
 });

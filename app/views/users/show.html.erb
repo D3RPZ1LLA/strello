@@ -1,5 +1,5 @@
 <script type="application/json" id="bootstrapped_user">
-  { "user": <%= @user.to_json.html_safe %> }
+  { "user": <%= @user.to_json(include: :cards).html_safe %> }
 </script>
 
 <script>

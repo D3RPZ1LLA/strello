@@ -1,3 +1,6 @@
 CV.Models.Card = Backbone.Model.extend({
-  urlRoot: '/cards'
+  urlRoot: '/cards',
+
+  initialize: function() {
+  }
 });
