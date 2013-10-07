@@ -5,5 +5,8 @@ Clairvoyance::Application.routes.draw do
   resources :boards do
     resources :catagories, only: :create
   end
-  resources :catagories, only: [:show, :edit, :update, :destroy]
+  resources :catagories, only: [:show, :edit, :update, :destroy] do
+    resources :cards, only: :create
+  end
+  resources :cards, only: [:show, :edit, :update, :destroy]
 end
