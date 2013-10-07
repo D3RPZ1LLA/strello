@@ -1,3 +1,6 @@
 CV.Models.Catagory = Backbone.Model.extend({
-  urlRoot: '/catagories'
+  urlRoot: '/catagories',
+  initialize: function () {
+    this.cards = new
+  }
 });
