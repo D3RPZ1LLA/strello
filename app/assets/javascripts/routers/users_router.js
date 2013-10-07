@@ -32,6 +32,10 @@ CV.Routers.UsersRouter = Backbone.Router.extend({
 
   },
 
+  pending: function () {
+
+  },
+
   edit: function () {
 
   }

@@ -8,6 +8,7 @@ window.CV = {
     CV.userRouter = new CV.Routers.UsersRouter($sections);
 
     var data = JSON.parse($('#bootstrapped_user').html());
+    CV.data = data;
     CV.user = new CV.Models.User(data.user);
 
     Backbone.history.start();
@@ -18,7 +19,7 @@ window.CV = {
 
 // bootstrap will have board.includes(:cards, :catagories, :members)
     var data = JSON.parse($('#bootstrap').html());
-    CV.board = new CV.Models.Boards(data.board);
+    CV.board = new CV.Models.Board(data.board);
 
     Backbone.history.start();
   }

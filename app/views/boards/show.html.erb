@@ -1,21 +1,15 @@
-<h1><%= @board.title %></h1>
+<script type="application/json" id="bootstrapped_user">
+  { "user": <%= @board.to_json.html_safe %> }
+</script>
 
-<h3>Members</h3>
-<ul>
-	<% @board.members.each do |member| %>
-	<li>
-		<%= member.email %>
-	</li>
-	<% end %>
-</ul>
-
-<h2>Catagories</h2>
-<ul>
-	<% @board.catagories.each do |catagory| %>
-	<li>
-		<%= link_to "#{catagory.title}", catagory_url(catagory) %>
-	</li>
-	<% end %>
-</ul>
-
-<%= render partial: "catagories/new", locals: { board: @board } %>
+<script>
+  $(document).ready(function () {
+    CV.usersInitialize({
+      header: $('header'),
+      finished: $('#finished'),
+      current: $('#current'),
+      pending: $('#pending'),
+      footer: $('footers')
+    });
+  });
+</script>
