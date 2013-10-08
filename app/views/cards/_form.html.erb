@@ -13,18 +13,49 @@
 		name="card[title]"
     value="<%= @card.title %>">
 	</label>
+  <br>
 
 	<label>Start Date
 		<input type="datetime"
 		name="card[start_date]"
     value="<%= @card.start_date %>">
 	</label>
+  <br>
 
 	<label>End Date
 		<input type="datetime"
 		name="card[due_date]"
     value="<%= @card.due_date %>">
 	</label>
+  <br>
+
+  <p>Checklist Items
+    <ul>
+      <% if @card.persisted? %>
+       <% @card.checklist_items.each_with_index do |item, idx| %>
+       <li>
+         <input type="hidden"
+         name="checklist_items[][id]"
+         value="<%= item.id %>">
+         <label><%= idx + 1 %>
+           <input type="text"
+           name="checklist_items[][title]"
+           value="<%= item.title %>">
+        </label>
+      </li>
+        <% end %>
+      <% else %>
+      <li>
+        <label>1
+          <input type="text"
+          name="checklist_items[][title]"
+          value="Completed">
+        </label>
+      </li>
+      <% end%>
+    </ul>
+  </p>
+
 
 	<label>Description
 		<textarea name="card[description]"><%= @card.description %></textarea>

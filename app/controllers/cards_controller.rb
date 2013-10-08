@@ -12,18 +12,42 @@ class CardsController < ApplicationController
   end
 
   def create
-    #add transaction to build taggings
-    @card = Card.new(params[:card])
-    @card.board_id = params[:board_id]
-    if @card.save
-      redirect_to board_url(params[:board_id])
+    unless @board = Board.find_by_id(params[:board_id])
+      flash[:errors] = "Board not fonud"
+      redirect_to user_url(current_user)
     else
-      redirect_to board_url(params[:board_id])
+      @card = Card.new(params[:card])
+      begin
+        ActiveRecord::Base.transaction do
+          params[:checklist_items].reject! { |v| v.all? { |_, v2| v2 == "" } }
+
+
+          @checklist_items = params[:checklist_items].map do |item_params|
+            ChecklistItem.new(item_params)
+          end
+
+          @card.board_id = @board.id
+          @card.save
+
+          @checklist_items.each do |item|
+            item.card_id = @card.id
+            item.save
+          end
+
+          raise "invalid" unless @checklist_items.length > 0
+          raise "invalid" unless @card.valid? && @checklist_items.all? { |item| item.valid? }
+        end
+
+      rescue
+        render :new
+      else
+        redirect_to board_url(@board)
+      end
     end
   end
 
   def show
-    if @card = Card.find_by_id(params[:id])
+    if @card = Card.includes(:checklist_items).find_by_id(params[:id])
       render :show
     else
       flash[:errors] = "Card not found"
@@ -32,7 +56,7 @@ class CardsController < ApplicationController
   end
 
   def edit
-    if @card = Card.find_by_id(params[:id])
+    if @card = Card.includes(:checklist_items).find_by_id(params[:id])
       render :edit
     else
       flash[:errors] = "Card not found"
