@@ -2,11 +2,7 @@
 <article>
   <div>
     <ul>
-      <% @board.cards.each do |card| %>
-        <% if card.due_date < Time.now %>
-        <li class="card"><%= card.title %></li>
-        <% end %>
-      <% end %>
+      <%= render @board.cards.select { |card| card.due_date < Time.now } %>
     </ul>
   </div>
 </artile>

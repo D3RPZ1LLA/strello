@@ -1,0 +1,34 @@
+<% action, method, submit = @card.persisted? ?
+[card_url(@card), :put, "Update Card"] : [board_cards_url(@board), :post, "Create Card"] %>
+
+<form action="<%= action %>" method="POST" accept-charset="utf-8">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<label>Title
+		<input type="text"
+		name="card[title]"
+    value="<%= @card.title %>">
+	</label>
+
+	<label>Start Date
+		<input type="datetime"
+		name="card[start_date]"
+    value="<%= @card.start_date %>">
+	</label>
+
+	<label>End Date
+		<input type="datetime"
+		name="card[due_date]"
+    value="<%= @card.due_date %>">
+	</label>
+
+	<label>Description
+		<textarea name="card[description]"><%= @card.description %></textarea>
+	</label>
+
+	<p><input type="submit" value="<%= submit %>"></p>
+</form>

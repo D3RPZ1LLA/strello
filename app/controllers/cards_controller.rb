@@ -41,6 +41,16 @@ class CardsController < ApplicationController
   end
 
   def update
+    if @card = Card.find_by_id(params[:id])
+      if @card.update_attributes(params[:card])
+        redirect_to board_url(@card.board_id)
+      else
+        render :edit
+      end
+    else
+      flash[:errors] = "Card not found"
+      redirect_to user_url(current_user)
+    end
   end
 
   def destroy
