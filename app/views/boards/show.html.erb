@@ -1,15 +1,15 @@
-<script type="application/json" id="bootstrapped_user">
-  { "user": <%= @board.to_json.html_safe %> }
-</script>
+<h1><%= @board.title %></h1>
 
-<script>
-  $(document).ready(function () {
-    CV.usersInitialize({
-      header: $('header'),
-      finished: $('#finished'),
-      current: $('#current'),
-      pending: $('#pending'),
-      footer: $('footers')
-    });
-  });
-</script>
+
+
+<%= link_to "Finished", "#" %>
+<article>
+  <ul>
+    <% @board.cards.each do |card| %>
+    <li class="card">
+      <%= card.title %>
+    </li>
+    <% end %>
+  </ul>
+</article>
+<%= link_to "Pending", "#" %>

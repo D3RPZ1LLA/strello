@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_filter :logged_in_clearance
-  before_filter :member_clearance, only: :show
+  before_filter :member_clearance, only: [:show, :pending, :finished]
 
   def index
     @boards = Board.includes(:members).select { |board| board.members.include?(current_user) }
@@ -23,8 +23,26 @@ class BoardsController < ApplicationController
   end
 
   def show
-    if @board ||= Board.includes(:members, :catagories).find_by_id(params[:id])
+    if @board ||= Board.includes(:members, :cards).find_by_id(params[:id])
       render :show
+    else
+      flash[:errors] = "Board not found"
+      redirect_to user_boards_url(current_user)
+    end
+  end
+
+  def pending
+    if @board ||= Board.includes(:members, :cards).find_by_id(params[:board_id])
+      render :pending
+    else
+      flash[:errors] = "Board not found"
+      redirect_to user_boards_url(current_user)
+    end
+  end
+
+  def finished
+    if @board ||= Board.includes(:members, :cards).find_by_id(params[:board_id])
+      render :finished
     else
       flash[:errors] = "Board not found"
       redirect_to user_boards_url(current_user)

@@ -4,6 +4,8 @@ Clairvoyance::Application.routes.draw do
   resources :users
 
   resources :boards do
+    match "pending" => "boards#pending", via: :get
+    match "finished" => "boards#finished", via: :get
     resources :catagories, only: :create
     resources :cards, only: :create
   end
@@ -17,5 +19,5 @@ Clairvoyance::Application.routes.draw do
 
   resources :participations, only: [:create, :destroy]
 
-  root to: "users#home"
+  root to: "users#show"
 end
