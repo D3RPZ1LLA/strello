@@ -20,7 +20,7 @@ first_catagory = first_board.catagories.create(
 
 first_card = first_board.cards.create(
   title:"first_card",
-  start_date: Time.now,
+  start_date: 1.day.ago,
   due_date: 1.week.from_now
 )
 

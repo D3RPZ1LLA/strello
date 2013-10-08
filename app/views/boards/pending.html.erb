@@ -1,3 +1,20 @@
-<article>
+<h1><%= @board.title %></h1>
+<ul>
+  <li><%= link_to "Finished", board_finished_url(@board) %></li>
+  <li><%= link_to "Current", board_url(@board) %></li>
+</ul>
 
+<article>
+  <div>
+    <%= link_to "Add Card", new_board_card_url(@board) %>
+  </div>
+  <div>
+    <ul>
+      <% @board.cards.each do |card| %>
+        <% if card.start_date > Time.now %>
+        <li class="card"><%= card.title %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </artile>

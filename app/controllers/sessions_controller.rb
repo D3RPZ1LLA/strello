@@ -9,9 +9,8 @@ class SessionsController < ApplicationController
       params[:user][:password]
       )
       login!(@user)
-      redirect_to root_url
+      redirect_to user_url(@user)
     else
-      fail
       flash[:errors] = "Invalid Username or Password"
       render :new
     end

@@ -2,14 +2,16 @@
 
 
 
-<%= link_to "Finished", "#" %>
+<%= link_to "Finished", board_finished_url(@board) %>
 <article>
   <ul>
     <% @board.cards.each do |card| %>
-    <li class="card">
-      <%= card.title %>
-    </li>
+      <% if (card.start_date < Time.now) && (card.due_date > Time.now) %>
+      <li class="card">
+        <%= card.title %>
+      </li>
+      <% end %>
     <% end %>
   </ul>
 </article>
-<%= link_to "Pending", "#" %>
+<%= link_to "Pending", board_pending_url(@board) %>

@@ -1,26 +1,26 @@
-<form action="<%= catagory_cards_url(catagory) %>" method="POST" accept-charset="utf-8">
+<form action="<%= board_cards_url(@board) %>" method="POST" accept-charset="utf-8">
 	<input type="hidden"
 	name="authenticity_token"
 	value="<%= form_authenticity_token %>">
-	
+
 	<label>Title
 		<input type="text"
 		name="card[title]">
 	</label>
-	
+
 	<label>Start Date
 		<input type="datetime"
 		name="card[start_date]">
 	</label>
-	
+
 	<label>End Date
 		<input type="datetime"
 		name="card[due_date]">
 	</label>
-	
+
 	<label>Description
 		<textarea name="card[description]"></textarea>
 	</label>
-	
+
 	<p><input type="submit" value="Create Card"></p>
 </form>
