@@ -1,11 +1,9 @@
 <h1><%= @board.title %></h1>
-<article>
-  <div>
-    <ul>
-      <%= render @board.cards.select { |card| card.due_date < Time.now } %>
-    </ul>
-  </div>
-</artile>
+<article class="card-set">
+  <ul>
+    <%= render @board.cards.select { |card| card.due_date < Time.now } %>
+  </ul>
+</article>
 <ul>
   <li><%= link_to "Current", board_url(@board) %></li>
   <li><%= link_to "Pending", board_pending_url(@board) %></li>

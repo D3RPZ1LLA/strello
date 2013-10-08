@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       params[:user][:password]
       )
       login!(@user)
-      redirect_to user_url(@user)
+      redirect_to boards_url
     else
       flash[:errors] = "Invalid Username or Password"
       render :new

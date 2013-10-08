@@ -1,7 +1,7 @@
 module SessionsHelper
   def current_user
     return nil unless session[:token]
-    @current_user ||= User.find_by_token(session[:token])
+    @current_user ||= User.includes(:member_boards).find_by_token(session[:token])
   end
 
   def logged_in?

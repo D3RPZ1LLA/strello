@@ -1,9 +1,7 @@
 <h1><%= @board.title %></h1>
 
-
-
 <%= link_to "Finished", board_finished_url(@board) %>
-<article>
+<article class="card-set">
   <ul>
 <%= render @board.cards.select { |card| card.start_date < Time.now && card.due_date > Time.now} %>
   </ul>
