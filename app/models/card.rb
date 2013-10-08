@@ -9,6 +9,7 @@ class Card < ActiveRecord::Base
   has_many :catagories, through: :catagory_taggings, source: :catagory
 
   has_many :checklist_items,
+  inverse_of: :card,
   class_name: "ChecklistItem",
   foreign_key: :card_id,
   primary_key: :id

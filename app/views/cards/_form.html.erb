@@ -16,45 +16,44 @@
   <br>
 
 	<label>Start Date
-		<input type="datetime"
+		<input type="date"
 		name="card[start_date]"
-    value="<%= @card.start_date %>">
+    value="<%= (@card.start_date || Time.now).strftime "%Y-%m-%d" %>">
 	</label>
   <br>
 
 	<label>End Date
-		<input type="datetime"
+		<input type="date"
 		name="card[due_date]"
-    value="<%= @card.due_date %>">
+    value="<%= (@card.due_date || 1.week.from_now).strftime "%Y-%m-%d" %>">
 	</label>
   <br>
+  <br>
 
-  <p>Checklist Items
-    <ul>
-      <% if @card.persisted? %>
-       <% @card.checklist_items.each_with_index do |item, idx| %>
+  Checklist Items <button id="add-item">add item</button>
+    <ul id="checklist">
+    <% if @card.persisted? %>
+       <% @card.checklist_items.each do |item| %>
        <li>
          <input type="hidden"
          name="checklist_items[][id]"
          value="<%= item.id %>">
-         <label><%= idx + 1 %>
-           <input type="text"
-           name="checklist_items[][title]"
-           value="<%= item.title %>">
-        </label>
-      </li>
-        <% end %>
-      <% else %>
-      <li>
-        <label>1
-          <input type="text"
-          name="checklist_items[][title]"
-          value="Completed">
-        </label>
-      </li>
-      <% end%>
+
+         <input type="text"
+         name="checklist_items[][title]"
+         value="<%= item.title %>">
+       </li>
+       <% end %>
+    <% else %>
+       <li>
+         <input type="text"
+         name="checklist_items[][title]"
+         value="Completed">
+       </li>
+    <% end%>
     </ul>
-  </p>
+    <br>
+
 
 
 	<label>Description
@@ -63,3 +62,10 @@
 
 	<p><input type="submit" value="<%= submit %>"></p>
 </form>
+
+<script>
+$('#add-item').on('click', function(event) {
+  event.preventDefault();
+  $('#checklist').append('<li><label><input type="text" name="checklist_items[][title]" value=""></label></li>');
+});
+</script>
