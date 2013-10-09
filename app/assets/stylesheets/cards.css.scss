@@ -2,16 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.card {
-  height: 120px;
-  width: 120px;
-  border: solid #989898 1px;
-  margin: 10px;
-  float: left;
-}
-
 .card-set {
   width: 800px;
   height: 600px;
   margin: 0 auto;
+}
+
+.card {
+  height: 180px;
+  width: 180px;
+  border: solid #989898 1px;
+  margin: 10px;
+  float: left;
+  background: white;
+}
+
+.card-text {
+  padding: 10px;
+  width: 160px;
+  word-wrap: break-word;
 }

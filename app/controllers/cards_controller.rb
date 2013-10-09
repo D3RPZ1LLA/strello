@@ -25,7 +25,7 @@ class CardsController < ApplicationController
         @card.checklist_items.build(item_params)
       end
 
-      params[:participants].each do |participant_params|
+      (params[:participants] || []).each do |participant_params|
         @card.participations.build(participant_params)
       end
 
@@ -95,8 +95,7 @@ class CardsController < ApplicationController
           end
         end
 
-        @card.participations.each { |q| p q.user_id }
-        params[:participants].each do |p_params|
+        (params[:participants] || []).each do |p_params|
           p p_params[:user_id].to_i
           unless @card.participations.any? { |p| p.user_id == p_params[:user_id].to_i }
             @card.participations.build(p_params)

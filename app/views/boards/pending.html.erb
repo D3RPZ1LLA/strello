@@ -1,8 +1,8 @@
 <%= render partial: "board_header", locals: { board: @board } %>
 
 
-<%= button_to "Finished", board_finished_url(@board), method: "get",  class: "board-button" %>
-<%= button_to "Current", board_url(@board), method: "get",  class: "board-button" %>
+<%= link_to "Finished", board_finished_url(@board), class: "board-button" %>
+<%= link_to "Current", board_url(@board), class: "board-button" %>
 
 <article class="card-set">
   <ul>

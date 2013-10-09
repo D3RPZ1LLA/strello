@@ -5,5 +5,5 @@
     <%= render @board.cards.select { |card| card.due_date < Time.now } %>
   </ul>
 </article>
-<%= button_to "Current", board_url(@board), method: "get",  class: "board-button" %>
-<%= button_to "Pending", board_pending_url(@board), method: "get", class: "board-button" %>
+<%= link_to "Current", board_url(@board), class: "board-button" %>
+<%= link_to "Pending", board_pending_url(@board), class: "board-button" %>

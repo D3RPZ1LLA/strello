@@ -1,9 +1,9 @@
 <%= render partial: "board_header", locals: { board: @board } %>
 
-<%= button_to "Finished", board_finished_url(@board), method: "get",  class: "board-button" %>
+<%= link_to "Finished", board_finished_url(@board), class: "board-button" %>
 <article class="card-set">
   <ul>
 <%= render @board.cards.select { |card| card.start_date < Time.now && card.due_date > Time.now} %>
   </ul>
 </article>
-<%= button_to "Pending", board_pending_url(@board), method: "get", class: "board-button" %>
+<%= link_to "Pending", board_pending_url(@board), class: "board-button" %>
