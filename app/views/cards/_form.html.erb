@@ -65,11 +65,14 @@
       Participants
       <ul>
         <% @card.participants.each do |participant| %>
-        <li>
+        <li data-id="<%= participant.id %>">
           <input type="hidden"
           name="participants[][user_id]"
           value="<%= participant.id %>">
+
           <%= participant.email %>
+
+          <button class="remove-member" data-id="<%= participant.id %>">X</button>
         </li>
         <% end %>
       </ul>
@@ -82,7 +85,7 @@
       <% end %>
     </select>
 
-    <button id="assign-member">Assign Member To Card</button>
+    <button class="assign-member">Assign Member To Card</button>
   </p>
 
 	<p>
@@ -98,7 +101,17 @@ $('#add-item').on('click', function(event) {
   $('#checklist').append('<li><label><input type="text" name="checklist_items[][title]" value=""></label></li>');
 });
 
-$('#assign-member').on('click', function(event) {
+$('ul').on('click', '.remove-member', function(event) {
+  event.preventDefault();
+  var memberId = $(event.target).data("id");
+  $('#participants li').filter(function () {
+    if ($(this).data('id') === memberId) {
+      return true;
+    }
+  }).remove();
+});
+
+$('.assign-member').on('click', function(event) {
   event.preventDefault();
   var selectedOption = $('#selected-member option:selected');
   var memberId = selectedOption.val();
@@ -113,8 +126,12 @@ $('#assign-member').on('click', function(event) {
   });
 
   if (!persisted && !!memberId) {
-    $('#participants > ul').append('<li><input type="hidden" name="participants[][user_id]" value="' +
-    memberId + '"> ' + memberEmail + '</li>');
+    $('#participants > ul').append('<li data-id="' +
+    memberId + '"><input type="hidden" name="participants[][user_id]" value="' +
+    memberId + '"> ' + memberEmail + '<button class="remove-member" data-id="' +
+    memberId + '"">X</button></li>');
   }
 });
+
+
 </script>
