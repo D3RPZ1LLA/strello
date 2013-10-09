@@ -3,10 +3,8 @@
     <a href="/">CV</a>
   </div>
 
-  <a href="/" class="user">
-    <%= current_user.email %>
-  </a>
-   <h1><a href="/boards/<%= board.id %>"><%= board.title %></h1>
+  <%= render partial: "users/login" %>
+  <h1><a href="/boards/<%= board.id %>"><%= board.title %></h1>
 </header>
 
 
