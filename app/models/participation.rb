@@ -13,6 +13,5 @@ class Participation < ActiveRecord::Base
   foreign_key: :card_id,
   primary_key: :id
 
-  validates :user_id, presence: true
   validates :user_id, uniqueness: { scope: :card_id }
 end

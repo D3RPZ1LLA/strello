@@ -1,11 +1,9 @@
-
 <h1>Card: <%= @card.title %></h1>
 <ul>
   <li>start_date: <%= @card.start_date %></li>
   <li>due_date: <%= @card.due_date %></li>
   <li>
     <ul>
-      <%= render @card.checklist_items %>
     </ul>
   </li>
   <li>description: <%= @card.description %></li>

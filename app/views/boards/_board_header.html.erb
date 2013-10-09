@@ -6,7 +6,7 @@
     <li class="group"><h4>Members:</h4>
       <nav>
         <ul>
-          <% board.members.each do |member| %>
+          <% board.members.sort { |x, y| x.email <=> y.email }.each do |member| %>
           <li><%= member.email %></li>
           <% end %>
         </ul>

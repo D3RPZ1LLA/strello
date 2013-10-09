@@ -41,6 +41,7 @@ class CardsController < ApplicationController
 
   def show
     if @card = Card.includes(:checklist_items, :board).find_by_id(params[:id])
+      @board = @card.board
       render :show
     else
       flash[:errors] = "Card not found"
@@ -56,8 +57,14 @@ class CardsController < ApplicationController
   end
 
   def update
-    fail
-    @card = Card.find(params[:id])
+    @card = Card.includes(
+      :participations,
+      :board,
+      :checklist_items,
+      :participants
+    ).find(params[:id])
+    @board = @card.board
+
     begin
       ActiveRecord::Base.transaction do
         params[:checklist_items].reject! { |v| v.all? { |_, v2| v2 == "" } }
@@ -88,8 +95,27 @@ class CardsController < ApplicationController
           end
         end
 
+        @card.participations.each { |q| p q.user_id }
+        params[:participants].each do |p_params|
+          p p_params[:user_id].to_i
+          unless @card.participations.any? { |p| p.user_id == p_params[:user_id].to_i }
+            @card.participations.build(p_params)
+          end
+        end
+        p @card.participations
+        @card.save
+        # @card.participations.map! do |participation|
+        #   unless param[:participants].any? { |p| p[:user_id] == participation.id }
+        #     participation.destroy
+        #     nil
+        #   else
+        #     participation
+        #   end
+        # end.compact
+
         raise "invalid" unless @checklist_items.length > 0
         raise "invalid" unless @card.valid? && @checklist_items.all? { |item| item.valid? }
+        raise "invalid" unless @card.participations.all? { |p| p.valid? }
       end
 
     rescue
