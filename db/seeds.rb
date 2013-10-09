@@ -10,6 +10,12 @@ kitty = User.create(
   password: 'codefu',
   password_verify: 'codefu'
 )
+
+User.create(
+  email: 'member1',
+  password: 'codefu',
+  password_verify: 'codefu'
+)
 first_board = kitty.created_boards.create(title: 'first_board')
 
 Membership.create(board_id: first_board.id, user_id: kitty.id, admin: true)
