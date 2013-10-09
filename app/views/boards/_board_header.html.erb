@@ -1,0 +1,18 @@
+<header>
+  <ul>
+    <li>
+      <h1><%= board.title %></h1>
+    </li>
+    <li>Members:
+      <nav>
+        <ul>
+          <% board.members.each do |member| %>
+          <li><%= member.email %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </li>
+    <li>
+      <%= link_to "Add New Member", new_board_membership_url(@board) %>
+  </ul>
+</header>

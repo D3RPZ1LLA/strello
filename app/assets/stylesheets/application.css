@@ -14,6 +14,8 @@
 body, header, article, ul, li, a, h1 {
   margin: 0px;
   padding: 0px;
+  border: 0px;
+  font-size: 100%;
   text: inherit;
   text-decoration: none;
   list-style-type: none;

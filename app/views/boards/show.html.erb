@@ -1,4 +1,4 @@
-<h1><%= @board.title %></h1>
+<%= render partial: "board_header", locals: { board: @board } %>
 
 <%= link_to "Finished", board_finished_url(@board) %>
 <article class="card-set">

@@ -6,7 +6,7 @@ Clairvoyance::Application.routes.draw do
   resources :boards do
     match "pending" => "boards#pending", via: :get
     match "finished" => "boards#finished", via: :get
-    resources :catagories, only: :create
+    resources :memberships, only: [:new, :create]
     resources :cards, only: [:new, :create]
   end
   resources :catagories, only: [:show, :destroy]
@@ -18,6 +18,7 @@ Clairvoyance::Application.routes.draw do
   resources :checklist_items, only: [:update, :destroy]
 
   resources :participations, only: [:create, :destroy]
+  resources :memberships, only: [:edit, :show, :update, :destroy]
 
   root to: "boards#index"
 end

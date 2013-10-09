@@ -24,5 +24,7 @@ first_card = first_board.cards.create(
   due_date: 1.week.from_now
 )
 
+first_card.checklist_items.create(title: "Completed")
+
 kitty.cards += [first_card]
 first_card.catagories += [first_catagory]
