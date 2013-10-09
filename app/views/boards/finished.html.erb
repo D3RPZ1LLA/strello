@@ -1,4 +1,5 @@
-<h1><%= @board.title %></h1>
+<%= render partial: "board_header", locals: { board: @board } %>
+
 <article class="card-set">
   <ul>
     <%= render @board.cards.select { |card| card.due_date < Time.now } %>

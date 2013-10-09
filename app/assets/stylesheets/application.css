@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  */
-body, header, article, ul, li, a, h1 {
+body, header, article, ul, li, a, h1, h4 {
   margin: 0px;
   padding: 0px;
   border: 0px;

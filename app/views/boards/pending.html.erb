@@ -1,4 +1,5 @@
-<h1><%= @board.title %></h1>
+<%= render partial: "board_header", locals: { board: @board } %>
+
 <ul>
   <li><%= link_to "Finished", board_finished_url(@board) %></li>
   <li><%= link_to "Current", board_url(@board) %></li>
