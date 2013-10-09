@@ -24,16 +24,23 @@ class CardsController < ApplicationController
       params[:checklist_items].each do |item_params|
         @card.checklist_items.build(item_params)
       end
+
+      params[:participants].each do |participant_params|
+        @card.participations.build(participant_params)
+      end
+
+      p @card.participations
       if @card.save
         redirect_to board_url(@board)
       else
+        flash[:errors] = @card.errors.full_messages
         render :new
       end
     end
   end
 
   def show
-    if @card = Card.includes(:checklist_items).find_by_id(params[:id])
+    if @card = Card.includes(:checklist_items, :board).find_by_id(params[:id])
       render :show
     else
       flash[:errors] = "Card not found"
@@ -42,12 +49,14 @@ class CardsController < ApplicationController
   end
 
   def edit
-    if @card = Card.includes(:checklist_items).find(params[:id])
+    if @card = Card.includes(:checklist_items, :board, :participants).find(params[:id])
+      @board = @card.board
       render :edit
     end
   end
 
   def update
+    fail
     @card = Card.find(params[:id])
     begin
       ActiveRecord::Base.transaction do

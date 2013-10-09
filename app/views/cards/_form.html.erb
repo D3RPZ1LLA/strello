@@ -59,15 +59,62 @@
 	</label>
   <br>
 
-  <label>Tags
-  </label>
 
-	<p><input type="submit" value="<%= submit %>"></p>
+  <p>
+    <div id="participants">
+      Participants
+      <ul>
+        <% @card.participants.each do |participant| %>
+        <li>
+          <input type="hidden"
+          name="participants[][user_id]"
+          value="<%= participant.id %>">
+          <%= participant.email %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <select id="selected-member">
+      <option value=""></option>
+      <% @board.members.each do |member| %>
+        <option value="<%= member.id %>"><%= member.email %></option>
+      <% end %>
+    </select>
+
+    <button id="assign-member">Assign Member To Card</button>
+  </p>
+
+	<p>
+    <input type="submit" value="<%= submit %>">
+  </p>
 </form>
+
+
 
 <script>
 $('#add-item').on('click', function(event) {
   event.preventDefault();
   $('#checklist').append('<li><label><input type="text" name="checklist_items[][title]" value=""></label></li>');
+});
+
+$('#assign-member').on('click', function(event) {
+  event.preventDefault();
+  var selectedOption = $('#selected-member option:selected');
+  var memberId = selectedOption.val();
+  var memberEmail = selectedOption.text();
+
+  //doesn't add dup
+  var persisted;
+  $('#participants input').each(function(index, input) {
+    if ($(input).val() === memberId) {
+      persisted = true;
+    }
+  });
+
+  if (!persisted && !!memberId) {
+    $('#participants > ul').append('<li><input type="hidden" name="participants[][user_id]" value="' +
+    memberId + '"> ' + memberEmail + '</li>');
+  }
 });
 </script>

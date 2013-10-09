@@ -20,11 +20,12 @@ class Card < ActiveRecord::Base
   primary_key: :id
 
   has_many :participations,
+  inverse_of: :card,
   class_name: "Participation",
   foreign_key: :card_id,
   primary_key: :id
 
   has_many :participants, through: :participations, source: :user
 
-  validates_presence_of :due_date, :start_date, :title, :board_id
+  validates :due_date, :start_date, :title, :board_id, presence: true
 end
