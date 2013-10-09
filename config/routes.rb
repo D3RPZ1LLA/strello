@@ -20,5 +20,5 @@ Clairvoyance::Application.routes.draw do
   resources :participations, only: [:create, :destroy]
   resources :memberships, only: [:edit, :show, :update, :destroy]
 
-  root to: "boards#index"
+  root to: "users#home"
 end

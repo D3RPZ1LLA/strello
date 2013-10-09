@@ -1,3 +1,5 @@
+<%= render partial: "users/header" %>
+
 <h1>Sign Up</h1>
 
 <% if @user.errors.any? %>
@@ -9,21 +11,21 @@
 <% end %>
 
 <form action="<%= users_url %>" method="POST" accept-charset="utf-8">
-	<input type="hidden" 
-	name="authenticity_token" 
+	<input type="hidden"
+	name="authenticity_token"
 	value="<%= form_authenticity_token %>">
-	
+
 	<label>Email
-		<input type="text" 
+		<input type="text"
 		name="user[email]"
 		value="<%= @user.email %>">
 	</label>
-	
+
 	<label>Password
 		<input type="password"
 		name="user[password]">
 	</label>
-	
+
 	<label>Password (again)
 		<input type="password"
 		name="user[password_verify]">

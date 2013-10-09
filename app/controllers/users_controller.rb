@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_filter :personal_clearance, only: [:show, :update, :destroy]
+  # before_filter :personal_clearance, only: [:edit, :update, :destroy]
   before_filter :logged_in_clearance, only: :home
 
   def new

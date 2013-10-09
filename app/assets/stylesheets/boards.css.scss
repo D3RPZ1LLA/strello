@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+header.board-header > h1 {
+  text-align: center;
+  font-size: 120%;
+}
+
 .user {
   width: 50px;
   float:right;

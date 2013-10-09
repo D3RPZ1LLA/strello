@@ -1,3 +1,30 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.board-nav > h4 {
+  float: left;
+}
+
+.board-nav > ul {
+  margin-left: 10px;
+  float: left;
+}
+
+.board-nav {
+  float: left;
+}
+
+.login {
+  float: right;
+}
+
+.login li {
+  float: left;
+  margin-left: 25px;
+}
+
+.logout {
+  background: transparent;
+  color: inherit;
+}

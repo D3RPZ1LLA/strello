@@ -1,14 +1,16 @@
+<%= render partial: "users/header" %>
+
 <h1>Login</h1>
 <form action="<%= session_url %>" method="POST" accept-charset="utf-8">
 	<input type="hidden"
 	name="authenticity_token"
 	value="<%= form_authenticity_token %>">
-	
+
 	<label>Email
 		<input type="text"
 		name="user[email]">
 	</label>
-	
+
 	<label>Password
 		<input type="password"
 		name="user[password]">

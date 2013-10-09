@@ -26,6 +26,8 @@ body {
   background: #F8F8F8;
   font-family: sans-serif;
   color: #989898;
+  padding: 0 20px;
+  min-width: 1000px;
 }
 
 a {
@@ -49,27 +51,14 @@ a {
 
 header {
   margin: 0 auto;
-  padding: 20px 50px;
-}
-
-header > h1 {
-  text-align: center;
-  font-size: 120%;
+  padding: 20px 0px;
 }
 
 section {
-  width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
 article {
   display: table;
-}
-
-.board-nav {
-  float: left;
-}
-
-.login {
-  float: right;
 }

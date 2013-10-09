@@ -1,0 +1,17 @@
+<script type="application/json" id="bootstrapped_user">
+  { "user": <%= current_user.to_json(
+    include: [:cards, :member_boards]
+    ).html_safe %> }
+</script>
+
+<script>
+  $(document).ready(function () {
+    CV.usersInitialize({
+      header: $('header'),
+      finished: $('#finished'),
+      current: $('#current'),
+      pending: $('#pending'),
+      footer: $('footers')
+    });
+  });
+</script>
