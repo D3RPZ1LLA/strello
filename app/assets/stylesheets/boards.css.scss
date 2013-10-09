@@ -1,3 +1,18 @@
 // Place all the styles related to the Boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user {
+  width: 50px;
+  float:right;
+}
+
+.board-button {
+  background-color: #C0C0C0;
+  color: #F8F8F8 ;
+  width: 200px;
+  height: 100px;
+  margin: 20px auto;
+  display: table;
+  text-align: center;
+}

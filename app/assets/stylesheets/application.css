@@ -11,14 +11,25 @@
  *= require_self
  *= require_tree .
  */
-body, header, article, ul, li, a, h1, h4 {
+body, header, article, ul, li, a, h1, h4, button, input, textarea, select, strong {
   margin: 0px;
   padding: 0px;
   border: 0px;
   font-size: 100%;
+  font-weight: normal;
   text: inherit;
   text-decoration: none;
   list-style-type: none;
+}
+
+body {
+  background: #F8F8F8;
+  font-family: sans-serif;
+  color: #989898;
+}
+
+a {
+  color: #989898;
 }
 
 .group:after {
@@ -27,32 +38,32 @@ body, header, article, ul, li, a, h1, h4 {
   display: table;
 }
 
+.hidden {
+  display: none;
+}
+
+.logo {
+  width: 50px;
+  float: left;
+}
+
 header {
-  width: 900px;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 20px 50px;
 }
 
-header li {
-  padding-right: 10px;
-  float: left;
+header > h1 {
+  text-align: center;
+  font-size: 120%;
 }
 
-header li > h4 {
-  padding-right: 15px;
-  float: left;
-}
-
-header li > nav {
-  float: left;
+section {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 article {
   display: table;
-}
-
-.logo {
-  margin-right: 40px;
-  float: left;
 }
 
 .board-nav {
@@ -62,16 +73,3 @@ article {
 .login {
   float: right;
 }
-
-.card {
-  height: 120px;
-  width: 120px;
-  border: solid black 1px;
-  margin: 10px;
-  float: left;
-}
-
-.card-set {
-  width: 500px;
-}
-

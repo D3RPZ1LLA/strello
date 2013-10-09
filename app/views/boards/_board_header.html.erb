@@ -1,19 +1,27 @@
-<header class="group">
-  <ul>
-    <li>
-      <h1><%= board.title %></h1>
-    </li>
-    <li class="group"><h4>Members:</h4>
-      <nav>
-        <ul>
-          <% board.members.sort { |x, y| x.email <=> y.email }.each do |member| %>
-          <li><%= member.email %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </li>
-    <li>
-      <%= link_to "Add Member to Board", new_board_membership_url(board) %>
-    </li>
-  </ul>
+<header class="board-header group">
+  <div class="logo">
+    <a href="/">CV</a>
+  </div>
+
+  <a href="/" class="user">
+    <%= current_user.email %>
+  </a>
+   <h1><a href="/boards/<%= board.id %>"><%= board.title %></h1>
 </header>
+
+
+
+<ul class="hidden">
+  <li class="group"><h4>Members:</h4>
+    <nav>
+      <ul>
+        <% board.members.sort { |x, y| x.email <=> y.email }.each do |member| %>
+        <li><%= member.email %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </li>
+  <li>
+    <%= link_to "Add Member to Board", new_board_membership_url(board) %>
+  </li>
+</ul>
