@@ -14,16 +14,13 @@ class Board < ActiveRecord::Base
 
   has_many :members, through: :memberships, source: :user
 
-  has_many :cards,
-  class_name: "Card",
-  foreign_key: :board_id,
-  primary_key: :id
-
   has_many :catagories,
   class_name: "Catagory",
   foreign_key: :board_id,
   primary_key: :id
 
-  validates_presence_of :title, :creator_id
+  has_many :cards, through: :catagories, source: :cards
+
+  validates :title, :creator_id, presence: true
   validates :title, uniqueness: { scope: :creator_id }
 end

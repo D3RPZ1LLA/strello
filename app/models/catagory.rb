@@ -6,6 +6,11 @@ class Catagory < ActiveRecord::Base
   foreign_key: :board_id,
   primary_key: :id
 
-  validates_presence_of :board_id, :title
+  has_many :cards,
+  class_name: "Card",
+  foreign_key: :catagory_id,
+  primary_key: :id
+
+  validates :board_id, :title, presence: true
   validates :title, uniqueness: { scope: :board_id }
 end

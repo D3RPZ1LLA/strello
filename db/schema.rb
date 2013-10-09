@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007160813) do
+ActiveRecord::Schema.define(:version => 20131007152100) do
 
   create_table "boards", :force => true do |t|
     t.string   "title",      :null => false
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(:version => 20131007160813) do
     t.string   "description"
     t.datetime "start_date"
     t.datetime "due_date"
-    t.integer  "board_id",    :null => false
+    t.integer  "catagory_id", :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "cards", ["board_id"], :name => "index_cards_on_catagory_id"
+  add_index "cards", ["catagory_id"], :name => "index_cards_on_catagory_id"
 
   create_table "catagories", :force => true do |t|
     t.string   "title"

@@ -9,18 +9,13 @@ header.board-header > h1 {
   font-size: 120%;
 }
 
-.user {
-  width: 50px;
-  float:right;
+article > ul > li {
+  margin-right: 10px;
+  float: left;
 }
 
-.board-button {
-  background-color: #C0C0C0;
-  color: #F8F8F8 ;
-  width: 200px;
-  height: 60px;
-  padding-top: 40px;
-  margin: 20px auto;
-  display: table;
-  text-align: center;
+article > ul > li > ul {
+  width: 250px;
+  padding: 10px;
+  border: solid black 1px;
 }

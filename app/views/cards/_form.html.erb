@@ -1,5 +1,5 @@
 <% action, method, submit = @card.persisted? ?
-[card_url(@card), :put, "Update Card"] : [board_cards_url(@board), :post, "Create Card"] %>
+[card_url(@card), :put, "Update Card"] : [catagory_cards_url(@catagory), :post, "Create Card"] %>
 
 <form action="<%= action %>" method="POST" accept-charset="utf-8">
   <input type="hidden" name="_method" value="<%= method %>">
@@ -80,7 +80,7 @@
 
     <select id="selected-member">
       <option value=""></option>
-      <% @board.members.each do |member| %>
+      <% @card.catagory.board.members.each do |member| %>
         <option value="<%= member.id %>"><%= member.email %></option>
       <% end %>
     </select>

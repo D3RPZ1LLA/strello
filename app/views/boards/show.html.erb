@@ -1,9 +1,19 @@
 <%= render partial: "board_header", locals: { board: @board } %>
 
-<%= link_to "Finished", board_finished_url(@board), class: "board-button" %>
-<article class="card-set">
+<article class="group">
   <ul>
-<%= render @board.cards.select { |card| card.start_date < Time.now && card.due_date > Time.now} %>
+    <% @board.catagories.each do |catagory| %>
+    <li>
+      <ul class="group"><%= catagory.title %>
+        <% catagory.cards.each do |card| %>
+        <%= render partial: "cards/card", locals: { card: card } %>
+        <% end %>
+        <li><%= link_to "Add a card...", new_catagory_card_url(catagory) %>
+      </ul>
+    </li>
+    <% end %>
+    <li>
+      <%= link_to "Add a List...", new_catagory_url %>
+    </li>
   </ul>
 </article>
-<%= link_to "Pending", board_pending_url(@board), class: "board-button" %>

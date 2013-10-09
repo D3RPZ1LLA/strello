@@ -1,6 +1,11 @@
 class CatagoriesController < ApplicationController
   before_filter :logged_in_clearance
 
+  def new
+    @catagory = Catagory.new
+    render :new
+  end
+
   def create
     if Board.find_by_id(params[:board_id])
       @catagory = Catagory.new(
@@ -8,9 +13,10 @@ class CatagoriesController < ApplicationController
         board_id: params[:board_id]
       )
       if @catagory.save
-        redirect_to catagory_url(@catagory)
-      else
         redirect_to board_url(params[:board_id])
+      else
+        flash[:errors] = @catagory.error.full_messages
+        render :new
       end
     else
       flash[:errors] = "Board not found"
