@@ -2,25 +2,22 @@ class CatagoriesController < ApplicationController
   before_filter :logged_in_clearance
 
   def new
+    @board = Board.find(params[:board_id])
     @catagory = Catagory.new
     render :new
   end
 
   def create
-    if Board.find_by_id(params[:board_id])
-      @catagory = Catagory.new(
-        title: params[:catagory][:title],
-        board_id: params[:board_id]
-      )
-      if @catagory.save
-        redirect_to board_url(params[:board_id])
-      else
-        flash[:errors] = @catagory.error.full_messages
-        render :new
-      end
+    @board = Board.find_by_id(params[:board_id])
+    @catagory = Catagory.new(
+      title: params[:catagory][:title],
+      board_id: params[:board_id]
+    )
+    if @catagory.save
+      redirect_to board_url(params[:board_id])
     else
-      flash[:errors] = "Board not found"
-      redirect_to users_url(current_user)
+      flash[:errors] = @catagory.errors.full_messages
+      render :new
     end
   end
 

@@ -22,5 +22,5 @@ class Card < ActiveRecord::Base
 
   has_many :participants, through: :participations, source: :user
 
-  validates :due_date, :start_date, :title, :catagory_id, presence: true
+  validates :title, :catagory_id, presence: true
 end

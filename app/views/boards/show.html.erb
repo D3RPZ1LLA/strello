@@ -2,7 +2,7 @@
 
 <article class="group">
   <ul>
-    <% @board.catagories.each do |catagory| %>
+    <% @board.catagories.sort { |x, y| x.created_at <=> y.created_at }.each do |catagory| %>
     <li>
       <ul class="group"><%= catagory.title %>
         <% catagory.cards.each do |card| %>
@@ -13,7 +13,7 @@
     </li>
     <% end %>
     <li>
-      <%= link_to "Add a List...", new_catagory_url %>
+      <%= link_to "Add a List...", new_board_catagory_url(@board) %>
     </li>
   </ul>
 </article>

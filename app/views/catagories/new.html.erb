@@ -1,4 +1,6 @@
-<form action="<%= board_catagories_url(board) %>" method="POST" accept-charset="utf-8">
+<%= render partial: "boards/board_header", locals: { board: @board } %>
+
+<form action="<%= board_catagories_url(@board) %>" method="POST" accept-charset="utf-8">
 	<input type="hidden"
 	name="authenticity_token"
 	value="<%= form_authenticity_token %>">

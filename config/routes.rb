@@ -4,12 +4,11 @@ Clairvoyance::Application.routes.draw do
   resources :users
 
   resources :boards do
-    match "pending" => "boards#pending", via: :get
-    match "finished" => "boards#finished", via: :get
+    resources :catagories, only: [:new, :create]
     resources :memberships, only: [:new, :create]
   end
 
-  resources :catagories, only: [:new, :create, :show, :destroy] do
+  resources :catagories, only: [:show, :destroy] do
     resources :cards, only: [:new, :create]
   end
 
