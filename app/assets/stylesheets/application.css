@@ -12,7 +12,7 @@
  *= require_tree .
  */
 body, header, article, ul, li, a, h1, h2,
-h4, button, input, textarea, select, strong {
+h3, h4, button, input, textarea, select, strong {
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -23,19 +23,9 @@ h4, button, input, textarea, select, strong {
   list-style-type: none;
 }
 
-/*.left {
-  float: left;
-  margin-right: 40px;
-}*/
-
 body {
-  background: #F8F8F8;
+  background: #336699;
   font-family: sans-serif;
-/*  min-width: 1000px;*/
-}
-
-a {
-  color: white;
 }
 
 .group:after {
@@ -51,5 +41,5 @@ a {
 img {
   width: 100%;
   height: auto;
-  display: block;
+  display: table;
 }

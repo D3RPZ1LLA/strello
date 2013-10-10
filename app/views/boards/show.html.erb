@@ -1,20 +1,27 @@
 <%= render partial: "users/header", locals: { board: @board } %>
 <%= render partial: "header", locals: { board: @board } %>
 
-<article class="group">
-  <ul>
+<article class="board">
+  <ul class="group">
     <% @board.catagories.sort { |x, y| x.created_at <=> y.created_at }.each do |catagory| %>
     <li class="list">
-      <ul class="group"><%= catagory.title %>
-        <% catagory.cards.each do |card| %>
+      <h4><%= catagory.title %></h4>
+
+      <ul class="group">
+        <% catagory.cards.sort { |x, y| x.created_at <=> y.created_at }.each do |card| %>
         <%= render partial: "cards/card", locals: { card: card } %>
         <% end %>
-        <li><%= link_to "Add a card...", new_catagory_card_url(catagory) %>
       </ul>
+
+      <a href="<%= new_catagory_card_url(catagory) %>">
+        <div class="add-card">Add a card...</div>
+      </a>
     </li>
     <% end %>
-    <li class="list">
-      <%= link_to "Add a List...", new_board_catagory_url(@board) %>
-    </li>
+    <a href="<%= new_board_catagory_url(@board) %>">
+      <li class="new-list">
+        Add a List...
+      </li>
+    </a>
   </ul>
 </article>

@@ -1,0 +1,16 @@
+.board-header {
+  background-color: #F8F8F8;
+  padding: 3px;
+  border-bottom: solid gray 1px;
+}
+
+.board-header > #board-name {
+  padding: 5px;
+  margin: 4px;
+  width: 100px;
+}
+
+#board-name > h2 {
+  font-weight: bold;
+  font-size: 120%;
+}

@@ -2,51 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.board-header {
-  background-color: gray;
-  padding: 2px;
+article.board {
 }
 
-.board-header > #board-name {
-  padding: 10px;
-  border: solid black 1px;
+.board > ul {
+  position: relative;
+  margin-top: 10px;
 }
 
-.board-header > h2 {
-  display: table;
-  margin: 2px;
+li.list {
+  margin-left: 10px;
+  width: 275px;
+  background-color: #C0C0C0;
+  border-radius: 3px;
+  float: left;
+}
+
+.list > h4 {
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.list > ul {
+
+}
+
+.card {
+  margin: 5px;
+  background-color: white;
+  border: solid gray 1px;
+  border-radius: 3px;
+}
+
+.add-card {
+  margin-top: 3px;
+  padding: 7px;
+  font-size: 90%;
+  color: #585858;
+}
+
+.add-card:hover {
+ background-color: #A0A0A0;
+ border-bottom-left-radius: 3px;
+ border-bottom-right-radius: 3px;
+ text-decoration: underline;
+}
+
+.new-list {
+  margin-left: 10px;
   padding: 5px;
+  width: 275px;
+  background-color: #009999;
+  border-radius: 3px;
+  float: left;
+  color: white;
 }
-
-
-//.board-header > h1 {
-//  text-align: center;
-//  font-size: 120%;
-//}
-//
-//.list {
-//  margin-right: 10px;
-//  float: left;
-//}
-//
-//.list > ul {
-//    width: 250px;
-//    padding: 10px;
-//    border: solid black 1px;
-//}
-//
-//section {
-//  max-width: 1500px;
-//  margin: 0 auto;
-//}
-//
-//article {
-//  display: table;
-//}
-
-//article > ul > li > ul {
-//  width: 250px;
-//  padding: 10px;
-//  border: solid black 1px;
-//}

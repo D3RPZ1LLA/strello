@@ -1,44 +1,49 @@
-<%= render partial: "boards/board_header", locals: { board: @card.catagory.board } %>
+<div class="card-page group">
+  <section class="card-main">
 
-<h1>Edit Card</h1>
+    <%= render "form" %>
 
-<article class="left">
-<%= render "form" %>
-
-<ul>
-<% @card.checklists.sort { |x, y| x.created_at <=> y.created_at }.each do |checklist| %>
-  <li>
-    <%= checklist.title %>
-    <ul>
-      <% checklist.checklist_items.each do |item| %>
-      <li><%= item.title %></li>
-      <% end %>
-    </ul>
-    <%= link_to "Add item", new_checklist_checklist_item_url(checklist) %>
-  </li>
-<% end %>
-</ul>
-</article>
-
-<article class="left">
-  <ul>
-    <li>
-      <h4>Members</h4>
+    <div class="checklists">
       <ul>
-        <% @card.participants.each do |member| %>
-        <li><%= member.email %></li>
-        <% end %>
-      </ul>
-      <%= link_to "Assign...", new_card_participation_url(@card) %>
-    </li>
-
-    <li>
-      <h4>Actions</h4>
-      <ul>
+      <% @card.checklists.sort { |x, y| x.created_at <=> y.created_at }.each do |checklist| %>
         <li>
-          <%= link_to "Add checklist...", new_card_checklist_url(@card) %>
+          <h3><%= checklist.title %></h3>
+          <ul>
+            <% checklist.checklist_items.each do |item| %>
+            <li><%= item.title %></li>
+            <% end %>
+          </ul>
+          <%= link_to "Add item", new_checklist_checklist_item_url(checklist) %>
         </li>
+      <% end %>
       </ul>
-    </li>
-  </ul>
-</article>
+    </div>
+  </section>
+
+  <section class="sidebar">
+    <ul>
+      <li>
+        <h4>Members</h4>
+        <ul class="members">
+          <% @card.participants.each do |member| %>
+          <li>
+            <div class="avatar">
+              <%= image_tag("happy-cat1.jpg")%>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+        <%= link_to "Assign...", new_card_participation_url(@card) %>
+      </li>
+
+      <li>
+        <h4>Actions</h4>
+        <ul>
+          <li>
+            <%= link_to "Add checklist...", new_card_checklist_url(@card) %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</div>

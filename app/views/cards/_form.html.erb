@@ -1,28 +1,24 @@
-<% action, method, submit = [card_url(@card), :put, "Update Card"] %>
-
-<form action="<%= action %>" method="POST" accept-charset="utf-8">
-  <input type="hidden" name="_method" value="<%= method %>">
+<form class="card-form" action="<%= card_url(@card) %>" method="POST" accept-charset="utf-8">
+  <input type="hidden" name="_method" value="PUT">
 
 	<input type="hidden"
 	name="authenticity_token"
 	value="<%= form_authenticity_token %>">
 
-	<label>Title
-		<input type="text"
-		name="card[title]"
-    value="<%= @card.title %>">
-	</label>
+
+  <div class="card-title">
+    <h3><%= @card.title %></h3> in list <strong><%= @card.catagory.title %></strong>
+  </div>
+	<textarea name="card[title]" class="card-title-textarea hidden"><%= @card.title %></textarea>
   <br>
 
-	<label>Description
-    <br>
-		<textarea name="card[description]"><%= @card.description %></textarea>
-	</label>
-  <br>
 
-	<p>
-    <input type="submit" value="<%= submit %>">
-  </p>
+  <div class="card-description">
+    <%= @card.description %>
+  </div>
+  <button class="card-edit-button">Edit the card description.</button>
+  <textarea name="card[description]" class="card-description-textarea hidden"><%= @card.description %></textarea>
+  <br>
 </form>
 
 
@@ -66,66 +62,3 @@ $('.assign-member').on('click', function(event) {
 
 
 </script>
-
-
-<!-- <label>Due Date
-  <input type="date"
-  name="card[due_date]"
-  value="<%= (@card.due_date || 1.week.from_now).strftime "%Y-%m-%d" %>">
-</label>
-<br>
-<br> -->
-
-<!-- Checklist Items <button id="add-item">add item</button>
-  <ul id="checklist">
-  <% if @card.persisted? %>
-     <% @card.checklists.each do |item| %>
-     <li>
-       <input type="hidden"
-       name="checklist_items[][id]"
-       value="<%= item.id %>">
-
-       <input type="text"
-       name="checklist_items[][title]"
-       value="<%= item.title %>">
-     </li>
-     <% end %>
-  <% else %>
-     <li>
-       <input type="text"
-       name="checklist_items[][title]"
-       value="Completed">
-     </li>
-  <% end%>
-  </ul>
-  <br> -->
-
-
-
-<!-- <p>
-  <div id="participants">
-    Participants
-    <ul>
-      <% @card.participants.each do |participant| %>
-      <li data-id="<%= participant.id %>">
-        <input type="hidden"
-        name="participants[][user_id]"
-        value="<%= participant.id %>">
-
-        <%= participant.email %>
-
-        <button class="remove-member" data-id="<%= participant.id %>">X</button>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <select id="selected-member">
-    <option value=""></option>
-    <% @card.catagory.board.members.each do |member| %>
-      <option value="<%= member.id %>"><%= member.email %></option>
-    <% end %>
-  </select>
-
-  <button class="assign-member">Assign Member To Card</button>
-</p> -->
