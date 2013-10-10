@@ -22,21 +22,20 @@ body, header, article, ul, li, a, h1, h4, button, input, textarea, select, stron
   list-style-type: none;
 }
 
-.left {
+/*.left {
   float: left;
   margin-right: 40px;
-}
+}*/
 
 body {
   background: #F8F8F8;
   font-family: sans-serif;
-  color: #888888;
-  padding: 0 20px;
-  min-width: 1000px;
+  color: white;
+/*  min-width: 1000px;*/
 }
 
 a {
-  color: #989898;
+  color: white;
 }
 
 .group:after {
@@ -49,11 +48,7 @@ a {
   display: none;
 }
 
-section {
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-article {
-  display: table;
+img {
+  width: 100%;
+  height: auto;
 }
