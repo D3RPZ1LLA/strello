@@ -1,4 +1,8 @@
-<form class="card-form" action="<%= card_url(@card) %>" method="POST" accept-charset="utf-8">
+<form class="card-form"
+action="<%= card_url(@card) %>"
+method="POST"
+accept-charset="utf-8"
+data-remote="true">
   <input type="hidden" name="_method" value="PUT">
 
 	<input type="hidden"
@@ -7,9 +11,14 @@
 
 
   <div class="card-title">
-    <h3><%= @card.title %></h3> in list <strong><%= @card.catagory.title %></strong>
-  </div>
-	<textarea name="card[title]" class="card-title-textarea hidden"><%= @card.title %></textarea>
+    <span class="card-title-detail detail">
+      <h3><%= @card.title %></h3> in list <strong><%= @card.catagory.title %></strong>
+    </span>
+    <div class="card-title-input input hidden">
+    	<textarea name="card[title]"
+      class="card-title-textarea"><%= @card.title %></textarea>
+      <button>Save</button>
+    </div>
   <br>
 
 
@@ -17,48 +26,7 @@
     <%= @card.description %>
   </div>
   <button class="card-edit-button">Edit the card description.</button>
-  <textarea name="card[description]" class="card-description-textarea hidden"><%= @card.description %></textarea>
+  <textarea name="card[description]"
+  class="card-description-textarea input hidden"><%= @card.description %></textarea>
   <br>
 </form>
-
-
-<script>
-$('#add-item').on('click', function(event) {
-  event.preventDefault();
-  $('#checklist').append('<li><label><input type="text" name="checklist_items[][title]" value=""></label></li>');
-});
-
-$('ul').on('click', '.remove-member', function(event) {
-  event.preventDefault();
-  var memberId = $(event.target).data("id");
-  $('#participants li').filter(function () {
-    if ($(this).data('id') === memberId) {
-      return true;
-    }
-  }).remove();
-});
-
-$('.assign-member').on('click', function(event) {
-  event.preventDefault();
-  var selectedOption = $('#selected-member option:selected');
-  var memberId = selectedOption.val();
-  var memberEmail = selectedOption.text();
-
-  //doesn't add dup
-  var persisted;
-  $('#participants input').each(function(index, input) {
-    if ($(input).val() === memberId) {
-      persisted = true;
-    }
-  });
-
-  if (!persisted && !!memberId) {
-    $('#participants > ul').append('<li data-id="' +
-    memberId + '"><input type="hidden" name="participants[][user_id]" value="' +
-    memberId + '"> ' + memberEmail + '<button class="remove-member" data-id="' +
-    memberId + '"">X</button></li>');
-  }
-});
-
-
-</script>

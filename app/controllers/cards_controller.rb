@@ -36,7 +36,11 @@ class CardsController < ApplicationController
     @card = Card.includes({checklists: [:checklist_items]}, :participants, catagory: :board).find(params[:id])
 
     if @card.update_attributes(params[:card])
-      redirect_to board_url(@card.catagory.board)
+      if request.xhr?
+        render json: @card
+      else
+        redirect_to board_url(@card.catagory.board)
+      end
     else
       render :edit
     end
