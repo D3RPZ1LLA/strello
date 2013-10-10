@@ -1,4 +1,9 @@
 class ParticipationsController < ApplicationController
+  def new
+    @card = Card.includes(:participants).find(params[:card_id])
+    render :new
+  end
+
   def create
     @participation = Participation.new(params[:participation])
     if @participation.save
@@ -7,7 +12,7 @@ class ParticipationsController < ApplicationController
       redirect_to user_url(current_user)
     end
   end
-  
+
   def destroy
     if @participation = Participation.find_by_id(params[:id])
       @participation.destroy

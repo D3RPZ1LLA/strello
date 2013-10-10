@@ -22,6 +22,11 @@ body, header, article, ul, li, a, h1, h4, button, input, textarea, select, stron
   list-style-type: none;
 }
 
+.left {
+  float: left;
+  margin-right: 40px;
+}
+
 body {
   background: #F8F8F8;
   font-family: sans-serif;

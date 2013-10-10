@@ -14,11 +14,13 @@ Clairvoyance::Application.routes.draw do
 
   resources :cards, only: [:show, :edit, :update, :destroy] do
     resources :checklist_items, only: :create
+    resources :participations, only: [:new, :create]
   end
 
   resources :checklist_items, only: [:update, :destroy]
 
-  resources :participations, only: [:create, :destroy]
+  resources :participations, only: :destroy
+
   resources :memberships, only: [:edit, :show, :update, :destroy]
 
   root to: "users#home"

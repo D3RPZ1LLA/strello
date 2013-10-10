@@ -1,4 +1,16 @@
 <%= render partial: "boards/board_header", locals: { board: @catagory.board } %>
 
 <h1>New Card</h1>
-<%= render "form" %>
+<form action="<%= catagory_cards_url(@catagory) %>" method="POST" accept-charset="utf-8">
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<label>Title
+		<input type="text"
+		name="card[title]"
+    value="<%= @card.title %>">
+	</label>
+
+  <p><input type="submit" value="Create Card"></p>
+</form>

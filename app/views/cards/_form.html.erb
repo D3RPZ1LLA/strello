@@ -1,6 +1,7 @@
 <% action, method, submit = @card.persisted? ?
 [card_url(@card), :put, "Update Card"] : [catagory_cards_url(@catagory), :post, "Create Card"] %>
 
+<div class="left">
 <form action="<%= action %>" method="POST" accept-charset="utf-8">
   <input type="hidden" name="_method" value="<%= method %>">
 
@@ -15,14 +16,7 @@
 	</label>
   <br>
 
-  <!-- <label>Start Date
-    <input type="date"
-    name="card[start_date]"
-    value="<%= (@card.start_date || Time.now).strftime "%Y-%m-%d" %>">
-  </label>
-  <br>
-
-  <label>End Date
+  <!-- <label>Due Date
     <input type="date"
     name="card[due_date]"
     value="<%= (@card.due_date || 1.week.from_now).strftime "%Y-%m-%d" %>">
@@ -30,10 +24,10 @@
   <br>
   <br> -->
 
-  Checklist Items <button id="add-item">add item</button>
+  <!-- Checklist Items <button id="add-item">add item</button>
     <ul id="checklist">
     <% if @card.persisted? %>
-       <% @card.checklist_items.each do |item| %>
+       <% @card.checklists.each do |item| %>
        <li>
          <input type="hidden"
          name="checklist_items[][id]"
@@ -52,7 +46,7 @@
        </li>
     <% end%>
     </ul>
-    <br>
+    <br> -->
 
 	<label>Description
 		<textarea name="card[description]"><%= @card.description %></textarea>
@@ -60,7 +54,7 @@
   <br>
 
 
-  <p>
+  <!-- <p>
     <div id="participants">
       Participants
       <ul>
@@ -86,14 +80,25 @@
     </select>
 
     <button class="assign-member">Assign Member To Card</button>
-  </p>
+  </p> -->
 
 	<p>
     <input type="submit" value="<%= submit %>">
   </p>
 </form>
+</div>
 
+<div class="left">
+  <h4>Members</h4>
+  <ul>
+    <% @card.catagory.board.members.each do |member| %>
+    <li><%= member.email %></li>
+    <% end %>
+  </ul>
+  <%= link_to "assign member", new_card_participation_url(@card) %>
 
+<!-- <%= render partial: "checklist/checklist_form" %> -->
+</div>
 
 <script>
 $('#add-item').on('click', function(event) {

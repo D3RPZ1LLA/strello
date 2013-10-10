@@ -8,9 +8,8 @@ class Card < ActiveRecord::Base
 
   has_one :board, through: :catagory, source: :board
 
-  has_many :checklist_items,
-  inverse_of: :card,
-  class_name: "ChecklistItem",
+  has_many :checklists,
+  class_name: "Checklist",
   foreign_key: :card_id,
   primary_key: :id
 

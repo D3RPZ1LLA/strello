@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007152100) do
+ActiveRecord::Schema.define(:version => 20131009233314) do
 
   create_table "boards", :force => true do |t|
     t.string   "title",      :null => false
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20131007152100) do
   create_table "cards", :force => true do |t|
     t.string   "title",       :null => false
     t.string   "description"
-    t.datetime "start_date"
     t.datetime "due_date"
     t.integer  "catagory_id", :null => false
     t.datetime "created_at",  :null => false
@@ -52,13 +51,22 @@ ActiveRecord::Schema.define(:version => 20131007152100) do
   end
 
   create_table "checklist_items", :force => true do |t|
-    t.string   "title",      :null => false
-    t.integer  "card_id",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "title",        :null => false
+    t.integer  "checklist_id", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  add_index "checklist_items", ["card_id"], :name => "index_checklist_items_on_card_id"
+  add_index "checklist_items", ["checklist_id"], :name => "index_checklist_items_on_card_id"
+
+  create_table "checklists", :force => true do |t|
+    t.integer  "card_id",                             :null => false
+    t.string   "title",      :default => "Checklist", :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "checklists", ["card_id"], :name => "index_checklists_on_card_id"
 
   create_table "memberships", :force => true do |t|
     t.integer  "user_id",                       :null => false

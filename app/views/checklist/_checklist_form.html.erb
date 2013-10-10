@@ -1,0 +1,23 @@
+<button id="add-item">add item</button>
+  <ul id="checklist">
+  <% if @card.persisted? %>
+     <% @card.checklists.each do |item| %>
+     <li>
+       <input type="hidden"
+       name="checklist_items[][id]"
+       value="<%= item.id %>">
+
+       <input type="text"
+       name="checklist_items[][title]"
+       value="<%= item.title %>">
+     </li>
+     <% end %>
+  <% else %>
+     <li>
+       <input type="text"
+       name="checklist_items[][title]"
+       value="Completed">
+     </li>
+  <% end%>
+  </ul>
+  <br>
