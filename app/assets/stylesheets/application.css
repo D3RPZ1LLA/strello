@@ -11,7 +11,8 @@
  *= require_self
  *= require_tree .
  */
-body, header, article, ul, li, a, h1, h4, button, input, textarea, select, strong {
+body, header, article, ul, li, a, h1, h2,
+h4, button, input, textarea, select, strong {
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -30,7 +31,6 @@ body, header, article, ul, li, a, h1, h4, button, input, textarea, select, stron
 body {
   background: #F8F8F8;
   font-family: sans-serif;
-  color: white;
 /*  min-width: 1000px;*/
 }
 

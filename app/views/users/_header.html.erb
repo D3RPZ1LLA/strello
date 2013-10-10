@@ -1,4 +1,4 @@
-<header class="group">
+<header class="user-header group">
   <div class="logo">
     <%= image_tag("logo.png")%>
   </div>
@@ -23,12 +23,17 @@
     </ul>
   </nav>
 
-  <ul id="board-list">
-    <li>Boards</li>
-    <% current_user.member_boards.each do |board| %>
-    <li><%= link_to "#{board.title}", board_url(board) %></li>
-    <% end %>
-  </ul>
+  <div id="board-list" class="hidden">
+    <h4>Boards</h4>
+    <ul>
+      <li> My Boards </li>
+      <% current_user.member_boards.each do |board| %>
+      <a href="<%= board_url(board) %>">
+        <li><%= board.title %></li>
+      </a>
+      <% end %>
+    </ul>
+  </div>
 </header>
 
 <!-- <ul>

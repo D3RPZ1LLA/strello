@@ -3,6 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.board-header {
+  background-color: gray;
+  padding: 2px;
+}
+
+.board-header > #board-name {
+  padding: 10px;
+  border: solid black 1px;
+}
+
+.board-header > h2 {
+  display: table;
+  margin: 2px;
+  padding: 5px;
+}
+
 
 //.board-header > h1 {
 //  text-align: center;

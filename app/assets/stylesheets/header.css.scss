@@ -1,4 +1,4 @@
-header {
+.user-header {
   padding: 4px 5px;
   background-color: #336699;
 }
@@ -8,18 +8,18 @@ header {
   float: left;
 }
 
-header > nav {
+.user-header > nav {
   float: right;
 }
 
-nav > ul > li {
+.user-header > nav > ul > li {
   margin: 0 3px;
   float: left;
   position: relative;
 }
 
 .avatar {
-  border: solid gray 1px;
+  border: solid gray 2px;
   width: 34px;
   height: 34px;
   border-radius: 5px;
@@ -34,20 +34,45 @@ nav > ul > li {
   right: 5px;
   position: absolute;
   background-color: white;
-  width: 290px;
-  text-align: center;
+  width: 310px;
   color: black;
   border: solid gray 1px;
   border-radius: 5px;
 }
 
-#board-list a {
-  color: black;
+#board-list > h4 {
+  padding: 7px 0;
+  margin: 0 7px;
+  text-align: center;
+  border-bottom: solid gray 1px;
+  font-weight: bold;
+  color: gray;
 }
+
+#board-list > ul {
+}
+
+#board-list > ul a {
+
+  color: black;
+  font-weight: bold;
+}
+
+#board-list ul li {
+  padding: 10px;
+}
+
+#board-list > ul a:hover li {
+ background-color: blue;
+ color: white;
+}
+
+#board-list {}
 
 .boards {
   padding: 9px;
   background-color: #009999;
+  color: white;
   border-radius: 5px;
   font-size: 93%;
   font-weight: bold;
