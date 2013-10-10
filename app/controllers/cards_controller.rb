@@ -26,15 +26,15 @@ class CardsController < ApplicationController
     end
   end
 
-  def show
-    if @card = Card.includes(:checklist_items, :board).find_by_id(params[:id])
-      @board = @card.board
-      render :show
-    else
-      flash[:errors] = "Card not found"
-      redirect_to user_url(current_user)
-    end
-  end
+  # def show
+  #   if @card = Card.includes(:checklist_items, :board).find_by_id(params[:id])
+  #     @board = @card.board
+  #     render :show
+  #   else
+  #     flash[:errors] = "Card not found"
+  #     redirect_to user_url(current_user)
+  #   end
+  # end
 
   def edit
     if @card = Card.includes({checklists: [:checklist_items]}, :participants, catagory: :board).find(params[:id])

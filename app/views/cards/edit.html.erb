@@ -4,6 +4,20 @@
 
 <article class="left">
 <%= render "form" %>
+
+<ul>
+<% @card.checklists.sort { |x, y| x.created_at <=> y.created_at }.each do |checklist| %>
+  <li>
+    <%= checklist.title %>
+    <ul>
+      <% checklist.checklist_items.each do |item| %>
+      <li><%= item.title %></li>
+      <% end %>
+    </ul>
+    <%= link_to "Add item", new_checklist_checklist_item_url(checklist) %>
+  </li>
+<% end %>
+</ul>
 </article>
 
 <article class="left">

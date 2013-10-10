@@ -12,12 +12,16 @@ Clairvoyance::Application.routes.draw do
     resources :cards, only: [:new, :create]
   end
 
-  resources :cards, only: [:show, :edit, :update, :destroy] do
+  resources :cards, only: [:edit, :update, :destroy] do
     resources :participations, only: [:new, :create]
     resources :checklists, only: [:new, :create]
   end
 
-  resources :checklist_items, only: [:create, :update, :destroy]
+  resources :checklists, only: [] do
+    resources :checklist_items, only: [:new, :create]
+  end
+
+  resources :checklist_items, only: [:update, :destroy]
 
   resources :participations, only: :destroy
 
