@@ -6,21 +6,29 @@
   <nav>
     <ul>
       <li>
-
-        <div id="boards">
-          <span></span>Boards
+        <div class="boards">
+          <div>
+            <div></div>
+            <div></div>
+          </div>
+          Boards
         </div>
-
       </li>
-
       <li>
-
-
-
+        <div class="avatar">
+          <%= image_tag("happy-cat1.jpg")%>
+        </div>
       </li>
 
     </ul>
   </nav>
+
+  <ul id="board-list">
+    <li>Boards</li>
+    <% current_user.member_boards.each do |board| %>
+    <li><%= link_to "#{board.title}", board_url(board) %></li>
+    <% end %>
+  </ul>
 </header>
 
 <!-- <ul>
