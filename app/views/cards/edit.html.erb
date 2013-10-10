@@ -1,7 +1,10 @@
 <%= render partial: "boards/board_header", locals: { board: @card.catagory.board } %>
 
 <h1>Edit Card</h1>
+
+<article class="left">
 <%= render "form" %>
+</article>
 
 <article class="left">
   <ul>
@@ -19,10 +22,9 @@
       <h4>Actions</h4>
       <ul>
         <li>
-          <%= link_to "Add checklist...", root_url %>
+          <%= link_to "Add checklist...", new_card_checklist_url(@card) %>
         </li>
       </ul>
     </li>
   </ul>
-<!-- <%= render partial: "checklist/checklist_form" %> -->
 </article>

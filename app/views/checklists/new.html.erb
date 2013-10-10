@@ -1,0 +1,12 @@
+<form action="<%= card_checklists_url(@card) %>" method="post" accept-charset="utf-8">
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<label>Title
+		<input type="text"
+		name="checklist[title]">
+	</label>
+
+  <p><input type="submit" value="Create Checklist"></p>
+</form>

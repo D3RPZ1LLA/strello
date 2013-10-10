@@ -17,10 +17,10 @@ User.create(
   password_verify: 'codefu'
 )
 
-# first_board = kitty.created_boards.create(title: 'first_board')
-#
-# Membership.create(board_id: first_board.id, user_id: kitty.id, admin: true)
-#
+first_board = kitty.created_boards.create(title: 'first_board')
+
+Membership.create(board_id: first_board.id, user_id: kitty.id, admin: true)
+
 # first_catagory = first_board.catagories.create(
 #   title: "first_catagory"
 # )

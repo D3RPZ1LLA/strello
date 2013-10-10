@@ -1,6 +1,5 @@
 <% action, method, submit = [card_url(@card), :put, "Update Card"] %>
 
-<div class="left">
 <form action="<%= action %>" method="POST" accept-charset="utf-8">
   <input type="hidden" name="_method" value="<%= method %>">
 
@@ -25,7 +24,7 @@
     <input type="submit" value="<%= submit %>">
   </p>
 </form>
-</div>
+
 
 <script>
 $('#add-item').on('click', function(event) {
