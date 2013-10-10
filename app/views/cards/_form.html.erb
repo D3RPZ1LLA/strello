@@ -1,5 +1,4 @@
-<% action, method, submit = @card.persisted? ?
-[card_url(@card), :put, "Update Card"] : [catagory_cards_url(@catagory), :post, "Create Card"] %>
+<% action, method, submit = [card_url(@card), :put, "Update Card"] %>
 
 <div class="left">
 <form action="<%= action %>" method="POST" accept-charset="utf-8">
@@ -16,88 +15,16 @@
 	</label>
   <br>
 
-  <!-- <label>Due Date
-    <input type="date"
-    name="card[due_date]"
-    value="<%= (@card.due_date || 1.week.from_now).strftime "%Y-%m-%d" %>">
-  </label>
-  <br>
-  <br> -->
-
-  <!-- Checklist Items <button id="add-item">add item</button>
-    <ul id="checklist">
-    <% if @card.persisted? %>
-       <% @card.checklists.each do |item| %>
-       <li>
-         <input type="hidden"
-         name="checklist_items[][id]"
-         value="<%= item.id %>">
-
-         <input type="text"
-         name="checklist_items[][title]"
-         value="<%= item.title %>">
-       </li>
-       <% end %>
-    <% else %>
-       <li>
-         <input type="text"
-         name="checklist_items[][title]"
-         value="Completed">
-       </li>
-    <% end%>
-    </ul>
-    <br> -->
-
 	<label>Description
+    <br>
 		<textarea name="card[description]"><%= @card.description %></textarea>
 	</label>
   <br>
-
-
-  <!-- <p>
-    <div id="participants">
-      Participants
-      <ul>
-        <% @card.participants.each do |participant| %>
-        <li data-id="<%= participant.id %>">
-          <input type="hidden"
-          name="participants[][user_id]"
-          value="<%= participant.id %>">
-
-          <%= participant.email %>
-
-          <button class="remove-member" data-id="<%= participant.id %>">X</button>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <select id="selected-member">
-      <option value=""></option>
-      <% @card.catagory.board.members.each do |member| %>
-        <option value="<%= member.id %>"><%= member.email %></option>
-      <% end %>
-    </select>
-
-    <button class="assign-member">Assign Member To Card</button>
-  </p> -->
 
 	<p>
     <input type="submit" value="<%= submit %>">
   </p>
 </form>
-</div>
-
-<div class="left">
-  <h4>Members</h4>
-  <ul>
-    <% @card.catagory.board.members.each do |member| %>
-    <li><%= member.email %></li>
-    <% end %>
-  </ul>
-  <%= link_to "assign member", new_card_participation_url(@card) %>
-
-<!-- <%= render partial: "checklist/checklist_form" %> -->
 </div>
 
 <script>
@@ -140,3 +67,66 @@ $('.assign-member').on('click', function(event) {
 
 
 </script>
+
+
+<!-- <label>Due Date
+  <input type="date"
+  name="card[due_date]"
+  value="<%= (@card.due_date || 1.week.from_now).strftime "%Y-%m-%d" %>">
+</label>
+<br>
+<br> -->
+
+<!-- Checklist Items <button id="add-item">add item</button>
+  <ul id="checklist">
+  <% if @card.persisted? %>
+     <% @card.checklists.each do |item| %>
+     <li>
+       <input type="hidden"
+       name="checklist_items[][id]"
+       value="<%= item.id %>">
+
+       <input type="text"
+       name="checklist_items[][title]"
+       value="<%= item.title %>">
+     </li>
+     <% end %>
+  <% else %>
+     <li>
+       <input type="text"
+       name="checklist_items[][title]"
+       value="Completed">
+     </li>
+  <% end%>
+  </ul>
+  <br> -->
+
+
+
+<!-- <p>
+  <div id="participants">
+    Participants
+    <ul>
+      <% @card.participants.each do |participant| %>
+      <li data-id="<%= participant.id %>">
+        <input type="hidden"
+        name="participants[][user_id]"
+        value="<%= participant.id %>">
+
+        <%= participant.email %>
+
+        <button class="remove-member" data-id="<%= participant.id %>">X</button>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <select id="selected-member">
+    <option value=""></option>
+    <% @card.catagory.board.members.each do |member| %>
+      <option value="<%= member.id %>"><%= member.email %></option>
+    <% end %>
+  </select>
+
+  <button class="assign-member">Assign Member To Card</button>
+</p> -->

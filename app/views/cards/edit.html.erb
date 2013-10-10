@@ -2,3 +2,27 @@
 
 <h1>Edit Card</h1>
 <%= render "form" %>
+
+<article class="left">
+  <ul>
+    <li>
+      <h4>Members</h4>
+      <ul>
+        <% @card.participants.each do |member| %>
+        <li><%= member.email %></li>
+        <% end %>
+      </ul>
+      <%= link_to "Assign...", new_card_participation_url(@card) %>
+    </li>
+
+    <li>
+      <h4>Actions</h4>
+      <ul>
+        <li>
+          <%= link_to "Add checklist...", root_url %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+<!-- <%= render partial: "checklist/checklist_form" %> -->
+</article>

@@ -9,13 +9,19 @@ header.board-header > h1 {
   font-size: 120%;
 }
 
-article > ul > li {
+.list {
   margin-right: 10px;
   float: left;
 }
 
-article > ul > li > ul {
-  width: 250px;
-  padding: 10px;
-  border: solid black 1px;
+.list > ul {
+    width: 250px;
+    padding: 10px;
+    border: solid black 1px;
 }
+
+//article > ul > li > ul {
+//  width: 250px;
+//  padding: 10px;
+//  border: solid black 1px;
+//}

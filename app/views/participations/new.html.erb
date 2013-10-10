@@ -1,5 +1,15 @@
-<form action="" method="post" accept-charset="utf-8">
+<form action="<%= card_participations_url(@card) %>" method="post" accept-charset="utf-8">
 
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
 
-  <p><input type="submit" value="Continue &rarr;"></p>
+  <select id="selected-member" name="participation[user_id]">
+    <option value=""></option>
+    <% @card.catagory.board.members.each do |member| %>
+      <option value="<%= member.id %>"><%= member.email %></option>
+    <% end %>
+  </select>
+
+  <p><input type="submit" value="Assign Member"></p>
 </form>
