@@ -33,14 +33,16 @@
           </li>
           <% end %>
         </ul>
-        <%= link_to "Assign...", new_card_participation_url(@card) %>
+        <!-- new_card_participation_url(@card) -->
+        <button class="assign-member-button">Assign...</button>
       </li>
 
       <li>
         <h4>Actions</h4>
         <ul>
           <li>
-            <%= link_to "Add checklist...", new_card_checklist_url(@card) %>
+            <!-- new_card_checklist_url(@card) -->
+            <button class="add-checklist-button">Add checklist...</button>
           </li>
         </ul>
       </li>

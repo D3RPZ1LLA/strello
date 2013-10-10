@@ -1,6 +1,7 @@
 .card-page {
   position: relative;
   width: 630px;
+  min-height: 460px;
   background-color: white;
   margin: 20px auto;
   border-radius: 3px;
@@ -8,7 +9,7 @@
 
 section.card-main {
   width: 410px;
-  margin: 10px 10px 30px 10px;
+  margin: 30px 10px 30px 10px;
   padding-left: 20px;
   float: left;
 }
@@ -56,6 +57,7 @@ section.card-main > .card-form {
 
 .card-form .card-edit-button:hover {
   background-color: gray;
+  cursor: pointer;
 }
 
 .card-form textarea.card-description-textarea {
@@ -76,12 +78,5 @@ section.card-main > .card-form {
 }
 
 
-/** SIDEBAR **/
 
-.card-page > section.sidebar {
-  width: 150px;
-  margin: 10px;
-  border: solid black 1px;
-  float: left;
-}
 

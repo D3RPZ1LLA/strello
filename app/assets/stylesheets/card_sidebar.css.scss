@@ -1,0 +1,28 @@
+/** SIDEBAR **/
+
+.card-page > section.sidebar {
+  width: 150px;
+  margin: 20px 10px;
+  float: left;
+}
+
+section.sidebar > ul > li > h4 {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+section.sidebar button {
+  background-color: white;
+  border: solid gray 1px;
+  border-radius: 3px;
+  width: 150px;
+  padding: 3px 10px;
+  margin: 5px 0;
+  text-align: left;
+}
+
+section.sidebar button:hover {
+ background-color: blue;
+ color: white;
+ cursor: pointer;
+}

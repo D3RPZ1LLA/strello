@@ -21,6 +21,7 @@ h3, h4, button, input, textarea, select, strong {
   text: inherit;
   text-decoration: none;
   list-style-type: none;
+  outline: none;
 }
 
 body {
