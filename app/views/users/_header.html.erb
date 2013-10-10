@@ -1,18 +1,40 @@
-<header class="user-header group">
+<header class="group">
   <div class="logo">
     <%= image_tag("logo.png")%>
   </div>
 
-  <% if logged_in? %>
-  <nav class="board-nav">
-    <h4>Boards:</h4>
-    <ul class="group">
-      <% current_user.member_boards.each do |board| %>
-      <li><%= link_to "#{board.title}", board_url(board) %></li>
-      <% end %>
+  <nav>
+    <ul>
+      <li>
+
+        <div id="boards">
+          <span></span>Boards
+        </div>
+
+      </li>
+
+      <li>
+
+
+
+      </li>
+
     </ul>
   </nav>
-  <% end %>
-
-  <%= render partial: "users/login" %>
 </header>
+
+<!-- <ul>
+  <% current_user.member_boards.each do |board| %>
+  <li><%= link_to "#{board.title}", board_url(board) %></li>
+  <% end %>
+</ul> -->
+
+<!-- <ul class="group">
+  <% if logged_in? %>
+  <li><%= link_to "#{current_user.email}", root_url %></li>
+  <li><%= button_to "Logout", session_url, method: :delete, class: "logout" %></li>
+  <% else %>
+  <li><%= link_to "Sign Up", new_user_url %></li>
+  <li><%= link_to "Login", new_session_url %></li>
+  <% end %>
+</ul> -->

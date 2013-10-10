@@ -1,47 +1,20 @@
 
 
 header {
-  border: solid black 1px;
-  padding: 11px 0;
+  padding: 5px 5px;
   background-color: #336699;
 }
 
 header > .logo {
-  width: 75px;
+  width: 90px;
   float: left;
 }
 
-//.board-nav > h4 {
-//  float: left;
-//}
-//
-//.board-nav > ul {
-//  margin-left: 10px;
-//  float: left;
-//}
-//
-//.board-nav {
-//  float: left;
-//}
-//
-//.login {
-//  width: 200px;
-//  margin-left: -150px;
-//  float: right;
-//}
-//
-//.login li {
-//  float: left;
-//  margin-left: 25px;
-//}
-//
-//.logout {
-//  background: transparent;
-//  color: inherit;
-//}
-//
-//.logout:hover {
-// cursor: pointer;
-//}
-//
-//
+header > nav {
+  width: 130px;
+  float: right;
+}
+
+nav > ul > li {
+  float: left;
+}
