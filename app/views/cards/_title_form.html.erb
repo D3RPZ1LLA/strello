@@ -1,4 +1,4 @@
-<form class="card-form"
+<form id="card-title-form"
 action="<%= card_url(@card) %>"
 method="POST"
 accept-charset="utf-8"
@@ -17,17 +17,8 @@ data-remote="true">
     <div class="card-title-input input hidden">
     	<textarea name="card[title]"
       class="card-title-textarea"><%= @card.title %></textarea>
-      <button class="card-title-button">Save</button>
+      <button id="card-title-button">Save</button>
     </div>
   </div>
-  <br>
-
-
-  <div class="card-description">
-    <%= @card.description %>
-  </div>
-  <button class="card-edit-button">Edit the card description.</button>
-  <textarea name="card[description]"
-  class="card-description-textarea input hidden"><%= @card.description %></textarea>
   <br>
 </form>

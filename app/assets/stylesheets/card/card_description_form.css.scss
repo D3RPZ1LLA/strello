@@ -1,0 +1,24 @@
+#card-description-form .card-edit-button {
+  background-color: white;
+  width: 390px;
+  text-align: left;
+  text-decoration: underline;
+  font-size: 90%;
+  margin-top: 20px;
+}
+
+#card-description-form .card-edit-button:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.card-description-detail:hover {
+  cursor: pointer;
+}
+
+.card-description-textarea {
+  max-width: 390px;
+  min-width: 390px;
+  min-height: 140px;
+  background-color: gray;
+}

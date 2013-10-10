@@ -1,0 +1,30 @@
+#card-title-form .card-title {
+  color: gray;
+}
+
+#card-title-form .card-title h3 {
+  display: inline;
+  margin-right: 10px;
+  font-size: 101%;
+  font-weight: bold;
+  color: black;
+}
+
+#card-title-form .card-title h3:hover {
+ cursor: pointer;
+}
+
+#card-title-form > .card-description {
+}
+
+.card-title-textarea {
+  max-width: 390px;
+  min-width: 390px;
+  padding: 5px;
+  background-color: gray;
+  border-radius: 3px;
+  color: black;
+  font-weight: bold;
+  min-height: 50px;
+  height: 50px;
+}
