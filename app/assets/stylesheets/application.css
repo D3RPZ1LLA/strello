@@ -49,16 +49,6 @@ a {
   display: none;
 }
 
-.logo {
-  width: 50px;
-  float: left;
-}
-
-header {
-  margin: 0 auto;
-  padding: 20px 0px;
-}
-
 section {
   max-width: 1500px;
   margin: 0 auto;
