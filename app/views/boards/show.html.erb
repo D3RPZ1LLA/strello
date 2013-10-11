@@ -13,9 +13,13 @@
         <% end %>
       </ul>
 
-      <a href="<%= new_catagory_card_url(catagory) %>">
+      <div class="new-card-form">
+        <div class="new-card hidden">
+          <%= render partial: "cards/new", locals: { catagory: catagory } %>
+        </div>
         <div class="add-card">Add a card...</div>
-      </a>
+      </div>
+
     </li>
     <% end %>
     <a href="<%= new_board_catagory_url(@board) %>">
