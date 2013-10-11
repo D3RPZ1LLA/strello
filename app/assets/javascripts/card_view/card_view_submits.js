@@ -8,7 +8,6 @@ $(document).ready(function() {
 
   $("#card-title-form").on("ajax:success", function(event, data){
     var $form = $(this);
-    console.log(data.title);
     $('.card-title h3').html(data.title);
     CV.resetAllRender();
   });
@@ -20,7 +19,6 @@ $(document).ready(function() {
 
   $("#card-description-form").on("ajax:success", function(event, data){
     var $form = $(this);
-    console.log(data.description);
     $('.card-description h4').html(data.description);
     CV.resetAllRender();
   });

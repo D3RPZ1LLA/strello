@@ -37,6 +37,7 @@
 // });
 // </script>
 
+
 $(document).ready(function () {
 
   /* Render Functions */
@@ -73,7 +74,6 @@ $(document).ready(function () {
   });
 
   $('.card-description-detail').on('click', function(event) {
-    console.log('click');
     renderCardDescriptionEdit();
   });
 
