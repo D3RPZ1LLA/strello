@@ -6,12 +6,16 @@
   float: left;
 }
 
-section.sidebar > ul > li > h4 {
+.sidebar > ul > li {
+	position: relative;
+}
+
+.sidebar > ul > li > h4 {
   font-weight: bold;
   margin: 5px 0;
 }
 
-section.sidebar button {
+.sidebar button.sidebar {
   background-color: white;
   border: solid gray 1px;
   border-radius: 3px;
@@ -21,8 +25,30 @@ section.sidebar button {
   text-align: left;
 }
 
-section.sidebar button:hover {
+.sidebar button.sidebar:hover {
  background-color: blue;
  color: white;
  cursor: pointer;
+}
+
+.sidebar .assign-member {
+	position: absolute;
+	z-index: 1;
+	background-color: white;
+	border: solid gray 1px;
+	width: 290px;
+}
+
+.sidebar .assign-member > h4 {
+	text-align: center;
+	margin: 10px 0;
+	border-bottom: 1px solid gray;
+}
+
+.sidebar .assign-member > form {
+	margin: 10px;
+}
+
+.sidebar .assign-member > form > button {
+	margin-top: 10px;
 }

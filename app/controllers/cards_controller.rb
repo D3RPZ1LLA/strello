@@ -31,7 +31,12 @@ class CardsController < ApplicationController
   end
 
   def edit
-    if @card = Card.includes({checklists: [:checklist_items]}, :participants, catagory: :board).find(params[:id])
+    if @card = Card.includes(
+        {checklists: [:checklist_items]}, 
+        :participants, 
+        {catagory: [board: :members]} 
+      ).find(params[:id])
+      
       render :edit
     end
   end

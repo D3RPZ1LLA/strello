@@ -1,0 +1,19 @@
+<form id="new-participation"
+action="<%= card_participations_url(@card) %>" 
+method="post" 
+accept-charset="utf-8">
+
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+  <select id="selected-member" name="participation[user_id]">
+    <option value=""></option>
+    <% @card.catagory.board.members.each do |member| %>
+      <option value="<%= member.id %>"><%= member.email %></option>
+    <% end %>
+  </select>
+	<br>
+
+  <button class="save">Assign Member</button>
+</form>

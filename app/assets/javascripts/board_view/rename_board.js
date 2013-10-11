@@ -26,5 +26,15 @@ $(document).ready(function() {
 	});
 	
 /* Submit Functions */
+	$('#rename-board button').on('click', function(event) {
+		event.preventDefault();
+		console.log('click');
+		$('#rename-board').submit();
+	});
+	
+	$('#rename-board').on('ajax:success', function (event, data) {
+		$('#board-name span').html(data.title);
 		
+		resetRenameBoard();
+	});
 });

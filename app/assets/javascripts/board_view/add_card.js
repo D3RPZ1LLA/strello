@@ -12,7 +12,7 @@ $(document).ready(function () {
     $('.new-card').addClass('hidden');
   };
 
-  $('.add-card').on('click', function (event) {
+  $('body').on('click', '.add-card', function (event) {
     resetCardRender();
     renderNewCard(event);
   });
@@ -38,15 +38,16 @@ $(document).ready(function () {
     '</div></li></a>';
   }
 
-  $('.new-card button').on('click', function(event) {
+  $('body').on('click', '.new-card button', function(event) {
     event.preventDefault();
     $(event.target).parent().submit();
   });
 
   $(".actually-card-new-form").on("ajax:success", function(event, data){
     var $form = $(this);
-
+		
     $($form).parent().parent().parent().children('ul').append(newCard(data));
+		console.log($(event.target));
 
     $form[0].reset();
     resetCardRender();

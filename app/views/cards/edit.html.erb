@@ -1,6 +1,7 @@
-<div class="card-page group">
+<div class="card-page group">	
+	<button class="exit" data-board-id="<%= @card.board.id %>">X</button>
+	
   <section class="card-main">
-
     <%= render "title_form" %>
     <%= render "description_form" %>
 
@@ -35,7 +36,11 @@
           <% end %>
         </ul>
         <!-- new_card_participation_url(@card) -->
-        <button class="assign-member-button">Assign...</button>
+        <button class="assign-member-button sidebar">Assign...</button>
+				<div class="assign-member hidden">
+					<h4>Members</h4>
+					<%= render partial: "participations/new", locals: { card: @card } %>
+				</div>
       </li>
 
       <li>
@@ -43,7 +48,7 @@
         <ul>
           <li>
             <!-- new_card_checklist_url(@card) -->
-            <button class="add-checklist-button">Add checklist...</button>
+            <button class="add-checklist-button sidebar">Add checklist...</button>
           </li>
         </ul>
       </li>

@@ -1,18 +1,19 @@
 <form id="rename-board"
 class="hidden"
-action="" 
-method="get" 
+action="<%= board_url(board) %>" 
+method="POST" 
 accept-charset="utf-8"
 data-remote="true">
-
 	<h3>Rename Board</h3>
+
+  <input type="hidden" name="_method" value="PUT">
 
 	<input type="hidden"
 	name="authenticity_token"
 	value="<%= form_authenticity_token %>">
 
 	<input type="text"
-	name="board[titlse]"
+	name="board[title]"
 	value="<%= board.title %>">
 	<br>
 

@@ -41,7 +41,7 @@ $(document).ready(function () {
 		);
 	};
 	
-	$('#add-list-form').on("ajax:success", function(event, data) {
+	$('#add-list-form').on('ajax:success', function(event, data) {
 		var $form = $(this);
 		
 		appendList(data);

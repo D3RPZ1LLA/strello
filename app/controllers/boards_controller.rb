@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_filter :logged_in_clearance
+  # before_filter :logged_in_clearance
   before_filter :member_clearance, only: [:show, :pending, :finished]
 
   def index
@@ -33,22 +33,14 @@ class BoardsController < ApplicationController
       redirect_to user_boards_url(current_user)
     end
   end
-
-  def pending
-    if @board ||= Board.includes(:members, :cards).find_by_id(params[:board_id])
-      render :pending
+  
+  def update
+    @board = Board.find(params[:id])
+    @board.update_attributes(params[:board])
+    if request.xhr?
+      render json: @board
     else
-      flash[:errors] = "Board not found"
-      redirect_to user_boards_url(current_user)
-    end
-  end
-
-  def finished
-    if @board ||= Board.includes(:members, :cards).find_by_id(params[:board_id])
-      render :finished
-    else
-      flash[:errors] = "Board not found"
-      redirect_to user_boards_url(current_user)
+      redirect_to board_url(@board)
     end
   end
 end
