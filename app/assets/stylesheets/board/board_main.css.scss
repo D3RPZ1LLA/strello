@@ -1,0 +1,21 @@
+.board > ul {
+  position: relative;
+  margin-top: 10px;
+}
+
+li.list {
+  margin-left: 10px;
+  width: 280px;
+  background-color: #C0C0C0;
+  border-radius: 3px;
+  float: left;
+}
+
+.list > h4 {
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.list > ul {
+
+}

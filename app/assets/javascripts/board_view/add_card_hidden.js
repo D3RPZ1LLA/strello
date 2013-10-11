@@ -1,9 +1,10 @@
 $(document).ready(function () {
   /* Render Functions */
   var renderNewCard = function (event) {
-    $(event.target).addClass('hidden');
-    $('.new-card').removeClass('hidden');
+    var $target = $(event.target);
 
+    $target.addClass('hidden');
+    $target.parent().children('.new-card').removeClass('hidden');
   };
 
   CV.resetCardRender = function () {
@@ -12,10 +13,20 @@ $(document).ready(function () {
   };
 
   $('.add-card').on('click', function (event) {
+    CV.resetCardRender();
     renderNewCard(event);
   });
 
-  $('.logo').on('click', function (event) {
-    CV.resetCardRender();
+  $('body').on('click', function(event) {
+    var $target = $(event.target);
+    if (
+      !($target.hasClass('new-card')) &&
+      !($target.parent().hasClass('add-card')) &&
+      !($target.hasClass('add-card')) &&
+      !($target.parent().hasClass('new-card')) &&
+      !($target.parent().parent().hasClass('new-card'))
+    ) {
+      CV.resetCardRender();
+    }
   });
 });

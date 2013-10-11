@@ -19,7 +19,11 @@ class CardsController < ApplicationController
     @card.catagory_id = @catagory.id
 
     if @card.save
-      redirect_to board_url(@catagory.board)
+      if request.xhr?
+        render json: @card
+      else
+        redirect_to board_url(@catagory.board)
+      end
     else
       flash[:errors] = @card.errors.full_messages
       render :new

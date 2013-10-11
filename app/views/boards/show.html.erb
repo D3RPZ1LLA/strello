@@ -9,7 +9,7 @@
 
       <ul class="group">
         <% catagory.cards.sort { |x, y| x.created_at <=> y.created_at }.each do |card| %>
-        <%= render partial: "cards/card", locals: { card: card } %>
+          <%= render partial: "cards/card", locals: { card: card } %>
         <% end %>
       </ul>
 
