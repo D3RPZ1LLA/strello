@@ -43,13 +43,6 @@ ActiveRecord::Schema.define(:version => 20131009233314) do
   add_index "catagories", ["board_id"], :name => "index_catagories_on_board_id"
   add_index "catagories", ["title", "board_id"], :name => "index_catagories_on_title_and_board_id", :unique => true
 
-  create_table "catagory_tags", :force => true do |t|
-    t.integer  "card_id"
-    t.integer  "catagory_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "checklist_items", :force => true do |t|
     t.string   "title",        :null => false
     t.integer  "checklist_id", :null => false

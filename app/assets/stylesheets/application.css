@@ -24,6 +24,10 @@ h3, h4, button, input, textarea, select, strong {
   outline: none;
 }
 
+html, body {
+	height: 100%;
+}
+
 body {
   background: #336699;
   font-family: sans-serif;

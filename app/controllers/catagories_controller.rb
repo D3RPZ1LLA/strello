@@ -14,9 +14,14 @@ class CatagoriesController < ApplicationController
       board_id: params[:board_id]
     )
     if @catagory.save
-      redirect_to board_url(params[:board_id])
+      if request.xhr?
+        render json: @catagory
+      else
+        redirect_to board_url(params[:board_id])
+      end
     else
       flash[:errors] = @catagory.errors.full_messages
+      head status: 422
       render :new
     end
   end

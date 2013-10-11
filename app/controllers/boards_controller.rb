@@ -16,6 +16,9 @@ class BoardsController < ApplicationController
     @board = current_user.created_boards.build(params[:board])
     if @board.save
       Membership.create(user_id: current_user.id, board_id: @board.id, admin: true)
+      Catagory.create(board_id: @board.id, title: "To Do")
+      Catagory.create(board_id: @board.id, title: "Doing")
+      Catagory.create(board_id: @board.id, title: "Done")
       redirect_to board_url(@board)
     else
       render :new

@@ -22,10 +22,14 @@
 
     </li>
     <% end %>
-    <a href="<%= new_board_catagory_url(@board) %>">
-      <li class="new-list">
-        Add a List...
-      </li>
-    </a>
+   
+    <li>
+			<%= render partial: "catagories/new", locals: { board: @board } %>
+     
+			<div class="new-list">
+				 Add a List...
+			</div>
+    </li>
+    
   </ul>
 </article>

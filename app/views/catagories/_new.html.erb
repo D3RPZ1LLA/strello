@@ -1,0 +1,17 @@
+<form id="add-list-form" 
+class="hidden"
+action="<%= board_catagories_url(board) %>" 
+method="POST" 
+accept-charset="utf-8"
+data-remote="true">
+
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<input type="text"
+	name="catagory[title]">
+	<br>
+
+	<button class="save">Add</button>
+</form>

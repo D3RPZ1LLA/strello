@@ -8,7 +8,7 @@ development:
   encoding: unicode
   database: clairvoyance_development
   pool: 5
-  username: appacademy
+  username: Di5coPunk
 
 
 # Warning: The database defined as "test" will be erased and
@@ -19,11 +19,11 @@ test:
   encoding: unicode
   database: awesome_test
   pool: 5
-  username: appacademy
+  username: Di5coPunk
 
 production:
   adapter: postgresql
   encoding: unicode
   database: awesome_production
   pool: 5
-  username: appacademy
+  username: Di5coPunk

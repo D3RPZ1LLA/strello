@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  /* Render Functions */
+/* Render Functions */
   var renderNewCard = function (event) {
     var $target = $(event.target);
 
@@ -7,13 +7,13 @@ $(document).ready(function () {
     $target.parent().children('.new-card').removeClass('hidden');
   };
 
-  CV.resetCardRender = function () {
+  var resetCardRender = function () {
     $('.add-card').removeClass('hidden');
     $('.new-card').addClass('hidden');
   };
 
   $('.add-card').on('click', function (event) {
-    CV.resetCardRender();
+    resetCardRender();
     renderNewCard(event);
   });
 
@@ -26,7 +26,30 @@ $(document).ready(function () {
       !($target.parent().hasClass('new-card')) &&
       !($target.parent().parent().hasClass('new-card'))
     ) {
-      CV.resetCardRender();
+      resetCardRender();
     }
   });
+
+
+/* Submit Functions */  
+  var newCard = function(data) {
+    return '<a href="/cards/' + data.id + '/edit">' +
+    '<li class="card"><div class="card-text">' + data.title +
+    '</div></li></a>';
+  }
+
+  $('.new-card button').on('click', function(event) {
+    event.preventDefault();
+    $(event.target).parent().submit();
+  });
+
+  $(".actually-card-new-form").on("ajax:success", function(event, data){
+    var $form = $(this);
+
+    $($form).parent().parent().parent().children('ul').append(newCard(data));
+
+    $form[0].reset();
+    resetCardRender();
+  });
+  
 });
