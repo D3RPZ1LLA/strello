@@ -1,4 +1,5 @@
 .board-header {
+	position: relative;
   background-color: #F8F8F8;
   padding: 3px;
   border-bottom: solid gray 1px;
@@ -7,10 +8,39 @@
 .board-header > #board-name {
   padding: 5px;
   margin: 4px;
-  width: 100px;
 }
 
 #board-name > h2 {
   font-weight: bold;
-  font-size: 120%;
+  font-size: 120%;	
+}
+
+#board-name > h2 > span {
+	border-radius: 5px;
+	padding: 5px;
+}
+
+#board-name > h2 > span:hover {
+	background-color: gray;
+	cursor: pointer;	
+}
+
+#rename-board {
+	position: absolute;
+	top: 45px;
+	left: 10px;
+	background-color: white;
+	border: solid gray 1px;
+	border-radius: 3px;
+	padding: 5px;
+	z-index: 1;
+}
+
+#rename-board > h3 {
+	text-align: center;
+}
+
+#rename-board > input {
+	background-color: gray;
+	border-radius: 3px;
 }

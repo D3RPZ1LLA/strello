@@ -1,5 +1,8 @@
 <header class="board-header">
   <div id="board-name">
-    <h2><%= board.title %></h2>
+    <h2><span><%= board.title %></span></h2>
   </div>
+
+	<%= render partial: "boards/title_form", locals: { board: board } %>
+
 </header>

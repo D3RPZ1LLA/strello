@@ -1,3 +1,7 @@
+.board {
+	height: 100%;
+}
+
 .board > ul {
   position: relative;
   margin-top: 10px;
@@ -12,6 +16,7 @@ li.list {
   width: 280px;
   background-color: #C0C0C0;
   border-radius: 3px;
+	overflow: visible;	
 }
 
 .list > h4 {

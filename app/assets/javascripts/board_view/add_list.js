@@ -16,12 +16,13 @@ $(document).ready(function () {
 	
 	$('body').on('click', function(event) {
 		var $target = $(event.target);
-		// console.log($target.is('#add-list-form'));
+		
 		if(
 			!($target.hasClass('new-list')) &&
 			!($target.is('#add-list-form')) &&
 			!($target.parent().is('#add-list-form'))
 		) {
+			
 			resetNewList();
 		}
 	});
@@ -48,5 +49,4 @@ $(document).ready(function () {
 		$form[0].reset();
 		resetNewList();
 	});
-	
 });
