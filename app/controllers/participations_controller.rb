@@ -9,9 +9,17 @@ class ParticipationsController < ApplicationController
     @participation = Participation.new(params[:participation])
     @participation.card_id = params[:card_id]
     if @participation.save
-      redirect_to edit_card_url(params[:card_id])
+      if request.xhr?
+        render json: @participation
+      else
+        redirect_to edit_card_url(params[:card_id])
+      end
     else
-      render :new
+      if request.xhr?
+        render json: @participation
+      else
+        render :new
+      end
     end
   end
 
