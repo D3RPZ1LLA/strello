@@ -1,18 +1,41 @@
-<h1>Login</h1>
-<form action="<%= session_url %>" method="POST" accept-charset="utf-8">
-	<input type="hidden"
-	name="authenticity_token"
-	value="<%= form_authenticity_token %>">
+<div class="login-logo">
+  <%= image_tag("login.png")%>
+</div>
 
-	<label>Email
-		<input type="text"
-		name="user[email]">
-	</label>
+<section class="login-view users group">
+	<div class="login-left">
+		<h1>Log In</h1>
+		<form id="login-form" 
+		action="<%= session_url %>" 
+		method="POST" 
+		accept-charset="utf-8">
+	
+			<input type="hidden"
+			name="authenticity_token"
+			value="<%= form_authenticity_token %>">
 
-	<label>Password
-		<input type="password"
-		name="user[password]">
-	</label>
+			<label>Email
+				<br>
+				<input class="field" 
+				type="text"
+				name="user[email]">
+			</label>
+			<br>
 
-	<p><input type="submit" value="Login"></p>
-</form>
+			<label>Password
+				<br>
+				<input class="field"
+				type="password"
+				name="user[password]">
+			</label>
+
+			<p><input class="save" type="submit" value="Login"></p>
+		</form>
+	</div>
+
+	<div class="login-right">
+		Or log in with:
+		<br>
+		<button class="save">Google Account</button>
+	</div>
+</section>

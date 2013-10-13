@@ -29,8 +29,9 @@ html, body {
 }
 
 body {
-  background: #336699;
   font-family: sans-serif;
+	background-color: #e6e6e6;
+	color: #303030 ;
 }
 
 .group:after {

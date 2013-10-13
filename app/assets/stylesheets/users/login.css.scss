@@ -1,0 +1,26 @@
+.login-left {
+	margin: 20px;
+	float: left;
+}
+
+.login-left h1 {
+	margin-bottom: 10px;
+}
+
+#login-form {
+	font-size: 85%;
+	font-weight: bold;
+}
+
+#login-form input.field {
+	border: solid gray 1px;
+	border-radius: 3px;
+	padding: 6px;
+	margin: 5px 0;
+	width: 236px;
+	font-size: 95%;
+}
+
+.login-right {
+	float: left;
+}
