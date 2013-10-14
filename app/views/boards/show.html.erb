@@ -1,5 +1,7 @@
-<%= render partial: "users/header", locals: { board: @board } %>
-<%= render partial: "header", locals: { board: @board } %>
+<section id="all-headers">
+	<%= render partial: "users/header", locals: { board: @board } %>
+	<%= render partial: "header", locals: { board: @board } %>
+</section>
 
 <article class="board">
   <ul id="board-lists" class="group">

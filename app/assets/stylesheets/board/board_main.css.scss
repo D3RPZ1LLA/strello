@@ -1,7 +1,11 @@
 .board {
 	height: 100%;
   background: #336699;
-	padding-top: 1px;
+	padding-top: 95px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 1200px;
+	overflow: auto;
 }
 
 .board > ul {
