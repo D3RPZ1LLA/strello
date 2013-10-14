@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
      
   has_attached_file :avatar, styles: {
     big: '170x170#',
-    thumbnail: '34x34#' 
+    thumb: '34x34#' 
   }
      
   attr_accessor :password, :password_verify
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   validate :match_passwords, on: :create
 
   after_validation :set_password, on: :create
-  after_validation :set_token
+  after_validation :set_token, on: :create
 
   def self.generate_token
     SecureRandom::urlsafe_base64 16

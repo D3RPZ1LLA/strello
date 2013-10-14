@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009233314) do
+ActiveRecord::Schema.define(:version => 20131014203646) do
 
   create_table "boards", :force => true do |t|
     t.string   "title",      :null => false
@@ -85,13 +85,17 @@ ActiveRecord::Schema.define(:version => 20131009233314) do
   add_index "participations", ["user_id"], :name => "index_participations_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",           :null => false
-    t.string   "password_digest", :null => false
+    t.string   "email",               :null => false
+    t.string   "password_digest",     :null => false
     t.string   "username"
     t.string   "bio"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "token"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

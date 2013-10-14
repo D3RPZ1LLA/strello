@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 1d8982325fb43ee654b9476b34213a37429d7e22
+  specs:
+    paperclip (3.5.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -86,11 +96,6 @@ GEM
     mime-types (1.25)
     multi_json (1.8.1)
     nokogiri (1.5.10)
-    paperclip (3.5.1)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.0)
-      mime-types
     pg (0.17.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -152,7 +157,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   jquery-rails
-  paperclip
+  paperclip!
   pg
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)

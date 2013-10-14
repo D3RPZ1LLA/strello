@@ -21,10 +21,19 @@
 
 	<nav class="user-nav">
 		<div class="big-avatar">
-      <%= image_tag("happy-cat1.jpg")%>
-			<div class="change-avatar">
+      <%= image_tag current_user.avatar.url(:big) %>
+			<div class="change-avatar hidden">
 				<span>Change Avatar</span>
 			</div>
 		</div>
+		<%= form_for current_user, url: user_url(current_user), html: { class: "avatar-upload" } do |f| %>
+			<input type="hidden"
+			name="authenticity_token"
+			value="<%= form_authenticity_token %>">
+			
+			<%= f.file_field :avatar %>
+			<br>
+			<%= f.submit "Update Avatar" %>
+		<% end%>
 	</nav>
 </article>

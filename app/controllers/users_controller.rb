@@ -27,6 +27,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    if request.xhr?
+      render json: @user
+    else
+      redirect_to boards_url
+    end
   end
 
   def destroy

@@ -48,11 +48,16 @@
 }
 
 .user-nav {
+	width: 170px;
 	float: left;
 }
 
 .user-nav .big-avatar {
 	position: relative;
+}
+
+.big-avatar:hover .change-avatar {
+	display: block;	
 }
 
 .user-nav .change-avatar {
@@ -63,7 +68,6 @@
 	padding: 15px 0;
 	background-color: black;
 	text-align: center;
-//	opacity: 0.6;
 }
 
 .user-nav .change-avatar:hover {
@@ -75,4 +79,8 @@
 	font-size: 90%;
 	color: white;
 	text-decoration: underline;
+}
+
+.avatar-upload {
+	
 }
