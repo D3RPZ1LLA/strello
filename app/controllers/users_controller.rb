@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       login!(@user)
-      redirect_to boards_url
+      redirect_to root_url
     else
       render :new
     end

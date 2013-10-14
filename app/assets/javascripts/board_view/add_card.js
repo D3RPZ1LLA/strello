@@ -43,11 +43,10 @@ $(document).ready(function () {
     $(event.target).parent().submit();
   });
 
-  $(".actually-card-new-form").on("ajax:success", function(event, data){
+  $('body').on("ajax:success", ".actually-card-new-form", function(event, data){
     var $form = $(this);
 		
-    $($form).parent().parent().parent().children('ul').append(newCard(data));
-		console.log($(event.target));
+    $form.parent().parent().parent().children('ul').append(newCard(data));
 
     $form[0].reset();
     resetCardRender();
