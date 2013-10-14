@@ -15,17 +15,6 @@ section.card-main {
   float: left;
 }
 
-.exit {
-	background: transparent;
-	font-weight: bold;
-	color: gray;
-}
-
-.exit:hover {
-	cursor: pointer;	
-	color: black;
-}
-
 .card-page .exit {
 	position: absolute;
 	top: 5px;

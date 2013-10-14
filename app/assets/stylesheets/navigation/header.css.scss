@@ -18,18 +18,9 @@
   position: relative;
 }
 
-.avatar {
-  border: solid gray 2px;
-  width: 34px;
-  height: 34px;
-  border-radius: 5px;
-}
-
-.avatar  img {
-  height: 100%;
-}
-
-#board-list {
+.board-list {
+	position: relative;
+	z-index: 1;
   top: 50px;
   right: 5px;
   position: absolute;
@@ -38,38 +29,57 @@
   color: black;
   border: solid gray 1px;
   border-radius: 5px;
+	font-size: 90%;
 }
 
-#board-list > h4 {
-  padding: 7px 0;
-  margin: 0 7px;
+.board-list h4 {
+  margin: 7px;
   text-align: center;
-  border-bottom: solid gray 1px;
   font-weight: bold;
   color: gray;
 }
 
-#board-list > ul {
+.board-list h5 {
+	color: gray;
+  margin: 7px 0;
+  font-weight: bold;
+	
 }
 
-#board-list > ul a {
+.board-list > ul {
+	margin: 10px;
+}
 
+.board-list > ul > li {
+	position: relative;
+	border-top: gray solid 1px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+
+.board-list > ul a {
   color: black;
   font-weight: bold;
 }
 
-#board-list ul li {
-  padding: 10px;
+.board-list ul > li > ul li {
+	padding: 10px;
+	margin: 0 -10px;
 }
 
-#board-list > ul a:hover li {
+.board-list > ul a:hover li {
  background-color: blue;
  color: white;
 }
 
-#board-list {}
+.board-list .exit {
+	position: absolute;
+	font-size: 80%;
+	top: 8px;
+	right: 15px;
+}
 
-.boards {
+.boards-button {
   padding: 9px;
   background-color: #009999;
   color: white;
@@ -78,7 +88,11 @@
   font-weight: bold;
 }
 
-.boards > div {
+.boards-button:hover {
+	cursor: pointer;
+}
+
+.boards-button > div {
   padding: 2px 3px;
   width: 15px;
   height: 15px;
@@ -89,20 +103,20 @@
   border-radius: 2px;
 }
 
-.boards > div > div {
+.boards-button > div > div {
   background-color: #009999;
   margin-right: 1px;
   margin-top: 1px;
   border-radius: 2px;
 }
 
-.boards > div > div:first-child {
+.boards-button > div > div:first-child {
  height: 13px;
  width: 6px;
  float: left;
 }
 
-.boards > div > div:last-child {
+.boards-button > div > div:last-child {
   width: 6px;
   height: 8px;
   float: right;

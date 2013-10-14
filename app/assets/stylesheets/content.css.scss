@@ -17,3 +17,14 @@ article.board {
 .save:hover {
 	cursor: pointer;	
 }
+
+.exit {
+	background: transparent;
+	font-weight: bold;
+	color: gray;
+}
+
+.exit:hover {
+	cursor: pointer;	
+	color: black;
+}

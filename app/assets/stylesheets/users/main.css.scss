@@ -15,3 +15,18 @@
 	font-weight: bold;
 	font-size: 115%;
 }
+
+.avatar {
+  border: solid gray 2px;
+  width: 34px;
+  height: 34px;
+  border-radius: 5px;
+}
+
+.avatar:hover {
+	cursor: pointer;
+}
+
+.avatar img {
+  height: 100%;
+}

@@ -6,7 +6,7 @@
   <nav>
     <ul>
       <li>
-        <div class="boards">
+        <div class="boards-button">
           <div>
             <div></div>
             <div></div>
@@ -19,19 +19,37 @@
           <%= image_tag("happy-cat1.jpg")%>
         </div>
       </li>
-
     </ul>
   </nav>
 
-  <div id="board-list" class="hidden">
+  <div class="board-list hidden">
+		<button class="exit">X</button>
     <h4>Boards</h4>
     <ul>
-      <li> My Boards </li>
-      <% current_user.member_boards.each do |board| %>
-      <a href="<%= board_url(board) %>">
-        <li><%= board.title %></li>
-      </a>
-      <% end %>
+			<li>
+				<h5>My Boards</h5>
+				<ul>
+		      <% current_user.member_boards.each do |board| %>
+		      <a href="<%= board_url(board) %>">
+		        <li><%= board.title %></li>
+		      </a>
+		      <% end %>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<a href="<%= boards_url %>">
+						<li>
+							See All Boards
+						</li>
+					</a>
+					<a href="<%= new_board_url %>">
+						<li> 
+							New Board...
+						</li>
+					</a>
+				</ul>
+			</li>
     </ul>
   </div>
 </header>
