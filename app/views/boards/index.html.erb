@@ -1,12 +1,30 @@
+<%= render partial: "users/header", locals: { board: @board } %>
 
 
-<h1>Your Boards</h1>
-<table>
-	<% @boards.each do |board| %>
-	<tr>
-		<td><%= link_to "#{board.title}", board_url(board) %></td>
-	</tr>
-	<% end %>
-</table>
-<br>
-<%= link_to "New Board", new_board_url %>
+<article class="user-pages group">
+	<section class="board-index">
+		<h1>My Boards</h1>
+		<a href="<%= new_board_url %>"><span> New board...</span></a>
+		<!-- <div class="new-board"></div> -->
+		<ul>
+			<% @boards.each do |board| %>
+			<li>
+				<a href="<%= board_url(board) %>">
+					<nav>
+						<%= board.title %>
+					</nav>
+				</a>
+			</li>
+			<% end %>
+		</ul>
+	</section>
+
+	<nav class="user-nav">
+		<div class="big-avatar">
+      <%= image_tag("happy-cat1.jpg")%>
+			<div class="change-avatar">
+				<span>Change Avatar</span>
+			</div>
+		</div>
+	</nav>
+</article>

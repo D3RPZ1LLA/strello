@@ -1,0 +1,78 @@
+.user-pages {
+	position: relative;
+	width: 670px;
+	margin: 45px auto;
+}
+
+.board-index {
+	margin: 0 25px;
+	width: 428px;
+	float: left;
+}
+
+.board-index > h1 {
+	font-weight: bold;
+	display: inline;
+}
+
+.board-index > a {
+	font-size: 90%;
+	text-decoration: underline;
+	color: gray;
+}
+
+.board-index > a:hover {
+	color: black;	
+	cursor: pointer;
+}
+
+.board-index > ul > li nav {
+	border-radius: 4px;
+	padding: 7px;
+	margin: 5px 0;
+	color: black;
+}
+
+.board-index > ul > li {
+	border-bottom: solid gray 1px;
+}
+
+.board-index > ul > li:first-child {
+	margin-top: 10px;
+	border-top: solid gray 1px;
+}
+
+.board-index > ul > li nav:hover {
+	background-color: #2d81b2;
+	color: white;
+}
+
+.user-nav {
+	float: left;
+}
+
+.user-nav .big-avatar {
+	position: relative;
+}
+
+.user-nav .change-avatar {
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+	width: 100%;
+	padding: 15px 0;
+	background-color: black;
+	text-align: center;
+//	opacity: 0.6;
+}
+
+.user-nav .change-avatar:hover {
+	cursor: pointer;	
+}
+
+.user-nav .change-avatar > span {
+	font-weight: bold;
+	font-size: 90%;
+	color: white;
+	text-decoration: underline;
+}

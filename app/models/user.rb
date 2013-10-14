@@ -4,7 +4,13 @@ class User < ActiveRecord::Base
   include BCrypt
 
   attr_accessible :token, :bio, :email, :password_digest,
-     :username, :password, :password_verify
+    :username, :password, :password_verify, :avatar
+     
+  has_attached_file :avatar, styles: {
+    big: '170x170#',
+    thumbnail: '34x34#' 
+  }
+     
   attr_accessor :password, :password_verify
 
   has_many :created_boards,

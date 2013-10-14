@@ -64,4 +64,14 @@ Clairvoyance::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "strello_production",
+      :access_key_id => "AKIAJ4CITKQ3EQORA3KA",
+      :secret_access_key => "sSjVlvCa/hAe6EFXYXxv/Zh2PwDxhYp06Z+UYM21",
+      :s3_host_name => 's3.amazonaws.com' # or whatever your region host name is
+    }
+  }
 end
