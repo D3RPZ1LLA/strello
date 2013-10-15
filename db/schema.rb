@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014203646) do
+ActiveRecord::Schema.define(:version => 20131015134456) do
 
   create_table "boards", :force => true do |t|
     t.string   "title",      :null => false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20131014203646) do
     t.integer  "catagory_id", :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "sort_idx"
   end
 
   add_index "cards", ["catagory_id"], :name => "index_cards_on_catagory_id"
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20131014203646) do
     t.integer  "board_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "sort_idx"
   end
 
   add_index "catagories", ["board_id"], :name => "index_catagories_on_board_id"

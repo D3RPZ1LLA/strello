@@ -8,7 +8,7 @@ Clairvoyance::Application.routes.draw do
     resources :memberships, only: [:new, :create]
   end
 
-  resources :catagories, only: [:show, :destroy] do
+  resources :catagories, only: [:update, :destroy] do
     resources :cards, only: [:new, :create]
   end
 

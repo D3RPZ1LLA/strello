@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  attr_accessible :description, :due_date, :start_date, :title, :catagory_id
+  attr_accessible :description, :due_date, :start_date, :title, :catagory_id, :sort_idx
 
   belongs_to :catagory,
   class_name: "Catagory",

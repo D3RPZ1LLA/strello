@@ -8,6 +8,11 @@ data-remote="true">
 	<input type="hidden"
 	name="authenticity_token"
 	value="<%= form_authenticity_token %>">
+	
+	<input type="hidden"
+	id="catagory-sort-idx"
+	name="catagory[sort_idx]"
+	value="<%= idx %>">
 
 	<input type="text"
 	name="catagory[title]">

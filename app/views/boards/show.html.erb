@@ -5,19 +5,19 @@
 
 <article class="board" style="min-width: <%= (@board.catagories.count + 1) * 290 %>px;">
   <ul id="board-lists" class="group">
-    <% @board.catagories.sort { |x, y| x.created_at <=> y.created_at }.each do |catagory| %>
-    <li class="list">
+    <% @board.catagories.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |catagory| %>
+    <li class="list" data-id="<%= catagory.id %>" data-idx="<%= catagory.sort_idx %>">
       <h4><%= catagory.title %></h4>
 
       <ul class="group">
-        <% catagory.cards.sort { |x, y| x.created_at <=> y.created_at }.each do |card| %>
+        <% catagory.cards.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |card| %>
           <%= render partial: "cards/card", locals: { card: card } %>
         <% end %>
       </ul>
 
       <div class="new-card-form">
         <div class="new-card hidden">
-          <%= render partial: "cards/new", locals: { catagory: catagory } %>
+          <%= render partial: "cards/new", locals: { catagory: catagory, idx: catagory.cards.count } %>
         </div>
         <div class="add-card">Add a card...</div>
       </div>
@@ -25,8 +25,8 @@
     </li>
     <% end %>
    
-    <li>
-			<%= render partial: "catagories/new", locals: { board: @board } %>
+    <li id="new-catagory-li">
+			<%= render partial: "catagories/new", locals: { board: @board, idx: @board.catagories.count } %>
      
 			<div class="new-list">
 				 Add a List...
