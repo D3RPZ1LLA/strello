@@ -34,7 +34,7 @@ $(document).ready(function () {
 			'" data-idx="' + data.sort_idx + '"><h4>' + data.title + 
 			'</h4><ul class="group"></ul><div class="new-card-form"><div class="new-card hidden"><form class="actually-card-new-form" action="/catagories/' + data.id + '/cards" method="POST" accept-charset="utf-8"	data-remote="true"><input type="hidden"	name="authenticity_token"	value="<%= form_authenticity_token %>"><textarea name="card[title]"></textarea><br><button class="save">Add</button></form></div><div class="add-card">Add a card...</div></div></li>'
 		);
-		
+				
 		var minWidth = parseInt($('.board').css('min-width').slice(0, -2));
 		minWidth += 290;
 		$('.board').css('min-width', minWidth);
@@ -56,5 +56,55 @@ $(document).ready(function () {
 		$newCatagoryLi.detach();
 		$('#board-lists').append($newCatagoryLi);
 		resetNewList();
+		
+		reorderLists();
 	});
+	
+	
+/* Sorting Functions */
+	var reorderLists = function () {
+			// console.log('here2');
+			var nonListPassed = false;
+			
+			$('#board-lists').children().each(function (idx, li) {
+				var $li = $(li);
+				var properIdx = nonListPassed ? idx - 1: idx;
+				// console.log($li.hasClass('list'));
+				// console.log($li.data('idx') !== properIdx);
+				
+				if ($li.hasClass('list') && $li.data('idx') !== properIdx) {
+					
+					$li.data('idx') !== idx
+
+					console.log('3');
+
+					$.ajax({
+						url: '/catagories/' + $li.data('id'),
+						type: "PUT",
+						dataType: 'json',
+						data: {
+							catagory: {
+								sort_idx: nonListPassed ? idx - 1: idx
+							}
+						},
+						success: function (resp) {
+							console.log('success');
+							$li.data('idx', resp.sort_idx);
+						}
+					});
+					
+				} else if ($li.is('#new-catagory-li')) {
+					nonListPassed = true;
+					// console.log('yer?');
+					$li.children('form').children('#catagory-sort-idx').val(idx);
+				}
+			});
+		};
+	
+	$('#board-lists').sortable({
+		stop: function (event, ui) {
+			reorderLists();
+		}
+	});
+	
 });
