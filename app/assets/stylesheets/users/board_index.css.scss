@@ -5,9 +5,25 @@
 }
 
 .board-index {
+	position: relative;
 	margin: 0 25px;
 	width: 428px;
 	float: left;
+}
+
+.board-index #my-boards-icon {
+	position: absolute;
+	top: -4px;
+	left: -35px;
+	width: 30px;
+}
+
+.board-index #new-board-icon {
+	width: 20px;
+	margin-left: 3px;
+	margin-right: -3px;
+	display: inline-block;
+	opacity: 0.6;
 }
 
 .board-index > h1 {
@@ -15,15 +31,23 @@
 	display: inline;
 }
 
-.board-index > a {
+.board-index > a span {
 	font-size: 90%;
 	text-decoration: underline;
-	color: gray;
+	color: #949494;
 }
 
 .board-index > a:hover {
 	color: black;	
 	cursor: pointer;
+}
+
+.board-index > a:hover #new-board-icon {
+	opacity: 1.0;
+}
+
+.board-index > a:hover span {
+	color: black;
 }
 
 .board-index > ul > li nav {
@@ -34,12 +58,12 @@
 }
 
 .board-index > ul > li {
-	border-bottom: solid gray 1px;
+	border-bottom: solid #dcdcdc 1px;
 }
 
 .board-index > ul > li:first-child {
 	margin-top: 10px;
-	border-top: solid gray 1px;
+	border-top: solid #dcdcdc 1px;
 }
 
 .board-index > ul > li nav:hover {
@@ -54,6 +78,10 @@
 
 .user-nav .big-avatar {
 	position: relative;
+}
+
+.big-avatar:hover {
+	cursor: pointer;
 }
 
 .big-avatar:hover .change-avatar {

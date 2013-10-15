@@ -1,0 +1,23 @@
+<form class="new-board-form"
+action="<%= boards_url %>" 
+method="POST" 
+accept-charset="utf-8">
+	<div class="exit">
+    <%= image_tag("exit.png")%>
+	</div>
+
+	<h1>Create Board</h1>
+	
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<label>Title
+		<br>
+		<input type="text"
+		name="board[title]"
+		placeholder="Untitled Board">
+	</label>
+
+	<p><input class="save" type="submit" value="Create Board"></p>
+</form>

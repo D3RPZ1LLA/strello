@@ -1,11 +1,18 @@
 <%= render partial: "users/header", locals: { board: @board } %>
 
-
 <article class="user-pages group">
 	<section class="board-index">
+		<div id="my-boards-icon">
+	    <%= image_tag("people_head.png")%>
+		</div>
 		<h1>My Boards</h1>
-		<a href="<%= new_board_url %>"><span> New board...</span></a>
-		<!-- <div class="new-board"></div> -->
+		<a href="<%= new_board_url %>">
+			<div id="new-board-icon">
+				<%= image_tag("boards_dark.png")%>
+			</div>
+			<span>New board...</span>
+		</a>
+		<%= render partial: "boards/new" %>
 		<ul>
 			<% @boards.each do |board| %>
 			<li>
