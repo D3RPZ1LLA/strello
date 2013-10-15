@@ -90,6 +90,10 @@ $(document).ready(function () {
 						success: function (resp) {
 							console.log('success');
 							$li.data('idx', resp.sort_idx);
+						},
+						error: function (resp) {
+							console.log('catagory update failed');
+							console.log(resp);
 						}
 					});
 					
