@@ -52,4 +52,21 @@ $(document).ready(function () {
     resetCardRender();
   });
   
+/* Sorting Functions */
+	var reorderCards = function () {
+		
+	};
+	
+  $(".list ul").sortable({
+          connectWith: ".list ul",
+					dropOnEmpty: true,
+          start: function (event, ui) {
+            // ui.item.toggleClass("highlight");
+          },
+          stop: function (event, ui) {
+            // ui.item.toggleClass("highlight");
+						reorderCards();
+          }
+  });
+  $(".list ul").disableSelection();
 });

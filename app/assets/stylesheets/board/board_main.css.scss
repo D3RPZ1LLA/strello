@@ -24,13 +24,13 @@ li.list {
 	overflow: visible;	
 }
 
-.list > h4 {
-  font-weight: bold;
-  padding: 5px 10px;
+.list > ul {
+	min-height: 22px;
 }
 
-.list > ul {
-
+.list > h4 {
+  font-weight: bold;
+  padding: 5px 10px 0px 10px;
 }
 
 #add-list-form {
