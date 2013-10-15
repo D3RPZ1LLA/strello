@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	position: relative;
+  font-family: sans-serif;
+	background-color: #f0f0f0;
+	color: #303030;
+}
+
+.hidden {
+  display: none;
+}
+
 .save {
   background-color: green;
   border-radius: 4px;

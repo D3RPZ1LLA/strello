@@ -30,14 +30,17 @@ class CardsController < ApplicationController
     end
   end
 
-  def edit
-    if @card = Card.includes(
-        {checklists: [:checklist_items]}, 
-        :participants, 
-        {catagory: [board: :members]} 
-      ).find(params[:id])
-      
-      render :edit
+  def show
+    @card = Card.includes(
+      {checklists: [:checklist_items]}, 
+      :participants, 
+      {catagory: [board: :members]} 
+    ).find(params[:id])
+    
+    if request.xhr?
+      render json: @card
+    else
+      render :show
     end
   end
 

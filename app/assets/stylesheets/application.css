@@ -28,20 +28,10 @@ html, body {
 	height: 100%;
 }
 
-body {
-  font-family: sans-serif;
-	background-color: #f0f0f0;
-	color: #303030;
-}
-
 .group:after {
   content: "";
   clear: both;
   display: table;
-}
-
-.hidden {
-  display: none;
 }
 
 img {
