@@ -11,7 +11,7 @@
 
       <ul class="group">
         <% catagory.cards.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |card| %>
-          <%= render partial: "cards/card", locals: { card: card } %>
+          <%= render partial: "cards/card", locals: { card: card, catagory: catagory } %>
         <% end %>
       </ul>
 			

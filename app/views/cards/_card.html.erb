@@ -1,4 +1,8 @@
-<li data-id="<%= card.id %>" data-idx="<%= card.sort_idx %>">
+<li 
+data-id="<%= card.id %>" 
+data-idx="<%= card.sort_idx %>"
+data-catagory-id="<%= catagory.id %>">
+
 	<a href="<%= edit_card_url(card) %>">
   <div class="card-text card">
     <%= card.title %>
