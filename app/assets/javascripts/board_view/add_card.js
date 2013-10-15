@@ -61,7 +61,6 @@ $(document).ready(function () {
 			
 			$list.children('ul').children().each(function (idxC, card) {
 				var $card = $(card);
-				// console.log($card.data('id'));
 				
 				if ($card.data('idx') !== idxC) {			
 					$.ajax({
@@ -70,6 +69,7 @@ $(document).ready(function () {
 						dataType: 'json',
 						data: {
 							card: {
+								catagory_id: $list.data('id'),
 								sort_idx: idxC
 							}
 						},

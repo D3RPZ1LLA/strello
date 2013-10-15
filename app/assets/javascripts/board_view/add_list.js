@@ -63,20 +63,13 @@ $(document).ready(function () {
 	
 /* Sorting Functions */
 	var reorderLists = function () {
-			// console.log('here2');
 			var nonListPassed = false;
 			
 			$('#board-lists').children().each(function (idx, li) {
 				var $li = $(li);
 				var properIdx = nonListPassed ? idx - 1: idx;
-				// console.log($li.hasClass('list'));
-				// console.log($li.data('idx') !== properIdx);
 				
 				if ($li.hasClass('list') && $li.data('idx') !== properIdx) {
-					
-					$li.data('idx') !== idx
-
-					console.log('3');
 
 					$.ajax({
 						url: '/catagories/' + $li.data('id'),
@@ -88,7 +81,6 @@ $(document).ready(function () {
 							}
 						},
 						success: function (resp) {
-							console.log('success');
 							$li.data('idx', resp.sort_idx);
 						},
 						error: function (resp) {
@@ -99,7 +91,6 @@ $(document).ready(function () {
 					
 				} else if ($li.is('#new-catagory-li')) {
 					nonListPassed = true;
-					// console.log('yer?');
 					$li.children('form').children('#catagory-sort-idx').val(idx);
 				}
 			});
