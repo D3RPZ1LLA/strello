@@ -35,7 +35,9 @@ $(document).ready(function () {
   var appendCard = function($form, data) {
 		$form.parent().parent().parent().children('ul').append(
 			'<li data-id"' + data.id + '" data-idx="' + data.sort_idx + 
-			'"><a href="/cards/' + data.id + '/edit"><div class="card-text card">' + 
+			'" data-catagory-id="' + data.catagory_id + 
+			'"><a href="/cards/' + data.id + 
+			'/edit"><div class="card-text card">' + 
 			data.title + '</div></a></li>'
 		);
   };
@@ -62,7 +64,7 @@ $(document).ready(function () {
 			$list.children('ul').children().each(function (idxC, card) {
 				var $card = $(card);
 				
-				if ($card.data('idx') !== idxC) {			
+				if ($card.data('idx') !== idxC || $card.data('catagory-id') !== $list.data('id')) {			
 					$.ajax({
 						url: '/cards/' + $card.data('id'),
 						type: "PUT",
@@ -74,8 +76,8 @@ $(document).ready(function () {
 							}
 						},
 						success: function (resp) {
-							console.log('card success');
 							$card.data('idx', resp.sort_idx);
+							$card.data('catagory-id', resp.catagory_id);
 						},
 						errror: function (resp) {
 							console.log('card update failed');
