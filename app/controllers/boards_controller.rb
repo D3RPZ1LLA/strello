@@ -21,7 +21,7 @@ class BoardsController < ApplicationController
       Catagory.create(board_id: @board.id, title: "Done", sort_idx: 2)
       redirect_to board_url(@board)
     else
-      render :new
+      redirect_to root_url
     end
   end
 

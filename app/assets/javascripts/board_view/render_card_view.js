@@ -6,7 +6,7 @@ $(document).ready(function () {
 	};
 	
 	$('.card-link').on('click', function(event) {
-		// event.preventDefault();
+		event.preventDefault();
 		var $target = $(event.target);
 
 		while ( !($target.data('id')) ) {

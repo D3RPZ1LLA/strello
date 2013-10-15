@@ -1,0 +1,25 @@
+<form id="card-description-form"
+action="<%= card_url(@card) %>"
+method="POST"
+accept-charset="utf-8"
+data-remote="true">
+  <input type="hidden" name="_method" value="PUT">
+
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+
+  <div class="card-description">
+    <div class="card-description-detail detail">
+      <h4><%= @card.description %></h4>
+      <br>
+      <button class="card-edit-button">Edit the card description.</button>
+    </div>
+    <div class="card-description-input input hidden">
+      <textarea name="card[description]"
+      class="card-description-textarea"><%= @card.description %></textarea>
+      <button id="card-description-button" class="save">Save</button>
+    </div>
+  </div>
+</form>
