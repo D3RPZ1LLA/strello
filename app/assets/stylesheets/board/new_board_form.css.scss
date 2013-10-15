@@ -3,7 +3,7 @@
 	background-color: white;
 	width: 271px;
 	padding: 9px 9px 0 9px;
-	border: solid gray 1px;
+	border: solid #b9b9b9 1px;
 	border-radius: 3px;
 }
 
@@ -32,6 +32,7 @@
 }
 
 .new-board-form > label {
+	color: #444444;
 	font-weight: bold;
 	font-size: 90%;
 }

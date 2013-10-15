@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  # before_filter :logged_in_clearance
+  before_filter :logged_in_clearance
   before_filter :member_clearance, only: [:show, :pending, :finished]
 
   def index

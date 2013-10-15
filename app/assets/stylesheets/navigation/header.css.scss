@@ -32,7 +32,7 @@
   background-color: white;
   width: 310px;
   color: black;
-  border: solid gray 1px;
+  border: solid #b9b9b9 1px;
   border-radius: 5px;
 	font-size: 90%;
 }
@@ -48,7 +48,6 @@
 	color: gray;
   margin: 7px 0;
   font-weight: bold;
-	
 }
 
 .board-list > ul {
@@ -57,19 +56,19 @@
 
 .board-list > ul > li {
 	position: relative;
-	border-top: gray solid 1px;
+	border-top: #dcdcdc solid 1px;
 	margin-bottom: 10px;
 	padding-top: 10px;
 }
 
 .board-list > ul a {
-  color: black;
-  font-weight: bold;
+  color: #444444;
 }
 
 .board-list ul > li > ul li {
 	padding: 10px;
 	margin: 0 -10px;
+  font-weight: bold;
 }
 
 .board-list > ul a:hover li {
