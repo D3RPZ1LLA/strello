@@ -19,7 +19,7 @@ $(document).ready(function() {
 						dataType: 'json',
 						data: {
 							catagory: {
-								sort_idx: idx
+								sort_idx: nonListPassed ? idx - 1: idx
 							}
 						},
 						success: function (resp) {
