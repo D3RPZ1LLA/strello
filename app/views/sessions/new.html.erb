@@ -36,23 +36,6 @@
 	</div>
 
 	<div class="login-right">
-		Or log in with:
-		<br>
-		<form action="<%= session_url %>" method="POST" accept-charset="utf-8">
-			
-			<input type="hidden"
-			name="authenticity_token"
-			value="<%= form_authenticity_token %>">
-			
-			<input type="hidden"
-			name="user[email]"
-			value="guest@strello.heroku.com">
-			
-			<input type="hidden"
-			name="user[password]"
-			value="password">
-		
-			<input class="save" type="submit" value="Guest Account">
-		</form>
+		<%= render partial: "sessions/guest_login" %>
 	</div>
 </section>

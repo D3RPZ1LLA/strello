@@ -66,15 +66,8 @@ class CatagoriesController < ApplicationController
   end
   
   def reorder
-    if request.xhr?
-      @board = Board.includes(:catagories).find(params[:board_id])
-      
-      # p params[:catagories]
-      # p current_user.id
-      # puts (current_user.id.to_s) + "_" + (SecureRandom::urlsafe_base64 16)
-      
+    if request.xhr?      
       ActiveRecord::Base.connection.execute(Catagory.generate_reorder(params[:catagories], current_user.id))
-      
       head status: 200
     else
       redirect_to root_url
