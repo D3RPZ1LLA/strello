@@ -37,7 +37,7 @@ $(document).ready(function () {
 			'<li data-id"' + data.id + '" data-idx="' + data.sort_idx + 
 			'" data-catagory-id="' + data.catagory_id + 
 			'"><a href="/cards/' + data.id + 
-			'/edit"><div class="card-text card">' + 
+			'"><div class="card-text card">' + 
 			data.title + '</div></a></li>'
 		);
   };
