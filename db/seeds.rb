@@ -5,21 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-kitty = User.create(
+
+User.create(
   email: 'kitty',
   password: 'codefu',
   password_verify: 'codefu'
 )
 
-User.create(
-  email: 'member1',
-  password: 'codefu',
-  password_verify: 'codefu'
+guest = User.create(
+  email: 'guest@strello.heroku.com',
+  password: 'password',
+  password_verify: 'password'
 )
 
-first_board = kitty.created_boards.create(title: 'first_board')
+welcome_board = guest.created_boards.create(title: 'Welcome Board')
 
-Membership.create(board_id: first_board.id, user_id: kitty.id, admin: true)
+Membership.create(board_id: welcome_board.id, user_id: guest.id, admin: true)
 
 # first_catagory = first_board.catagories.create(
 #   title: "first_catagory"

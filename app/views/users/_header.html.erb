@@ -18,10 +18,10 @@
       </li>
       <li>
         <div class="avatar">
-					<% if (current_user.avatar) %>
-						<%= image_tag current_user.avatar.url(:thumb) %>
+					<% if current_user.avatar.exists? %>
+			      <%= image_tag current_user.avatar.url(:thumb) %>
 					<% else %>
-	          <%= image_tag("happy-cat1.jpg")%>
+						<%= image_tag ("default_avatar.jpg") %>
 					<% end %>
         </div>
       </li>
