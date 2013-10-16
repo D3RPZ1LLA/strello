@@ -3,7 +3,11 @@
 	<%= render partial: "header", locals: { board: @board } %>
 </section>
 
-<article class="board" style="min-width: <%= (@board.catagories.count + 1) * 290 %>px;">
+<article 
+class="board" 
+data-id="<%= @board.id %>" 
+style="min-width: <%= (@board.catagories.count + 1) * 290 %>px;">
+
   <ul id="board-lists" class="group">
     <% @board.catagories.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |catagory| %>
     <li class="list" data-id="<%= catagory.id %>" data-idx="<%= catagory.sort_idx %>">
