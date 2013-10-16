@@ -60,5 +60,6 @@ module Clairvoyance
     config.assets.version = '1.0'
     
     config.assets.paths << "vendor/assets"
+    config.assets.paths << "app/assets/templates"
   end
 end

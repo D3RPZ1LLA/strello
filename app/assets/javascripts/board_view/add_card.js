@@ -34,9 +34,9 @@ $(document).ready(function () {
 /* Submit Functions */  
   var appendCard = function($form, data) {
 		$form.parent().parent().parent().children('ul').append(
-			'<li data-id"' + data.id + '" data-idx="' + data.sort_idx + 
+			'<li data-id="' + data.id + '" data-idx="' + data.sort_idx + 
 			'" data-catagory-id="' + data.catagory_id + 
-			'"><a href="/cards/' + data.id + 
+			'"><a class="card-link" href="/cards/' + data.id + 
 			'"><div class="card-text card">' + 
 			data.title + '</div></a></li>'
 		);

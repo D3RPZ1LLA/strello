@@ -38,7 +38,14 @@ class CardsController < ApplicationController
     ).find(params[:id])
     
     if request.xhr?
-      render json: @card
+      render json: @card.as_json( include: [
+        :checklists,
+        :checklist_items,
+        :participants,
+        :catagory,
+        :board,
+        :members
+        ] )
     else
       render :show
     end

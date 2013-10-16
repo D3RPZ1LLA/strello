@@ -1,5 +1,7 @@
-<div class="card-page group">	
-	<button class="exit" data-board-id="<%= @card.board.id %>">X</button>
+<div class="card-page group">
+	<a href="<%= board_url(@card.board) %>">
+		<button class="exit">X</button>
+	</a>
 	
   <section class="card-main">
     <%= render "title_form" %>
@@ -35,7 +37,6 @@
           </li>
           <% end %>
         </ul>
-        <!-- new_card_participation_url(@card) -->
         <button class="assign-member-button sidebar">Assign...</button>
 				<div class="assign-member hidden">
 					<h4>Members</h4>
@@ -47,7 +48,6 @@
         <h4>Actions</h4>
         <ul>
           <li>
-            <!-- new_card_checklist_url(@card) -->
             <button class="add-checklist-button sidebar">Add checklist...</button>
           </li>
         </ul>

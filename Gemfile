@@ -2,11 +2,16 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'rails', '3.2.14'
+gem 'underscore-rails'
+gem 'ejs'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "aws-sdk"
 
 group :development do
   gem 'better_errors'
@@ -26,8 +31,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'underscore-rails'
 gem 'backbone-on-rails'
+
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -44,5 +49,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 gem 'debugger'
 
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-gem "aws-sdk"
+

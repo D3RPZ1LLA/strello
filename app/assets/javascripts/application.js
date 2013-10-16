@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require underscore
 //= require_tree ../../../vendor/assets/javascripts
+//= require_tree ../templates
 //= require_tree .
+
 
 window.CV = {};
