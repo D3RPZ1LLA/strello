@@ -17,22 +17,3 @@ guest = User.create(
   password: 'password',
   password_verify: 'password'
 )
-
-welcome_board = guest.created_boards.create(title: 'Welcome Board')
-
-Membership.create(board_id: welcome_board.id, user_id: guest.id, admin: true)
-
-# first_catagory = first_board.catagories.create(
-#   title: "first_catagory"
-# )
-#
-# first_card = first_board.cards.create(
-#   title:"first_card",
-#   start_date: 1.day.ago,
-#   due_date: 1.week.from_now
-# )
-#
-# first_card.checklist_items.create(title: "Completed")
-#
-# kitty.cards += [first_card]
-# first_card.catagories += [first_catagory]
