@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  /* Render Functions */
+/* Render Functions */
   var renderCardTitleEdit = function () {
     $('.card-title-detail').addClass('hidden');
     $('.card-title-input').removeClass('hidden');
@@ -12,7 +12,7 @@ $(document).ready(function () {
     $('.card-description-input').removeClass('hidden');
   };
 
-  CV.resetAllRender = function () {
+  var resetAllRender = function () {
     var $inputs = $('.card-page .input');
 
     $inputs.each(function (index, el) {
@@ -24,16 +24,15 @@ $(document).ready(function () {
     });
   };
 
-  /* Event Functions */
-  $('.card-title h3').on('click', function(event) {
+  $('body').on('click', '.card-title h3', function(event) {
     renderCardTitleEdit();
   });
 
-  $('.card-edit-button').on('click', function(event) {
+  $('body').on('click', '.card-edit-button', function(event) {
     event.preventDefault();
   });
 
-  $('.card-description-detail').on('click', function(event) {
+  $('body').on('click', '.card-description-detail', function(event) {
     renderCardDescriptionEdit();
   });
 
@@ -44,7 +43,30 @@ $(document).ready(function () {
       !($target.parent().hasClass('detail')) &&
       !($target.parent().hasClass('input')
     )) {
-      CV.resetAllRender();
+      resetAllRender();
     }
+  });
+	
+/* Submit Functions */
+  $('body').on('click', '#card-title-button', function(event) {
+    event.preventDefault();
+    $("#card-title-form").submit();
+  });
+
+  $('body').on('ajax:success', '#card-title-form', function(event, data){
+    var $form = $(this);
+    $('.card-title h3').html(data.title);
+    resetAllRender();
+  });
+
+  $('body').on('click', '#card-description-button', function(event) {
+    event.preventDefault();
+    $('#card-description-form').submit();
+  });
+
+  $('body').on('ajax:success', '#card-description-form', function(event, data){
+    var $form = $(this);
+    $('.card-description h4').html(data.description);
+    resetAllRender();
   });
 });
