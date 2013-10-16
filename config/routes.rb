@@ -6,8 +6,9 @@ Clairvoyance::Application.routes.draw do
   resources :boards do
     resources :catagories, only: [:new, :create]
     resources :memberships, only: [:new, :create]
+    put 'catagories/reorder', to: 'catagories#reorder'
   end
-
+  
   resources :catagories, only: [:update, :destroy] do
     resources :cards, only: [:new, :create]
   end

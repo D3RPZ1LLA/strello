@@ -64,6 +64,7 @@ $(document).ready(function () {
 /* Sorting Functions */
 	var reorderLists = function () {
 			var nonListPassed = false;
+			var alteredCatagories = [];
 			
 			$('#board-lists').children().each(function (idx, li) {
 				var $li = $(li);
@@ -71,22 +72,11 @@ $(document).ready(function () {
 				
 				if ($li.hasClass('list') && $li.data('idx') !== properIdx) {
 
-					$.ajax({
-						url: '/catagories/' + $li.data('id'),
-						type: "PUT",
-						dataType: 'json',
-						data: {
-							catagory: {
-								sort_idx: nonListPassed ? idx - 1: idx
-							}
-						},
-						success: function (resp) {
-							$li.data('idx', resp.sort_idx);
-						},
-						error: function (resp) {
-							console.log('catagory update failed');
-							console.log(resp);
-						}
+					$li.data('idx', properIdx);
+					
+					alteredCatagories.push({
+						id: $li.data('id'),
+						sort_idx: properIdx
 					});
 					
 				} else if ($li.is('#new-catagory-li')) {
@@ -94,6 +84,24 @@ $(document).ready(function () {
 					$li.children('form').children('#catagory-sort-idx').val(idx);
 				}
 			});
+			
+			if (alteredCatagories.length > 0) {
+				$.ajax({
+					url: '/boards/' + $('.board').data('id') + '/catagories/reorder',
+					async: false,
+					type: "PUT",
+					dataType: 'json',
+					data: {
+						catagories: alteredCatagories
+					},
+					success: function (resp) {
+						console.log('success');
+					},
+					error: function (resp) {
+					
+					}
+				});
+			}
 		};
 	
 	$('#board-lists').sortable({

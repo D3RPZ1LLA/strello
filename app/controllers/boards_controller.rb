@@ -26,12 +26,8 @@ class BoardsController < ApplicationController
   end
 
   def show
-    if @board ||= Board.includes(:members, catagories: :cards).find_by_id(params[:id])
-      render :show
-    else
-      flash[:errors] = "Board not found"
-      redirect_to user_boards_url(current_user)
-    end
+    @board = Board.includes(:members, catagories: :cards).find(params[:id])
+    render :show
   end
   
   def update

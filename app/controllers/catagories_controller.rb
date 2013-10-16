@@ -1,5 +1,6 @@
 class CatagoriesController < ApplicationController
   before_filter :logged_in_clearance
+  # needs member clearance
 
   def new
     @board = Board.find(params[:board_id])
@@ -47,7 +48,7 @@ class CatagoriesController < ApplicationController
         redirect_to root_url
       end
     end
-  end  
+  end
 
   def destroy
     if @catagory = Catagory.includes(:board).find_by_id(param[:id])
@@ -61,6 +62,22 @@ class CatagoriesController < ApplicationController
     else
       flash[:errors] = "Catagory not found"
       redirect_to user_url(current_user)
+    end
+  end
+  
+  def reorder
+    if request.xhr?
+      @board = Board.includes(:catagories).find(params[:board_id])
+      
+      # p params[:catagories]
+      # p current_user.id
+      # puts (current_user.id.to_s) + "_" + (SecureRandom::urlsafe_base64 16)
+      
+      ActiveRecord::Base.connection.execute(Catagory.generate_reorder(params[:catagories], current_user.id))
+      
+      head status: 200
+    else
+      redirect_to root_url
     end
   end
 end
