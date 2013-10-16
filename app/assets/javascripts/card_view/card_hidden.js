@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
 /* Render Functions */
   var renderCardTitleEdit = function () {
     $('.card-title-detail').addClass('hidden');
