@@ -1,33 +1,55 @@
-<h1>Sign Up</h1>
+<div class="login-logo">
+  <%= image_tag("login.png")%>
+</div>
 
-<% if @user.errors.any? %>
-<ul>
-	<% @user.errors.full_messages.each do |msg| %>
-	<li><%= msg %></li>
-	<% end %>
-</ul>
-<% end %>
+<section class="new-user-view users group">
+	<div class="login-left">
+		<h1>Create An Account</h1>
 
-<form action="<%= users_url %>" method="POST" accept-charset="utf-8">
-	<input type="hidden"
-	name="authenticity_token"
-	value="<%= form_authenticity_token %>">
+		<% if @user.errors.any? %>
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+		<% end %>
 
-	<label>Email
-		<input type="text"
-		name="user[email]"
-		value="<%= @user.email %>">
-	</label>
+		<form action="<%= users_url %>" method="POST" accept-charset="utf-8">
+			<input type="hidden"
+			name="authenticity_token"
+			value="<%= form_authenticity_token %>">
 
-	<label>Password
-		<input type="password"
-		name="user[password]">
-	</label>
+			<label>Email
+				<br>
+				<input type="text"
+				name="user[email]"
+				value="<%= @user.email %>">
+			</label>
+			<br>
 
-	<label>Password (again)
-		<input type="password"
-		name="user[password_verify]">
-	</label>
+			<label>Password
+				<br>
+				<input type="password"
+				name="user[password]">
+			</label>
+			<br>
 
-	<p><input type="submit" value="Sign Up"></p>
-</form>
+			<label>Password (again)
+				<br>
+				<input type="password"
+				name="user[password_verify]">
+			</label>
+			<br>
+			
+			<input class="save" type="submit" value="Sign Up">
+			<br>
+			Already have an account? <%= link_to "Log In.", new_session_url %>
+		</form>
+	</div>
+
+	<div class="login-right">
+		Or log in with:
+		<br>
+		<button class="save">Guest Account</button>
+	</div>
+</section>

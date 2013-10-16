@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
-  before_filter :logged_in_clearance
-  before_filter :member_clearance, only: [:show, :pending, :finished]
+  before_filter :logged_in_clearance, only: [:index, :new, :create]
+  before_filter :member_clearance, only: [:show, :update]
 
   def index
     @boards = Board.includes(:members).select { |board| board.members.include?(current_user) }

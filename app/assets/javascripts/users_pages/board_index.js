@@ -1,8 +1,9 @@
 $(document).ready(function () {
+
 	var resetNewBoardForm = function () {
 		$('.new-board-form').addClass('hidden');
 	};
-	
+
 	$('.new-board-link').on('click', function(event) {
 		event.preventDefault();
 		$('.new-board-form').toggleClass('hidden');
@@ -26,4 +27,5 @@ $(document).ready(function () {
 	$('.new-board-form .exit').on('click', function (event) {
 		resetNewBoardForm();
 	});
+
 });

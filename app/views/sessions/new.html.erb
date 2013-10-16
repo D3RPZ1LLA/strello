@@ -28,14 +28,31 @@
 				type="password"
 				name="user[password]">
 			</label>
-
-			<p><input class="save" type="submit" value="Login"></p>
+			<br>
+			<input class="save" type="submit" value="Login"> <%= link_to "Forgot Your Password", "#" %>
+			<br>
+			New here? <%= link_to "Create an Account.", new_user_url %>
 		</form>
 	</div>
 
 	<div class="login-right">
 		Or log in with:
 		<br>
-		<button class="save">Google Account</button>
+		<form action="<%= session_url %>" method="POST" accept-charset="utf-8">
+			
+			<input type="hidden"
+			name="authenticity_token"
+			value="<%= form_authenticity_token %>">
+			
+			<input type="hidden"
+			name="user[email]"
+			value="guest@strello.heroku.com">
+			
+			<input type="hidden"
+			name="user[password]"
+			value="password">
+		
+			<input class="save" type="submit" value="Guest Account">
+		</form>
 	</div>
 </section>

@@ -23,7 +23,7 @@ module SessionsHelper
   private
   def logged_in_clearance
     unless logged_in?
-      redirect_to new_user_url
+      redirect_to new_session_url
     end
   end
 
