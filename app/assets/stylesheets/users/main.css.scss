@@ -26,7 +26,11 @@
   border: solid gray 1px;
   width: 30px;
   height: 30px;
-  border-radius: 5px;
+  border-radius: 3px;
+}
+
+.avatar img {
+  border-radius: 3px;
 }
 
 .avatar:hover {

@@ -70,10 +70,30 @@
 	width: 255px;
 	padding: 15px 10px 15px 15px;
 	background-color: #f0f0f0;
-	border-left: solid #c4c4c4 1px;
 	border-bottom: solid #c4c4c4 1px;
+	border-left: solid #c4c4c4 1px;
 	border-bottom-left-radius: 3px;
 	z-index: 1;
+}
+
+#board-sidebar-exit {
+	position: absolute;
+	top: 7px;
+	left: -26px;
+	padding: 5px 5px 5px 10px;
+	background-color: #f0f0f0;
+	border-top: solid #c4c4c4 1px;
+	border-bottom: solid #c4c4c4 1px;
+	border-left: solid #c4c4c4 1px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	font-size: 70%;
+	color: #a9a9a9;
+}
+
+#board-sidebar-exit:hover {
+	cursor: pointer;
+	color: #686868;
 }
 
 #board-sidebar h3 {
