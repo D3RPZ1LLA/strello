@@ -3,6 +3,7 @@ $(document).ready(function () {
 	var renderNewList = function () {
 		$('.new-list').addClass('hidden');
 		$('#add-list-form').removeClass('hidden');
+		$($('#add-list-form').children('input')[2]).focus();
 	}
 	
 	var resetNewList = function () {

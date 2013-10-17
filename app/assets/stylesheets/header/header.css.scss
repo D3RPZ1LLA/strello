@@ -67,7 +67,17 @@
   color: #444444;
 }
 
-.board-list ul > li > ul li {
+.board-list > ul > li > ul:last-child {
+	position: relative;
+}
+
+.board-list .new-board-form {
+	top: -10px;
+	left: -301px;
+	z-index: 4;
+}
+
+.board-list > ul > li > ul li {
 	padding: 10px;
 	margin: 0 -10px;
   font-weight: bold;

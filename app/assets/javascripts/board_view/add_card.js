@@ -5,6 +5,7 @@ $(document).ready(function () {
 
     $target.addClass('hidden');
     $target.parent().children('.new-card').removeClass('hidden');
+		$target.parent().children('.new-card').children('form').children('textarea').focus();
   };
 
   var resetCardRender = function () {
