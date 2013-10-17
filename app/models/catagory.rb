@@ -40,7 +40,7 @@ class Catagory < ActiveRecord::Base
       $$
       UPDATE catagories
       SET sort_idx = (case #{case_statement.join(' ')} end)
-      WHERE id IN ( #{ variables.join(', ') } );
+      WHERE id IN (#{ variables.join(', ') });
       $$ 
       LANGUAGE SQL;
       
