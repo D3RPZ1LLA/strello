@@ -33,8 +33,10 @@ class User < ActiveRecord::Base
 
   has_many :cards, through: :participations, source: :card
 
-  validates_presence_of :email
-  validates_presence_of :password, :password_verify, on: :create
+  validates :email, presence: true
+  validate :email_formatted
+  validates :password, :password_verify, presence: true, on: :create
+  validates :password, length: { minimum: 6, maximum: 20 }, on: :create
   validate :match_passwords, on: :create
 
   after_validation :set_password, on: :create
@@ -56,6 +58,10 @@ class User < ActiveRecord::Base
   private
   def match_passwords
     errors.add(:password, "must match") unless @password == @password_verify
+  end
+  
+  def email_formatted
+    errors.add(:email, "invalid email") unless self.email =~ /^[a-zA-Z0-9.-]*\@[a-zA-Z0-9]*\.[a-zA-Z]*$/
   end
 
   def set_password
