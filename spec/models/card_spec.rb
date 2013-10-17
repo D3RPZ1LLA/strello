@@ -51,5 +51,65 @@ describe Card do
       
       expect(parameters.count * 2).to eq(cases_num)
     end
+    
+    it 'should match sort_idx cases correctly with json' do
+      case_string = reorder
+        .scan(/sort\_idx\s?\=\s?\(\s?case\s[when\sid\s?\=\s?\d+\sthen\s\d+\s?|else\s\d+\s?]*\send\s?\)/)
+        .first
+        .split(/(when|else)/)
+        
+      cases = {}
+      case_string.each do |parse_string|
+        next unless parse_string =~ /\d/
+        situation = parse_string.scan(/id\s?\=\s?\d/)
+        situation = situation.empty? ? 'default' : situation[0].scan(/\d+/)[0].to_i
+        
+        unless situation == 'default'
+          cases[situation] = parse_string.scan(/then\s\d+/)[0].scan(/\d+/)[0].to_i
+        else
+          cases[situation] = parse_string.scan(/\d+\send/)[0].scan(/\d+/)[0].to_i
+        end
+      end
+      
+      matched_cases = card_json.values.map do |card_params|
+        if !!cases[card_params[:id]]
+          cases[card_params[:id]] == card_params[:sort_idx]
+        else
+          cases['default'] == card_params[:sort_idx]
+        end
+      end
+      
+      expect(matched_cases.all? { |matched| matched == true }).to eq(true)
+    end
+    
+    it 'should match catagory_id cases correctly with json' do
+      case_string = reorder
+        .scan(/catagory\_id\s?\=\s?\(\s?case\s[when\sid\s?\=\s?\d+\sthen\s\d+\s?|else\s\d+\s?]*\send\s?\)/)
+        .first
+        .split(/(when|else)/)
+        
+      cases = {}
+      case_string.each do |parse_string|
+        next unless parse_string =~ /\d/
+        situation = parse_string.scan(/id\s?\=\s?\d/)
+        situation = situation.empty? ? 'default' : situation[0].scan(/\d+/)[0].to_i
+        
+        unless situation == 'default'
+          cases[situation] = parse_string.scan(/then\s\d+/)[0].scan(/\d+/)[0].to_i
+        else
+          cases[situation] = parse_string.scan(/\d+\send/)[0].scan(/\d+/)[0].to_i
+        end
+      end
+      
+      matched_cases = card_json.values.map do |card_params|
+        if !!cases[card_params[:id]]
+          cases[card_params[:id]] == card_params[:catagory_id]
+        else
+          cases['default'] == card_params[:catagory_id]
+        end
+      end
+      
+      expect(matched_cases.all? { |matched| matched == true }).to eq(true)
+    end
   end
 end
