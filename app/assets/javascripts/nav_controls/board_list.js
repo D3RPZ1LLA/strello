@@ -15,13 +15,26 @@ $(document).ready(function(event) {
 			!($target.parent().parent().hasClass('board-list')) &&
 			!($target.parent().parent().parent().hasClass('board-list')) &&
 			!($target.parent().parent().parent().parent().hasClass('board-list')) &&
-			!($target.parent().parent().parent().parent().parent().hasClass('board-list')) 
+			!($target.parent().parent().parent().parent().parent().hasClass('board-list')) &&
+			!($target.hasClass('new-board-form')) &&
+			!($target.parent().hasClass('new-board-form')) &&
+			!($target.parent().parent().hasClass('new-board-form'))
 		) {
 			$('.board-list').addClass('hidden');
 		}
 	});
 	
-	$('.board-list').on('click', '.exit', function(event) {
+	$('.board-list > .exit').on('click', function(event) {
 		$('.board-list').addClass('hidden');
+	});
+	
+/* New Board */
+	$('.board-list .new-board-link').on('click', function(event) {
+		event.preventDefault();
+		var $form = $('.board-list .new-board-form');
+		console.log($form);
+		
+		$form.toggleClass('hidden');
+		$form.children('label').children('input').focus();
 	});
 });

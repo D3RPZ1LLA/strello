@@ -4,9 +4,14 @@ $(document).ready(function () {
 		$('.new-board-form').addClass('hidden');
 	};
 
-	$('.new-board-link').on('click', function(event) {
+	$('.board-index .new-board-link').on('click', function(event) {
 		event.preventDefault();
-		$('.new-board-form').toggleClass('hidden');
+		var $form = $('.board-index .new-board-form');
+		
+		$form.toggleClass('hidden');
+		if (!($form.hasClass('hidden'))) {
+			$form.children('label').children('input').focus();
+		}
 	});
 	
 	$('body').on('click', function (event) {
@@ -24,7 +29,7 @@ $(document).ready(function () {
 		}
 	});
 	
-	$('.new-board-form .exit').on('click', function (event) {
+	$('.board-index .new-board-form .exit').on('click', function (event) {
 		resetNewBoardForm();
 	});
 
