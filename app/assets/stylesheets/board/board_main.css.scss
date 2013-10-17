@@ -1,15 +1,14 @@
 .board {
 	height: 100%;
 	min-height: 640px;
-  background: #266c96;
-	padding-left: 5px;
+  background: #205c7e;
 	padding-right: 13px;
 	overflow: auto;
 }
 
 .board > ul {
   position: relative;
-  margin-top: 100px;
+  margin-top: 92px;
 }
 
 .board > ul > li {
@@ -18,8 +17,9 @@
 
 li.list {
   margin-left: 10px;
+	padding-top: 2px;
   width: 280px;
-  background-color: #C0C0C0;
+  background-color: #e3e3e3;
   border-radius: 3px;
 	overflow: visible;	
 }
@@ -30,6 +30,8 @@ li.list {
 
 .list > h4 {
   font-weight: bold;
+	font-size: 95%;
+	color: #393939;
   padding: 5px 10px 0px 10px;
 }
 

@@ -10,11 +10,12 @@
   margin-top: 3px;
   padding: 10px;
   font-size: 90%;
-  color: #585858;
+	color: #939393;
 }
 
 .add-card:hover {
- background-color: #A0A0A0;
+ background-color: #c3c3c3;
+ color: #222222;
  border-bottom-left-radius: 3px;
  border-bottom-right-radius: 3px;
  text-decoration: underline;
@@ -42,6 +43,8 @@
 .new-card {
   padding-bottom: 10px;
 }
+
+
 
 .new-card button {
  margin: 5px;
