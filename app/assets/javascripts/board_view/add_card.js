@@ -58,6 +58,8 @@ $(document).ready(function () {
   
 /* Sorting Functions */
 	var reorderCards = function () {
+		var alteredCards = [];
+		
 		$('#board-lists').children().each(function (idxL, list) {
 			var $list = $(list);
 			
@@ -65,25 +67,14 @@ $(document).ready(function () {
 				var $card = $(card);
 				
 				if ($card.data('idx') !== idxC || $card.data('catagory-id') !== $list.data('id')) {			
-					$.ajax({
-						url: '/cards/' + $card.data('id'),
-						type: "PUT",
-						dataType: 'json',
-						data: {
-							card: {
-								catagory_id: $list.data('id'),
-								sort_idx: idxC
-							}
-						},
-						success: function (resp) {
-							$card.data('idx', resp.sort_idx);
-							$card.data('catagory-id', resp.catagory_id);
-						},
-						errror: function (resp) {
-							console.log('card update failed');
-							console.log(resp);
-						}
-					});			
+					
+					alteredCards.push({
+						id: $card.data('id'),
+						catagory_id: $list.data('id'),
+						sort_idx: idxC
+					});
+					
+					$card.data('idx', idxC);
 				}
 				
 			});
@@ -95,6 +86,23 @@ $(document).ready(function () {
 					 .children('.card-sort-idx')
 					 .val(newCardIdx);
 		});
+		
+		if (alteredCards.length > 0 ) {
+			$.ajax({
+				url: '/boards/' + $('.board').data('id') + '/cards/reorder',
+				async: false,
+				type: "PUT",
+				data: {
+					cards: alteredCards
+				},
+				success: function (resp) {
+					console.log('success');
+				},
+				error: function () {
+					
+				}
+			});
+		}
 	};
 	
   $(".list ul").sortable({
