@@ -1,53 +1,55 @@
-<div class="login-logo">
-  <%= image_tag("login.png")%>
-</div>
+<article class="user-background">
+	<div class="login-logo">
+	  <%= image_tag("login.png")%>
+	</div>
 
-<section class="new-user-view users group">
-	<div class="login-left">
-		<h1>Create An Account</h1>
+	<section class="new-user-view users group">
+		<div class="login-left">
+			<h1>Create An Account</h1>
 
-		<% if @user.errors.any? %>
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
+			<% if @user.errors.any? %>
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
 			<% end %>
-		</ul>
-		<% end %>
 
-		<form action="<%= users_url %>" method="POST" accept-charset="utf-8">
-			<input type="hidden"
-			name="authenticity_token"
-			value="<%= form_authenticity_token %>">
+			<form action="<%= users_url %>" method="POST" accept-charset="utf-8">
+				<input type="hidden"
+				name="authenticity_token"
+				value="<%= form_authenticity_token %>">
 
-			<label>Email
+				<label>Email
+					<br>
+					<input type="text"
+					name="user[email]"
+					value="<%= @user.email %>">
+				</label>
 				<br>
-				<input type="text"
-				name="user[email]"
-				value="<%= @user.email %>">
-			</label>
-			<br>
 
-			<label>Password
+				<label>Password
+					<br>
+					<input type="password"
+					name="user[password]">
+				</label>
 				<br>
-				<input type="password"
-				name="user[password]">
-			</label>
-			<br>
 
-			<label>Password (again)
+				<label>Password (again)
+					<br>
+					<input type="password"
+					name="user[password_verify]">
+				</label>
 				<br>
-				<input type="password"
-				name="user[password_verify]">
-			</label>
-			<br>
 			
-			<input class="save" type="submit" value="Sign Up">
-			<br>
-			Already have an account? <%= link_to "Log In.", new_session_url %>
-		</form>
-	</div>
+				<input class="save" type="submit" value="Sign Up">
+				<br>
+				Already have an account? <%= link_to "Log In.", new_session_url %>
+			</form>
+		</div>
 
-	<div class="login-right">
-		<%= render partial: "sessions/guest_login" %>
-	</div>
-</section>
+		<div class="login-right">
+			<%= render partial: "sessions/guest_login" %>
+		</div>
+	</section>
+</article>

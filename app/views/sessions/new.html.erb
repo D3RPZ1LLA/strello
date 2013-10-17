@@ -1,41 +1,43 @@
-<div class="login-logo">
-  <%= image_tag("login.png")%>
-</div>
+<article class="user-background">
+	<div class="login-logo">
+	  <%= image_tag("login.png")%>
+	</div>
 
-<section class="login-view users group">
-	<div class="login-left">
-		<h1>Log In</h1>
-		<form id="login-form" 
-		action="<%= session_url %>" 
-		method="POST" 
-		accept-charset="utf-8">
+	<section class="login-view users group">
+		<div class="login-left">
+			<h1>Log In</h1>
+			<form id="login-form" 
+			action="<%= session_url %>" 
+			method="POST" 
+			accept-charset="utf-8">
 	
-			<input type="hidden"
-			name="authenticity_token"
-			value="<%= form_authenticity_token %>">
+				<input type="hidden"
+				name="authenticity_token"
+				value="<%= form_authenticity_token %>">
 
-			<label>Email
+				<label>Email
+					<br>
+					<input class="field" 
+					type="text"
+					name="user[email]">
+				</label>
 				<br>
-				<input class="field" 
-				type="text"
-				name="user[email]">
-			</label>
-			<br>
 
-			<label>Password
+				<label>Password
+					<br>
+					<input class="field"
+					type="password"
+					name="user[password]">
+				</label>
 				<br>
-				<input class="field"
-				type="password"
-				name="user[password]">
-			</label>
-			<br>
-			<input class="save" type="submit" value="Login"> <%= link_to "Forgot Your Password", "#" %>
-			<br>
-			New here? <%= link_to "Create an Account.", new_user_url %>
-		</form>
-	</div>
+				<input class="save" type="submit" value="Login"> <%= link_to "Forgot Your Password", "#" %>
+				<br>
+				New here? <%= link_to "Create an Account.", new_user_url %>
+			</form>
+		</div>
 
-	<div class="login-right">
-		<%= render partial: "sessions/guest_login" %>
-	</div>
-</section>
+		<div class="login-right">
+			<%= render partial: "sessions/guest_login" %>
+		</div>
+	</section>
+</article>
