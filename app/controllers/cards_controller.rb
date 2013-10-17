@@ -75,9 +75,7 @@ class CardsController < ApplicationController
   end
   
   def reorder
-    if request.xhr?      
-      # p params[:cards]
-      # puts Card.generate_reorder(params[:cards], current_user.id)
+    if request.xhr?
       ActiveRecord::Base.connection.execute(Card.generate_reorder(params[:cards], current_user.id))
       head status: 200
     else

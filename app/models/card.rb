@@ -43,7 +43,7 @@ class Card < ActiveRecord::Base
     case_state_catagory = []
     
     card_idx.keys.each_with_index do |id, idx|
-      if (idx < card_idx.keys.length - 1)
+      if (idx < card_idx.keys.count - 1 || card_idx.keys.count == 1)
         case_state_idx << "when id = #{id} then #{card_idx[id][:sort_idx]}"
         case_state_catagory << "when id = #{id} then #{card_idx[id][:catagory_id]}"        
       else

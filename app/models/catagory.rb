@@ -26,7 +26,7 @@ class Catagory < ActiveRecord::Base
     case_statement = []
     
     cat_idx.keys.each_with_index do |id, idx|
-      if ( idx < cat_idx.keys.count - 1)
+      if ( idx < cat_idx.keys.count - 1 || cat_idx.keys.count == 1)
         case_statement << "when id = #{id} then #{cat_idx[id]}"
       else
         case_statement << "else #{cat_idx[id]}"
