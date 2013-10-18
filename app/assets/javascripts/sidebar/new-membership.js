@@ -38,7 +38,13 @@ $(document).ready(function () {
 	
 /* Submit Functions */
 	var appendMemberAvatar = function (memberData) {
-		console.log(memberData);
+		var $avatarLi = $('<li>');
+		
+		$avatarLi.html(JST['avatar']({
+			user: memberData
+		}));
+		
+		$('#member-list').append($avatarLi);
 	};
 	
 	$('#new-membership-form').on('ajax:success', function(event, data) {

@@ -1,0 +1,7 @@
+<div class="avatar">
+	<% if (!!user.avatar_url) { %>
+		<img alt="<%= user.avatar_file_name %>" src="<%= user.avatar_url %>">
+	<% } else { %>
+		<img alt="Default_avatar" src="/assets/default_avatar.jpg">
+	<% } %>
+</div>

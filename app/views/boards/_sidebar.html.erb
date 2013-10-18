@@ -6,7 +6,7 @@
 		&#9658;
 	</div>
 	<h3>Members</h3>
-	<ul class="group">
+	<ul id="member-list" class="group">
 	<% board.members.each do |member| %>
 		<li>
 			<%= render partial: "users/avatar", locals: { user: member } %>

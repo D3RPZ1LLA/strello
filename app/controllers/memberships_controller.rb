@@ -14,7 +14,10 @@ class MembershipsController < ApplicationController
       if request.xhr?
         if @membership.save
           p  @user.avatar.url(:thumb)
-          render json: { avatar_url: @user.avatar.url(:thumb) }
+          render json: { 
+            avatar_file_name: @user.avatar_file_name,
+            avatar_url: @user.avatar.url(:thumb) 
+          }
         else 
           head status: 422
         end
