@@ -45,3 +45,16 @@
 	border-radius: 3px;
 	font-size: 95%;
 }
+
+.save {
+  background-color: green;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 90%;
+  padding: 5px 15px;
+}
+
+.save:hover {
+	cursor: pointer;	
+}

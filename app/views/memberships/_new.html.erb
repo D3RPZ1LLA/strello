@@ -1,12 +1,22 @@
-<form action="<%= board_memberships_url(board) %>"
- method="POST" accept-charset="utf-8">
+<form id="new-membership-form"
+class="hidden-form"
+action="<%= board_memberships_url(board) %>"
+method="POST" 
+accept-charset="utf-8">
+	<div class="exit">
+	  <%= image_tag("exit.png")%>
+	</div>
+
+	<h1>Memberships</h1>
 
  <input type="hidden"
  name="authenticity_token"
  value="<%= form_authenticity_token %>">
 
- <input type="text"
- name="member[email]">
-
-  <p><input type="submit" value="Add Member"></p>
+ <label>Email
+	 <input type="text"
+	 name="member[email]">
+ </label>
+ 
+  <p><input class="save" type="submit" value="Add Member"></p>
 </form>
