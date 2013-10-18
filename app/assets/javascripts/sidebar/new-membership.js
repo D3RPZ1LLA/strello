@@ -35,4 +35,20 @@ $(document).ready(function () {
 	$('#new-membership-form .exit').on('click', function (event) {
 		derenderNewMemberForm();
 	});
+	
+/* Submit Functions */
+	var appendMemberAvatar = function (memberData) {
+		console.log(memberData);
+	};
+	
+	$('#new-membership-form').on('ajax:success', function(event, data) {
+		var $form = $(this);
+		
+		appendMemberAvatar(data);
+		
+		$form[0].reset();
+		derenderNewMemberForm();
+	});
+	
+	
 });

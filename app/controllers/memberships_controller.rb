@@ -11,11 +11,20 @@ class MembershipsController < ApplicationController
         board_id: @board.id,
         admin: false
       )
-      if @membership.save
-        redirect_to board_url(@board)
+      if request.xhr?
+        if @membership.save
+          p  @user.avatar.url(:thumb)
+          render json: { avatar_url: @user.avatar.url(:thumb) }
+        else 
+          head status: 422
+        end
       else
-        flash[:errors] = @membership.errors.full_messages
-        render :new
+        if @member.save
+          redirect_to board_url(@board)
+        else
+          flash[:errors] = @membership.errors.full_messages
+          render :new
+        end
       end
     else
       flash[:errors] = "User not found"

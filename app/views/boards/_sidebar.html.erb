@@ -9,13 +9,7 @@
 	<ul class="group">
 	<% board.members.each do |member| %>
 		<li>
-			<div class="avatar">
-				<% if member.avatar.exists? %>
-		      <%= image_tag current_user.avatar.url(:thumb) %>
-				<% else %>
-					<%= image_tag ("default_avatar.jpg") %>
-				<% end %>
-			</div>
+			<%= render partial: "users/avatar", locals: { user: member } %>
 		</li>
 	<% end %>
 	</ul>

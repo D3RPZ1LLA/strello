@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_filter :logged_in_clearance, only: [:new, :create]
+  before_filter :logged_in_clearance, only: [:index, :new, :create]
   before_filter :member_clearance, only: [:show, :update]
 
   def index
