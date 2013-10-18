@@ -3,37 +3,5 @@
     <h2><span><%= board.title %></span></h2>
   </div>
 	<%= render partial: "boards/title_form", locals: { board: board } %>
-	<div id="board-sidebar-link">
-		<h5>&#9668; <span>Show sidebar</span></h5>
-	</div>
-	<div id="board-sidebar" class="hidden">
-		<div id="board-sidebar-exit">
-			&#9658;
-		</div>
-		<h3>Members</h3>
-		<ul class="group">
-		<% board.members.each do |member| %>
-			<li>
-				<div class="avatar">
-					<% if member.avatar.exists? %>
-			      <%= image_tag current_user.avatar.url(:thumb) %>
-					<% else %>
-						<%= image_tag ("default_avatar.jpg") %>
-					<% end %>
-				</div>
-			</li>
-		<% end %>
-		</ul>
-		<button class="group">
-			<div class="member-icon-white">
-				<%= image_tag ("people_head.png") %>
-			</div>
-			<div class="member-icon-blue">
-				<%= image_tag ("people_head_blue.png") %>
-			</div>
-			<span>
-				Add Members...
-			</span>
-		</button>
-	</div>
+	<%= render partial: "boards/sidebar", locals: { board: board } %>
 </header>

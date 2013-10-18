@@ -1,0 +1,36 @@
+<article 
+class="board" 
+data-id="<%= board.id %>" 
+style="min-width: <%= (board.catagories.count + 1) * 290 %>px;">
+
+  <ul id="board-lists" class="group">
+    <% board.catagories.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |catagory| %>
+    <li class="list" data-id="<%= catagory.id %>" data-idx="<%= catagory.sort_idx %>">
+      <h4><%= catagory.title %></h4>
+
+      <ul class="group">
+        <% catagory.cards.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |card| %>
+          <%= render partial: "cards/card", locals: { card: card, catagory: catagory } %>
+        <% end %>
+      </ul>
+			
+      <div class="new-card-form">
+        <div class="new-card hidden">
+          <%= render partial: "cards/new", locals: { catagory: catagory, idx: catagory.cards.count } %>
+        </div>
+        <div class="add-card">Add a card...</div>
+      </div>
+
+    </li>
+    <% end %>
+   
+    <li id="new-catagory-li">
+			<%= render partial: "catagories/new", locals: { board: board, idx: board.catagories.count } %>
+     
+			<div class="new-list">
+				 Add a List...
+			</div>
+    </li>
+    
+  </ul>
+</article>

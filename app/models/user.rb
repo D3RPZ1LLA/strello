@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
   
   def email_formatted
-    errors.add(:email, "invalid email") unless self.email =~ /^[a-zA-Z0-9.-]*\@[a-zA-Z0-9]*\.[a-zA-Z]*$/
+    errors.add(:email, "invalid email") unless self.email =~ /^[A-Za-z0-9.\-]*\@[A-Za-z0-9.]*\.[A-Za-z]*$/
   end
 
   def set_password
