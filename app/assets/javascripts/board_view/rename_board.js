@@ -2,6 +2,7 @@ $(document).ready(function() {
 /* Render Functions */
 	var renderRenameBoard = function () {
 		$('#rename-board').removeClass('hidden');
+		$('#rename-board').children('label').children('input').focus();
 	};
 	
 	var resetRenameBoard = function () {
@@ -9,7 +10,11 @@ $(document).ready(function() {
 	}
 	
 	$('#board-name span').on('click', function(event) {
-		$('#rename-board').toggleClass('hidden');
+		if ($('#rename-board').hasClass('hidden')) {
+			renderRenameBoard();
+		} else {
+			resetRenameBoard();
+		}
 	});
 	
 	$('body').on('click', function(event) {
@@ -18,7 +23,8 @@ $(document).ready(function() {
 		if (
 			!($target.parent().parent().is('#board-name')) &&
 			!($target.is('#rename-board')) &&
-			!($target.parent().is('#rename-board'))
+			!($target.parent().is('#rename-board')) &&
+			!($target.parent().parent().is('#rename-board'))
 		) {
 			
 			resetRenameBoard();
