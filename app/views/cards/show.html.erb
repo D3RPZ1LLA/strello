@@ -31,19 +31,12 @@
         <ul class="members">
           <% @card.participants.each do |member| %>
           <li data-id="<%= member.id %>">
-            <div class="avatar">
-              <%= image_tag("happy-cat1.jpg")%>
-            </div>
+            <%= render partail: "users/avatar", locals: { user: member } %>
           </li>
           <% end %>
         </ul>
         <button class="assign-member-button sidebar">Assign...</button>
-				<div class="assign-member hidden">
-					<h4>Members</h4>
-					<%= render partial: "participations/new", locals: { card: @card } %>
-				</div>
       </li>
-
       <li>
         <h4>Actions</h4>
         <ul>

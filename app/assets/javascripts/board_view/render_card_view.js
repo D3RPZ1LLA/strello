@@ -1,8 +1,6 @@
 $(document).ready(function () {
 	var renderCard = function (card) {
 		$('#card-view .loading').addClass('hidden');
-
-		console.log(card);
 				
 		$('#card-view .card-main').append(JST['card_title']({
 			card: card
@@ -49,15 +47,14 @@ $(document).ready(function () {
 		});			
 	});
 	
-	$('#card-view').on('click', function(event) {
-		$target = $(event.target);
-		
-		if ( 
-			$target.is('#card-view') || 
-			$target.hasClass('exit') ||
-			$target.parent().hasClass('exit')
-		) {
+	$('#card-view').on('click', function(event) {		
+		if ( $(event.target).is('#card-view') ) {
 			resetCard();
 		}
 	});
+	
+	$('#card-view').on('click', '.card-page > .exit', function(event) {
+		resetCard();
+	});		
+	
 });
