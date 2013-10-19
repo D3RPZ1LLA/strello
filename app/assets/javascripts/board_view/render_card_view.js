@@ -1,17 +1,18 @@
 $(document).ready(function () {
-	var renderCard = function (card) {
+	var renderCard = function (data) {
 		$('#card-view .loading').addClass('hidden');
 				
 		$('#card-view .card-main').append(JST['card_title']({
-			card: card
+			card: data.card
 		}));
 		
 		$('#card-view .card-main').append(JST['card_description']({
-			card: card
+			card: data.card
 		}));
 		
 		$('#card-view .sidebar').append(JST['card_sidebar']({
-			card: card
+			card: data.card,
+			members: data.members
 		}));
 	};
 	

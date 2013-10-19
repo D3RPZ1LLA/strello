@@ -5,5 +5,12 @@ class="hidden-form">
 	</div>
 
 	<h1>Members</h1>
-	
+	<ul>
+		<% members.forEach(function(member) { %>
+			<li class="group">
+				<%= JST['avatar']({ user: member.member, avatar_url: member.avatar_url }) %> 
+				<span><%= member.member.email %></span>
+			</li>
+		<% }) %>
+	</ul>
 </div>
