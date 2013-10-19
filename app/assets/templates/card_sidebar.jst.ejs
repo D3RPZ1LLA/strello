@@ -2,7 +2,7 @@
   <li>
     <h4>Members</h4>
     <ul class="members">
-      <% card.participants.forEach(function(member) { %>
+      <% participants.forEach(function(member) { %>
       <li data-id="<%= member.id %>">
 				<%= JST['avatar']({ user: member }) %>
       </li>

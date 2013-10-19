@@ -42,11 +42,11 @@ class CardsController < ApplicationController
         card: @card.as_json( include: [
         :checklists,
         :checklist_items,
-        :participants,
         :catagory,
         :board
         ] ),
-        members: @card.members.map { |member| {member: member, avatar_url: member.avatar.url(:thumb) } }
+        members: @card.members.map { |member| {member: member, avatar_url: member.avatar.url(:thumb)} },
+        participants: @card.participants.map { |participant| {participant: participant, avatar_url: participant.avatar.url(:thumb)} }
       }
     else
       render :show

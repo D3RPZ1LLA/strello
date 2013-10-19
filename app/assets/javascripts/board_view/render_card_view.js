@@ -12,7 +12,8 @@ $(document).ready(function () {
 		
 		$('#card-view .sidebar').append(JST['card_sidebar']({
 			card: data.card,
-			members: data.members
+			members: data.members,
+			participants: data.participants
 		}));
 	};
 	
