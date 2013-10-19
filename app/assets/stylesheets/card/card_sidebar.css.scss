@@ -1,5 +1,3 @@
-/** SIDEBAR **/
-
 .card-page > section.sidebar {
   width: 150px;
   margin: 20px 10px;
@@ -15,40 +13,25 @@
   margin: 5px 0;
 }
 
-.sidebar button.sidebar {
-  background-color: white;
-  border: solid gray 1px;
-  border-radius: 3px;
-  width: 150px;
-  padding: 3px 10px;
-  margin: 5px 0;
-  text-align: left;
+.sidebar #assign-member-button .member-icon-white {
+	float: left;
+	width: 20px;
+	margin-top: -2px;
 }
 
-.sidebar button.sidebar:hover {
- background-color: blue;
- color: white;
- cursor: pointer;
+.sidebar #assign-member-button:hover .member-icon-white {
+	display: none;
 }
 
-.sidebar .assign-member {
-	position: absolute;
-	z-index: 1;
-	background-color: white;
-	border: solid gray 1px;
-	width: 290px;
+.sidebar #assign-member-button .member-icon-blue {
+	float: left;
+	width: 15px;
+	margin-top: 0px;
+	margin-right: 2px;
+	margin-left: 2px;
+	display: none;
 }
 
-.sidebar .assign-member > h4 {
-	text-align: center;
-	margin: 10px 0;
-	border-bottom: 1px solid gray;
-}
-
-.sidebar .assign-member > form {
-	margin: 10px;
-}
-
-.sidebar .assign-member > form > button {
-	margin-top: 10px;
+.sidebar #assign-member-button:hover .member-icon-blue {
+	display: table;
 }

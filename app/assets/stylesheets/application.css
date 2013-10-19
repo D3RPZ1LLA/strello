@@ -20,6 +20,7 @@ h3, h4, h5, button, input, textarea, select, strong {
   font-weight: normal;
   text: inherit;
   text-decoration: none;
+	text-align: left;
   list-style-type: none;
   outline: none;
 }

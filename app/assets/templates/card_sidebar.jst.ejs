@@ -8,8 +8,20 @@
       </li>
       <% }) %>
     </ul>
-    <button class="assign-member-button sidebar">Assign...</button>
-		<%= JST['new_participation']({ members: members }) %>
+		<div id="new-participations">
+	    <button id="assign-member-button" class="menu-button sidebar group">
+				<div class="member-icon-white">
+					<img alt="People_head" src="/assets/people_head.png">
+				</div>
+				<div class="member-icon-blue">
+					<img alt="People_head_blue" src="/assets/people_head_blue.png">
+				</div>
+				<span>
+					Assign...
+				</span>
+			</button>
+			<%= JST['new_participation']({ members: members }) %>
+		</div>
   </li>
 
   <li>
