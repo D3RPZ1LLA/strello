@@ -1,5 +1,5 @@
 <div id="new-participation-form"
-class="hidden-form">
+class="hidden-form hidden">
 	<div class="exit">
 	  <img alt="Exit" src="/assets/exit.png">
 	</div>
@@ -7,7 +7,7 @@ class="hidden-form">
 	<h1>Members</h1>
 	<ul>
 		<% members.forEach(function(member) { %>
-			<li class="group">
+			<li class="group" data-id="<%= member.member.id %>">
 				<%= JST['avatar']({ user: member.member, avatar_url: member.avatar_url }) %> 
 				<span><%= member.member.email %></span>
 			</li>
