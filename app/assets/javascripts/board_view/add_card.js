@@ -97,7 +97,7 @@ $(document).ready(function () {
 					cards: alteredCards
 				},
 				success: function (resp) {
-					console.log('success');
+
 				},
 				error: function () {
 					

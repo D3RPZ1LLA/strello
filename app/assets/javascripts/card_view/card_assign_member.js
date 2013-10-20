@@ -13,21 +13,28 @@ $(document).ready(function(){
 	
 /* Submit Functions */
 	$('.card-page').on('click', '#new-participation-form > ul > li', function(event) {
+		var cardId = $('#card-view').data('id');
 		var participantId = $(event.target).closest('li').data('id');
 		
-		$.ajax({
-			url: ,
-			async: false,
-			type: "PUT",
-			datatype: 'json',
-			data: {},
-			success: function () {
+		(function () { 
+			$.ajax({
+				url: '/cards/' + cardId + '/participations',
+				type: "POST",
+				datatype: 'json',
+				data: {
+					participation: {
+						user_id: participantId
+					}
+				},
+				success: function () {
+					console.log('sucess');
+				},
+				error: function () {
 				
-			},
-			error: function () {
-				
-			}
-		});
+				}
+			});
+		})();
+		
 	});
 	
 });

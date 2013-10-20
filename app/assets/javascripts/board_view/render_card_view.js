@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	var renderCard = function (data) {
 		$('#card-view .loading').addClass('hidden');
+		$('#card-view').data('id', data.card.id);
 				
 		$('#card-view .card-main').append(JST['card_title']({
 			card: data.card
@@ -19,6 +20,8 @@ $(document).ready(function () {
 	
 	var resetCard = function () {
 		$('#card-view').addClass('hidden');
+		$('#card-view').data('id', '');
+		
 		$('#card-view .loading').removeClass('hidden');
 		
 		$('#card-view .card-main').empty();

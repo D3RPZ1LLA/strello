@@ -16,7 +16,7 @@ class ParticipationsController < ApplicationController
       end
     else
       if request.xhr?
-        render json: @participation
+        head status: 422
       else
         render :new
       end

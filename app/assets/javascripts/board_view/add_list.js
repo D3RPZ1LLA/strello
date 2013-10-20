@@ -96,7 +96,7 @@ $(document).ready(function () {
 						catagories: alteredCatagories
 					},
 					success: function (resp) {
-						console.log('success');
+
 					},
 					error: function (resp) {
 					

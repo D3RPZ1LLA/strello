@@ -1,10 +1,10 @@
 <ul>
   <li>
     <h4>Members</h4>
-    <ul class="members">
-      <% participants.forEach(function(member) { %>
-      <li data-id="<%= member.id %>">
-				<%= JST['avatar']({ user: member }) %>
+    <ul class="members group">
+      <% participants.forEach(function(pojo) { %>
+      <li data-id="<%= pojo.participant.id %>">
+				<%= JST['avatar']({ user: pojo.participant, avatar_url: pojo.avatar_url }) %>
       </li>
       <% }) %>
     </ul>
