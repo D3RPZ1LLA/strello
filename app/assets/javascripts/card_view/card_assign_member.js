@@ -12,6 +12,14 @@ $(document).ready(function(){
 	});
 	
 /* Submit Functions */
+	var appendAvatar = function (data) {
+		$('.members').append(
+			'<li data-id="<%= pojo.participant.id %>">' + 
+	    JST['avatar']({ user: data.user, avatar_url: data.avatar_url }) +
+			'</li>'
+		);
+	};
+	
 	$('.card-page').on('click', '#new-participation-form > ul > li', function(event) {
 		var cardId = $('#card-view').data('id');
 		var participantId = $(event.target).closest('li').data('id');
@@ -26,11 +34,12 @@ $(document).ready(function(){
 						user_id: participantId
 					}
 				},
-				success: function () {
-					console.log('sucess');
+				success: function (resp) {
+					appendAvatar(resp);
 				},
-				error: function () {
-				
+				error: function (resp) {
+					console.log('new participation failed');
+					console.log(resp);
 				}
 			});
 		})();

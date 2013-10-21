@@ -5,12 +5,15 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @card = Card.includes(catagory: [board: :members]).find(params[:card_id])
     @participation = Participation.new(params[:participation])
+    @user = User.find(params[:participation][:user_id])
     @participation.card_id = params[:card_id]
     if @participation.save
       if request.xhr?
-        render json: @participation
+        render json: {
+          user: @user,
+          avatar_url: @user.avatar.url(:thumb) 
+        }
       else
         redirect_to edit_card_url(params[:card_id])
       end
