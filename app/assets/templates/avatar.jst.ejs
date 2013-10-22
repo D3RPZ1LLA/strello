@@ -1,4 +1,23 @@
-<div class="avatar">
+<% if (!(typeof participations === 'undefined')) { %>
+	<% var isParticipant = false %>
+	<% participations.forEach(function(participation) { %>
+		<% if (participation.user_id === user.id) { %>
+			<% isParticipant = true %>
+		<% } %>
+	<% }) %>
+	
+	<% if (isParticipant) { %>
+		<div class="avatar">
+	<% } else { %>
+		<div class="avatar hidden">
+	<% } %>
+	
+<% } else { %>
+	
+	<div class="avatar">
+
+<% } %>
+
 	<% if (!!user.avatar_file_name) { %>
 		<img alt="<%= user.avatar_file_name %>" src="<%= avatar_url %>">
 	<% } else { %>

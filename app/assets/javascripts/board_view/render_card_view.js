@@ -10,7 +10,7 @@ $(document).ready(function () {
 		$('#card-view .card-main').append(JST['card_description']({
 			card: data.card
 		}));
-		
+				
 		$('#card-view .sidebar').append(JST['card_sidebar']({
 			card: data.card,
 			members: data.members,

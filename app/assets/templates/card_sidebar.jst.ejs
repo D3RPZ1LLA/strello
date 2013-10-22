@@ -2,9 +2,9 @@
   <li>
     <h4>Members</h4>
     <ul class="members group">
-      <% participants.forEach(function(pojo) { %>
-      <li data-id="<%= pojo.participant.id %>">
-				<%= JST['avatar']({ user: pojo.participant, avatar_url: pojo.avatar_url }) %>
+      <% members.forEach(function(pojo) { %>
+      <li data-id="<%= pojo.member.id %>">
+				<%= JST['avatar']({ user: pojo.member, avatar_url: pojo.avatar_url, participations: card.participations }) %>
       </li>
       <% }) %>
     </ul>
@@ -20,7 +20,7 @@
 					Assign...
 				</span>
 			</button>
-			<%= JST['new_participation']({ members: members, participants: participants }) %>
+			<%= JST['new_participation']({ members: members, participations: card.participations }) %>
 		</div>
   </li>
 

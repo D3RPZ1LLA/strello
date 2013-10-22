@@ -12,7 +12,8 @@ class ParticipationsController < ApplicationController
       if request.xhr?
         render json: {
           user: @user,
-          avatar_url: @user.avatar.url(:thumb) 
+          avatar_url: @user.avatar.url(:thumb),
+          participation: @participation
         }
       else
         redirect_to edit_card_url(params[:card_id])
@@ -27,11 +28,20 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
-    if @participation = Participation.find_by_id(params[:id])
+    # id is the user id not participation, needs to look up by user id and card id
+    if @participation = Participation.find(params[:id])
       @participation.destroy
+      if request.xhr?
+        head status: 200
+      else
+        redirect_to root_url
+      end
     else
-      flash[:errors] = "404"
+      if request.xhr?
+        head status: 422
+      else
+        redirect_to root_url
+      end
     end
-    redirect_to user_url(current_user)
   end
 end

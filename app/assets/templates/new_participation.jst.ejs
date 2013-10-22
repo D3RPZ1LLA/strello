@@ -7,7 +7,14 @@ class="hidden-form hidden">
 	<h1>Members</h1>
 	<ul>
 		<% members.forEach(function(member) { %>
-			<li class="group" data-id="<%= member.member.id %>">
+			<% var exists = "" %>
+			<% participations.forEach(function(participation) { %>
+				<% if (participation.user_id === member.member.id) { %>
+					<% exists = participation.id %>
+				<% } %>
+			<% }) %>
+			
+			<li class="group" data-id="<%= member.member.id %>" data-participation-id="<%= exists %>">
 				<%= JST['avatar']({ user: member.member, avatar_url: member.avatar_url }) %> 
 				<span><%= member.member.email %></span>
 			</li>

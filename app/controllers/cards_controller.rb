@@ -31,20 +31,17 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card = Card.includes(
-      {checklists: [:checklist_items]}, 
-      :participants, 
-      {catagory: [board: :members]} 
-    ).find(params[:id])
+    @card = Card.find(params[:id])
     
     if request.xhr?
       render json: {
         card: @card.as_json( include: [
-        :checklists,
-        :checklist_items,
-        :catagory,
-        :board
-        ] ),
+          :checklists,
+          :checklist_items,
+          :catagory,
+          :participations,
+          :board
+        ]),
         members: @card.members.map { |member| {member: member, avatar_url: member.avatar.url(:thumb)} },
         participants: @card.participants.map { |participant| {participant: participant, avatar_url: participant.avatar.url(:thumb)} }
       }
