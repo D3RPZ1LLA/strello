@@ -57,8 +57,18 @@ $(document).ready(function () {
 
   $('body').on('ajax:success', '#card-title-form', function(event, data){
     var $form = $(this);
+		var cardId = $('#card-view').data('id');
+		
     $('.card-title h3').html(data.title);
-    resetAllRender();
+		derenderCardTitleEdit();
+		
+		$('.list li').each(function(idx, el) {
+			var $el = $(el);
+			
+			if ($el.data('id') === cardId)  {
+				$el.children('a').children('.card-text').html(data.title);
+			}
+		});
   });
 
   $('body').on('click', '#card-description-button', function(event) {
@@ -69,6 +79,6 @@ $(document).ready(function () {
   $('body').on('ajax:success', '#card-description-form', function(event, data){
     var $form = $(this);
     $('.card-description h4').html(data.description);
-    resetAllRender();
+    derenderCardDescriptionEdit();
   });
 });
