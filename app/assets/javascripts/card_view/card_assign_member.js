@@ -15,7 +15,7 @@ $(document).ready(function(){
 	var appendAvatar = function (data) {
 		$('.members').append(
 			'<li data-id="<%= pojo.participant.id %>">' + 
-	    JST['avatar']({ user: data.user, avatar_url: data.avatar_url }) +
+	    JST['avatar']({ user: data.user 	, avatar_url: data.avatar_url }) +
 			'</li>'
 		);
 	};

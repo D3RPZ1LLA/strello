@@ -1,5 +1,5 @@
 #card-description-form .card-edit-button {
-  background-color: white;
+  background: none;
   width: 390px;
   text-align: left;
   text-decoration: underline;
@@ -8,7 +8,7 @@
 }
 
 #card-description-form .card-edit-button:hover {
-  background-color: gray;
+  background-color: #dcdcdc;
   cursor: pointer;
 }
 
@@ -20,5 +20,6 @@
   max-width: 390px;
   min-width: 390px;
   min-height: 140px;
-  background-color: gray;
+  background-color: #e4e4e4;
+	border: solid #aaaaaa 1px;
 }

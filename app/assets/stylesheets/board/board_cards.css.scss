@@ -1,9 +1,18 @@
 .card {
   margin: 5px;
-  height: 60px;
+	padding: 10px;
+  height: 40px;
   background-color: white;
   border: solid gray 1px;
   border-radius: 3px;
+}
+
+.card a {
+	color: black;
+}
+
+a:active {
+	color: black;
 }
 
 .add-card {
