@@ -3,30 +3,37 @@ $(document).ready(function () {
   var renderCardTitleEdit = function () {
     $('.card-title-detail').addClass('hidden');
     $('.card-title-input').removeClass('hidden');
-    //mover focus to textarea
+		$('.card-title-input textarea').focus();
   };
 
   var renderCardDescriptionEdit = function () {
     $('.card-description-detail').addClass('hidden');
     $('.card-description-input').removeClass('hidden');
+		$('.card-description-input textarea').focus();
   };
 
-  var resetAllRender = function () {
-    var $inputs = $('.card-page .input');
-
-    $inputs.each(function (index, el) {
-      var $el = $(el);
-      if (!$el.hasClass('hidden')) {
-        $el.parent().children().not('.input').removeClass('hidden');
-        $el.addClass('hidden');
-      }
-    });
+  var derenderCardTitleEdit = function () {
+    $('.card-title-detail').removeClass('hidden');
+    $('.card-title-input').addClass('hidden');
   };
+	
+	var derenderCardDescriptionEdit = function () {
+    $('.card-description-detail').removeClass('hidden');
+    $('.card-description-input').addClass('hidden');
+	};
 
-  $('body').on('click', '.card-title h3', function(event) {
+  $('body').on('click', '.card-title', function(event) {
+		var $target = $(event.target);
     renderCardTitleEdit();
   });
 
+  $('body').on('click', function(event) {
+    var $target = $(event.target);
+    if ( $target.closest('.card-title').length === 0 ) {
+			derenderCardTitleEdit();
+    }
+  });
+	
   $('body').on('click', '.card-edit-button', function(event) {
     event.preventDefault();
   });
@@ -34,15 +41,11 @@ $(document).ready(function () {
   $('body').on('click', '.card-description-detail', function(event) {
     renderCardDescriptionEdit();
   });
-
+	
   $('body').on('click', function(event) {
     var $target = $(event.target);
-    if (
-      !($target.hasClass('input')) &&
-      !($target.parent().hasClass('detail')) &&
-      !($target.parent().hasClass('input')
-    )) {
-      resetAllRender();
+    if ( $target.closest('.card-description').length === 0 ) {
+      derenderCardDescriptionEdit();
     }
   });
 	
