@@ -1,5 +1,6 @@
 Strello
 =========
+www.strello.herokuapp.com
 
 Clone of the productivity app Trello. Users create "boards" as part of an organization or personally and from there can create "cards" to delegate tasks or notes to other members of the board.
 
