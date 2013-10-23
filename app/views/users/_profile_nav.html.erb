@@ -1,0 +1,43 @@
+<nav class="user-nav">
+	<div class="big-avatar">
+		<% if current_user.avatar.exists? %>
+      <%= image_tag current_user.avatar.url(:big) %>
+		<% else %>
+			<%= image_tag ("default_avatar.jpg") %>
+		<% end %>
+		<div class="change-avatar hidden">
+			<span>Change Avatar</span>
+		</div>
+	</div>
+	<%= form_for current_user, url: user_url(current_user), html: { class: "avatar-upload hidden" } do |f| %>
+		<input type="hidden"
+		name="authenticity_token"
+		value="<%= form_authenticity_token %>">
+		
+		<%= f.file_field :avatar %>
+		<br>
+		<%= f.submit "Update Avatar" %>
+	<% end%>
+	<ul>
+		<li>
+			<ul>
+				<li>
+					Boards
+				</li>
+				<li>
+					Cards
+				</li>
+				<li>
+					Profile
+				</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<li>
+					New Board...
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>

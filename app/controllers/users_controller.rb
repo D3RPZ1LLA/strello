@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # before_filter :personal_clearance, only: [:edit, :update, :destroy]
-  before_filter :logged_in_clearance, only: :home
+  before_filter :personal_clearance, only: [:update, :destroy]
+  before_filter :logged_in_clearance, only: [:home, :edit]
 
   def new
     @user = User.new
@@ -24,6 +24,10 @@ class UsersController < ApplicationController
       flash[:errors] = "User not found"
       redirect_to new_user_url
     end
+  end
+  
+  def edit
+    render :edit
   end
 
   def update

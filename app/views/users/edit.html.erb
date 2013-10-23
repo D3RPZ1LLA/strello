@@ -1,0 +1,9 @@
+<%= render partial: "users/header", locals: { board: @board } %>
+
+<article class="user-pages group">
+	<section id="user-information">
+		<%= current_user.email %>
+	</section>
+	
+	<%= render partial: "users/profile_nav", locals: { user: current_user } %>
+</article>
