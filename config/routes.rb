@@ -1,9 +1,11 @@
 Clairvoyance::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
-  resources :users
+  resources :users do
+    resources :boards, only: :index
+  end
 
-  resources :boards do
+  resources :boards, except: :index do
     resources :catagories, only: [:new, :create]
     resources :memberships, only: [:new, :create]
     # route does not need to be nested. fix at next controlled state

@@ -1,0 +1,25 @@
+.user-nav > ul {
+	margin-top: 12px;
+}
+
+
+.user-nav > ul > li {
+	padding: 8px 0;
+	border-top: solid #dcdcdc 1px;
+}
+
+.user-nav ul ul li {
+	margin: 5px 0;
+	padding: 8px;
+	border-radius: 3px;
+}
+
+.user-nav a {
+	color: black;
+}
+
+.user-nav ul ul li:hover {
+	background-color: #2d82b3;
+	color: white;
+	cursor: pointer;
+}

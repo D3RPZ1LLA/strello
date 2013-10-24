@@ -1,35 +1,45 @@
 <nav class="user-nav">
 	<div class="big-avatar">
-		<% if current_user.avatar.exists? %>
-      <%= image_tag current_user.avatar.url(:big) %>
+		<% if user.avatar.exists? %>
+      <%= image_tag user.avatar.url(:big) %>
 		<% else %>
 			<%= image_tag ("default_avatar.jpg") %>
 		<% end %>
+		<% if user == current_user %>
 		<div class="change-avatar hidden">
 			<span>Change Avatar</span>
 		</div>
+		<% end %>
 	</div>
-	<%= form_for current_user, url: user_url(current_user), html: { class: "avatar-upload hidden" } do |f| %>
-		<input type="hidden"
-		name="authenticity_token"
-		value="<%= form_authenticity_token %>">
+	<% if user == current_user %>
+		<%= form_for current_user, url: user_url(current_user), html: { class: "avatar-upload hidden" } do |f| %>
+			<input type="hidden"
+			name="authenticity_token"
+			value="<%= form_authenticity_token %>">
 		
-		<%= f.file_field :avatar %>
-		<br>
-		<%= f.submit "Update Avatar" %>
-	<% end%>
+			<%= f.file_field :avatar %>
+			<br>
+			<%= f.submit "Update Avatar" %>
+		<% end %>
+	<% end %>
 	<ul>
 		<li>
 			<ul>
-				<li>
-					Boards
-				</li>
-				<li>
-					Cards
-				</li>
-				<li>
-					Profile
-				</li>
+				<a href="#">
+					<li>
+						Boards
+					</li>
+				</a>
+				<a href="#">
+					<li>
+						Cards
+					</li>
+				</a>
+				<a href="#">
+					<li>
+						Profile
+					</li>
+				</a>
 			</ul>
 		</li>
 		<li>

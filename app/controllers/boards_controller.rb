@@ -3,7 +3,13 @@ class BoardsController < ApplicationController
   before_filter :member_clearance, only: [:show, :update]
 
   def index
-    @boards = Board.includes(:members).select { |board| board.members.include?(current_user) }
+    if !!params[:user_id]
+      @user = User.find(params[:user_id])
+    else
+      @user = current_user
+    end
+    
+    @boards = Board.includes(:members).select { |board| board.members.include?(@user) }
     render :index
   end
 

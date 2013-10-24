@@ -6,13 +6,16 @@
 	    <%= image_tag("people_head.png")%>
 		</div>
 		<h1>My Boards</h1>
+		<% if @user == current_user %>
 		<a class="new-board-link" href="<%= new_board_url %>">
 			<div id="new-board-icon">
 				<%= image_tag("boards_dark.png")%>
 			</div>
+			
 			<span>New board...</span>
 		</a>
 		<%= render partial: "boards/new" %>
+		<% end %>
 		<ul>
 			<% @boards.each do |board| %>
 			<li>
@@ -26,6 +29,6 @@
 		</ul>
 	</section>
 
-	<%= render partial: "users/profile_nav", locals: { user: current_user } %>
+	<%= render partial: "users/profile_nav", locals: { user: @user } %>
 
 </article>
