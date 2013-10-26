@@ -3,6 +3,7 @@ Clairvoyance::Application.routes.draw do
 
   resources :users do
     resources :boards, only: :index
+    resources :cards, only: :index
   end
 
   resources :boards, except: :index do

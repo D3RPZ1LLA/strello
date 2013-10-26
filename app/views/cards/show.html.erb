@@ -31,7 +31,7 @@
         <ul class="members">
           <% @card.participants.each do |member| %>
           <li data-id="<%= member.id %>">
-            <%= render partail: "users/avatar", locals: { user: member } %>
+            <%= render partia	l: "users/avatar", locals: { user: member } %>
           </li>
           <% end %>
         </ul>

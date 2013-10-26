@@ -28,7 +28,7 @@ $(document).ready(function () {
 		$('#card-view .sidebar').empty();
 	};
 	
-	$('#board-lists').on('click', '.card-link', function(event) {
+	$('body').on('click', '.card-link', function(event) {
 		event.preventDefault();
 		var $target = $(event.target);
 

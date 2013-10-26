@@ -1,7 +1,10 @@
 <li 
 data-id="<%= card.id %>" 
 data-idx="<%= card.sort_idx %>"
-data-catagory-id="<%= catagory.id %>">
+<% if !!catagory %>
+data-catagory-id="<%= catagory.id %>"
+<% end %>
+>
 
 	<a class="card-link" href="<%= card_url(card) %>">
 

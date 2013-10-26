@@ -1,0 +1,20 @@
+<%= render partial: "users/header" %>
+
+<article class="user-pages group">
+	<section class="card-index">
+		<div id="my-boards-icon">
+	    <%= image_tag("people_head.png")%>
+		</div>
+		<h1>My Cards</h1>
+		<ul class="group">
+			<% @cards.each do |card| %>
+				<%= render partial: "cards/card", locals: { card: card, catagory: nil } %>
+			<% end %>
+		</ul>
+	</section>
+
+	<%= render partial: "users/profile_nav", locals: { user: @user } %>
+
+</article>
+
+<%= render partial: "cards/view" %>

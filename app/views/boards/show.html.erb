@@ -5,17 +5,4 @@
 
 <%= render partial: "boards/board", locals: { board: @board } %>
 
-<article id="card-view" class="hidden">
-	<div class="card-page group">
-		<div class="exit">
-	    <%= image_tag("card-exit.png")%>
-		</div>
-		<div class="loading">
-			<%= image_tag("loading.gif")%>
-		</div>
-		<section class="card-main">		
-		</section>
-		<section class="sidebar">
-		</section>
-	</div>
-</article>
+<%= render partial: "cards/view" %>

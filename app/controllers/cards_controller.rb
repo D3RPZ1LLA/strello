@@ -1,6 +1,18 @@
 class CardsController < ApplicationController
   before_filter :logged_in_clearance
 
+  def index
+    if !!params[:user_id]
+      @user = User.find(params[:user_id])
+    else
+      @user = current_user
+    end
+    
+    @cards = Card.includes(:participants).select { |card| card.participants.include?(@user) }
+    
+    render :index
+  end
+
   def new
     if @catagory = Catagory.includes(:board).find(params[:catagory_id])
       @card = Card.new
