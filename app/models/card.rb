@@ -68,4 +68,8 @@ class Card < ActiveRecord::Base
       DROP FUNCTION reorder_#{function_key}(#{variables.map { |var| "integer" }.join(', ') });
     SQL
   end
+  
+  def can_edit?(user)
+    
+  end
 end

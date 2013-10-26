@@ -1,0 +1,31 @@
+<nav class="board-list hidden">
+	<button class="exit">X</button>
+  <h4>Boards</h4>
+  <ul>
+		<li>
+			<h5>My Boards</h5>
+			<ul>
+	      <% current_user.member_boards.each do |board| %>
+	      <a href="<%= board_url(board) %>">
+	        <li><%= board.title %></li>
+	      </a>
+	      <% end %>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<a href="<%= boards_url %>">
+					<li>
+						See All Boards
+					</li>
+				</a>
+				<a class="new-board-link" href="<%= new_board_url %>">
+					<li> 
+						New Board...
+					</li>
+				</a>
+				<%= render partial: "boards/new" %>
+			</ul>
+		</li>
+  </ul>
+</nav>

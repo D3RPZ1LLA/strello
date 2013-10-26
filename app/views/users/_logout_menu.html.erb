@@ -1,0 +1,41 @@
+<nav class="avatar-nav hidden-form">
+	<div class="exit">
+    <%= image_tag("exit.png")%>
+	</div>
+	
+	<h1>User Nav</h1>
+	<ul>
+		<li>
+			<ul>
+				<a href="<%= user_boards_url(current_user) %>">
+					<li>
+						Boards
+					</li>
+				</a>
+				<a href="<%= user_cards_url(current_user) %>">
+					<li>
+						Cards
+					</li>
+				</a>
+				<li>
+					Profile
+				</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<li>
+					New Board...
+				</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<li>
+					Log Out
+				</li>
+			</ul>
+		</li>
+	</ul>
+	
+</nav>
