@@ -29,7 +29,10 @@ $(document).ready(function () {
 
   $('body').on('click', function(event) {
     var $target = $(event.target);
-    if ( $target.closest('.card-title').length === 0 ) {
+    if ( 
+			$target.closest('.card-title').length === 0 &&
+			$target.closest('#card-title-form').length === 0
+		) {
 			derenderCardTitleEdit();
     }
   });

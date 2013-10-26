@@ -58,7 +58,7 @@ class CardsController < ApplicationController
         participants: @card.participants.map { |participant| {participant: participant, avatar_url: participant.avatar.url(:thumb)} }
       }
     else
-      render :show
+      redirect_to toot_url
     end
   end
 

@@ -1,3 +1,9 @@
+<div class="card-title clickable">
+	<span class="card-title-detail detail">
+	  <h3><%= card.title %></h3> in list <strong><%= card.catagory.title %></strong>
+	</span>
+</div>
+
 <form id="card-title-form"
 action="/cards/<%= card.id %>"
 method="POST"
@@ -5,15 +11,10 @@ accept-charset="utf-8"
 data-remote="true">
   <input type="hidden" name="_method" value="PUT">
 
-  <div class="card-title">
-    <span class="card-title-detail detail">
-      <h3><%= card.title %></h3> in list <strong><%= card.catagory.title %></strong>
-    </span>
-    <div class="card-title-input input hidden">
-    	<textarea name="card[title]"
-      class="card-title-textarea"><%= card.title %></textarea>
-      <button id="card-title-button" class="save">Save</button>
-    </div>
+  <div class="card-title-input input hidden">
+  	<textarea name="card[title]"
+    class="card-title-textarea"><%= card.title %></textarea>
+    <button id="card-title-button" class="save">Save</button>
   </div>
   <br>
 </form>

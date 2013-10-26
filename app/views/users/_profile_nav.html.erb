@@ -1,5 +1,5 @@
 <nav class="user-nav">
-	<div class="big-avatar">
+	<div class="big-avatar <%= "clickable" if user == current_user %>">
 		<% if user.avatar.exists? %>
       <%= image_tag user.avatar.url(:big) %>
 		<% else %>
@@ -30,7 +30,7 @@
 						Boards
 					</li>
 				</a>
-				<a href="#">
+				<a href="<%= user_cards_url(user) %>">
 					<li>
 						Cards
 					</li>

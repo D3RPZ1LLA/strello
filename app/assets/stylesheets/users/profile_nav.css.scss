@@ -1,7 +1,41 @@
+.user-nav {
+	margin-top: -6px;
+	width: 170px;
+	float: left;
+}
+
+.user-nav .big-avatar {
+	position: relative;
+}
+
+.big-avatar:hover .change-avatar {
+	display: block;	
+}
+
+.user-nav .change-avatar {
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+	width: 100%;
+	padding: 15px 0;
+	background-color: black;
+	text-align: center;
+}
+
+.user-nav .change-avatar:hover {
+	cursor: pointer;	
+}
+
+.user-nav .change-avatar > span {
+	font-weight: bold;
+	font-size: 90%;
+	color: white;
+	text-decoration: underline;
+}
+
 .user-nav > ul {
 	margin-top: 12px;
 }
-
 
 .user-nav > ul > li {
 	padding: 8px 0;
