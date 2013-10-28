@@ -17,13 +17,13 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: awesome_test
+  database: clairvoyance_test
   pool: 5
   username: Di5coPunk
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: awesome_production
+  database: clairvoyance_production
   pool: 5
   username: Di5coPunk
