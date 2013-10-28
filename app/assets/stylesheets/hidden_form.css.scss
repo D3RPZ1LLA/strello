@@ -1,10 +1,15 @@
 .hidden-form {
 	position: absolute;
+	z-index: 3;
 	background-color: white;
 	width: 271px;
 	padding: 9px 9px 0 9px;
 	border: solid #b9b9b9 1px;
 	border-radius: 3px;
+}
+
+.hidden-form a {
+	color: #303030;
 }
 
 .hidden-form > h1 {
@@ -44,6 +49,28 @@
 	border: solid gray 1px;
 	border-radius: 3px;
 	font-size: 95%;
+}
+
+.hidden-form > ul > li {
+	border-bottom: solid #dcdcdc 1px;
+	padding: 5px 0;
+}
+
+.hidden-form > ul > li:last-child {
+  border: 0;	
+}
+
+.hidden-form > ul > li li {
+	padding: 10px;
+	margin: 0 -9px;
+	font-weight: bold;
+	font-size: 90%;
+}
+
+.hidden-form > ul > li li:hover {
+	background-color: #318ec4;
+	color: white;
+	cursor: pointer;
 }
 
 .save {

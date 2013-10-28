@@ -1,9 +1,9 @@
-<nav class="avatar-nav hidden-form">
+<nav class="logout-menu hidden-form hidden">
 	<div class="exit">
     <%= image_tag("exit.png")%>
 	</div>
 	
-	<h1>User Nav</h1>
+	<h1><%= current_user.email %></h1>
 	<ul>
 		<li>
 			<ul>

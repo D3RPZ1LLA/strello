@@ -2,10 +2,6 @@
 
 <article class="user-pages group">
 	<section class="card-index">
-		<div id="my-boards-icon">
-	    <%= image_tag("people_head.png")%>
-		</div>
-		<h1>My Cards</h1>
 		<ul class="group">
 			<% @cards.each do |card| %>
 				<%= render partial: "cards/card", locals: { card: card, catagory: nil } %>
