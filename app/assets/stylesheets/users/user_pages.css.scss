@@ -1,0 +1,50 @@
+.user-background {
+	background-color: #e6e6e6;
+	height: 100%;
+	width: 100%;
+	margin-top: -10px;
+}
+
+.login-logo {
+	width: 210px;
+	margin: 10px auto;
+}
+
+.users {
+	width: 540px;
+	margin: 5px auto;
+	background-color: #f0f0f0;
+	border: solid #bfbfbf 1px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 5px #bfbfbf;
+	color: #939393;
+}
+
+.users h1 {
+	font-weight: bold;
+	font-size: 115%;
+	color: #393939;
+}
+
+.users a {
+	text-decoration: underline;
+	color: #939393;
+}
+
+.users a:hover {
+	color: #111111;	
+}
+
+.users label {
+	color: #393939;
+}
+
+.users .save {
+	padding: 8px 18px;
+	font-size: 100%;
+	background-color: #23a326;
+}
+
+.users .save:hover {
+	background-color: #197a1d;	
+}
