@@ -7,13 +7,13 @@
 		<div class="login-left">
 			<h1>Create An Account</h1>
 
-			<% if @user.errors.any? %>
+			<!-- <% if @user.errors.any? %>
 			<ul>
 				<% @user.errors.full_messages.each do |msg| %>
 				<li><%= msg %></li>
 				<% end %>
 			</ul>
-			<% end %>
+			<% end %> -->
 
 			<form action="<%= users_url %>" method="POST" accept-charset="utf-8">
 				<input type="hidden"
@@ -22,23 +22,29 @@
 
 				<label>Email
 					<br>
-					<input type="text"
+					<input class="field"
+					type="text"
 					name="user[email]"
-					value="<%= @user.email %>">
+					value="<%= @user.email %>"
+					placeholder="e.g., ender@battle.edu">
 				</label>
 				<br>
 
 				<label>Password
 					<br>
-					<input type="password"
-					name="user[password]">
+					<input class="field"
+					type="password"
+					name="user[password]"
+					placeholder="e.g., ••••••••••••••••">
 				</label>
 				<br>
 
 				<label>Password (again)
 					<br>
-					<input type="password"
-					name="user[password_verify]">
+					<input class="field"
+					type="password"
+					name="user[password_verify]"
+					placeholder="e.g., ••••••••••••••••">
 				</label>
 				<br>
 			
