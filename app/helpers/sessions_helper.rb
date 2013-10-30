@@ -28,8 +28,8 @@ module SessionsHelper
   end
 
   def personal_clearance
-    unless logged_in? && current_user.id == params[:id]
-      redirect_to logged_in? ? user_url(current_user) : new_session_url
+    unless logged_in? && current_user.id == params[:id].to_i
+      redirect_to logged_in? ? root_url : new_session_url
     end
   end
 
