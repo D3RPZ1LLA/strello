@@ -17,8 +17,8 @@ loading.gif: loading-c273f7252115c9a655748bff7874ffcf.gif
 loading/index.gif: loading-c273f7252115c9a655748bff7874ffcf.gif
 login.png: login-a3896401ec6303da7430c2001135ff47.png
 login/index.png: login-a3896401ec6303da7430c2001135ff47.png
-login.xcf: login-03dc29abd3d91fe22a424050b5a8a44c.xcf
-login/index.xcf: login-03dc29abd3d91fe22a424050b5a8a44c.xcf
+login.xcf: login-cb0c769fe92c37da60a00501d5f40ae5.xcf
+login/index.xcf: login-cb0c769fe92c37da60a00501d5f40ae5.xcf
 logo.png: logo-1ff55ae46e714c80660c3f3ceeae5229.png
 logo/index.png: logo-1ff55ae46e714c80660c3f3ceeae5229.png
 people_head.png: people_head-5e49daab988493e44125a7a3489f40d1.png
@@ -31,9 +31,9 @@ strello.png: strello-4b86b0e88d8abbd50504c6753ecc1af8.png
 strello/index.png: strello-4b86b0e88d8abbd50504c6753ecc1af8.png
 strello.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
 strello/index.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
-application.js: application-7703f42e24e8b6e9286ef9f6a4f34cc0.js
-application/index.js: application-7703f42e24e8b6e9286ef9f6a4f34cc0.js
-application.css: application-8fb5863d162f64f6ece98128de41a8be.css
-application/index.css: application-8fb5863d162f64f6ece98128de41a8be.css
+application.js: application-5bff8e867b095d67e90d576abc7c906b.js
+application/index.js: application-5bff8e867b095d67e90d576abc7c906b.js
+application.css: application-7720c6c380f181d1a8bee09184fe929c.css
+application/index.css: application-7720c6c380f181d1a8bee09184fe929c.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
