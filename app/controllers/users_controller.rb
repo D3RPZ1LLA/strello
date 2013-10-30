@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     if request.xhr?
       render json: @user
     else
-      redirect_to boards_url
+      redirect_to root_url
     end
   end
 
