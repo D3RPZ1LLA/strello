@@ -19,22 +19,22 @@ This is the Catagory factory method to generate a SQL query that when executed w
     [ {id: value, sort_idx: value}, ... ]
 
 ```
-  def self.generate_reorder(catagory_set, user_id)
-    function_key = (user_id.to_s) + "_" + (SecureRandom::hex 8)
+   def self.generate_reorder(list_set, current_user_id)
+    function_key = (current_user_id.to_s) + "_" + (SecureRandom::hex 8)
     
-    cat_idx = {}
-    catagory_set.values.each do |catagory_params|
-      cat_idx[catagory_params[:id].to_i] = catagory_params[:sort_idx].to_i
+    list_idx = {}
+    list_set.values.each do |list_params|
+      list_idx[list_params[:id].to_i] = list_params[:sort_idx].to_i
     end
     
     variables = []
     case_statement = []
     
-    cat_idx.keys.each_with_index do |id, idx|
-      if ( idx < cat_idx.keys.count - 1 || cat_idx.keys.count == 1)
-        case_statement << "when id = #{id} then #{cat_idx[id]}"
+    list_idx.keys.each_with_index do |id, idx|
+      if ( idx < list_idx.keys.count - 1 || list_idx.keys.count == 1)
+        case_statement << "when id = #{id} then #{list_idx[id]}"
       else
-        case_statement << "else #{cat_idx[id]}"
+        case_statement << "else #{list_idx[id]}"
       end
       variables << "var#{idx}"
     end
@@ -49,7 +49,7 @@ This is the Catagory factory method to generate a SQL query that when executed w
       $$ 
       LANGUAGE SQL;
       
-      SELECT reorder_#{function_key}(#{cat_idx.keys.map { |id| id.to_s }.join(', ') });
+      SELECT reorder_#{function_key}(#{list_idx.keys.map { |id| id.to_s }.join(', ') });
       
       DROP FUNCTION reorder_#{function_key}(#{variables.map { |var| "integer" }.join(', ') });
     SQL
