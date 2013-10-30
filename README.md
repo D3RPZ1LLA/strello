@@ -16,6 +16,7 @@ Avoiding N+1 Queries; A Unique Solution
 
 This is the Catagory factory method to generate a SQL query that when executed will create a SQL function to UPDATE the catagories's index column with a hash mapping catagory ids to their catagory's new index and then destroy it.
   - Note: list_set is a json object with data which lists have been altered and is of the format
+  
   [ {id: value, sort_idx: value}, ... ]
 
 ```
