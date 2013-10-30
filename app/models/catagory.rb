@@ -14,8 +14,8 @@ class Catagory < ActiveRecord::Base
   validates :board_id, :title, :sort_idx, presence: true
   validates :title, uniqueness: { scope: :board_id }
   
-  def self.generate_reorder(list_set, user_id)
-    function_key = (user_id.to_s) + "_" + (SecureRandom::hex 8)
+  def self.generate_reorder(list_set, curren_user_id)
+    function_key = (curren_user_id.to_s) + "_" + (SecureRandom::hex 8)
     
     list_idx = {}
     list_set.values.each do |list_params|
