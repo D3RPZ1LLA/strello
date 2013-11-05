@@ -1,4 +1,5 @@
-<form class="new-board-form hidden-form hidden"
+<form class="new-board-form hidden-form<%= ' hidden' if hidden %>"
+data-id="<%= id %>"
 action="<%= boards_url %>" 
 method="POST" 
 accept-charset="utf-8">

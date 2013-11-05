@@ -14,7 +14,7 @@
 			
 			<span>New board...</span>
 		</a>
-		<%= render partial: "boards/new" %>
+		<%= render partial: "boards/new", locals: { id: 1, hidden: true } %>
 		<% end %>
 		<ul>
 			<% @boards.each do |board| %>

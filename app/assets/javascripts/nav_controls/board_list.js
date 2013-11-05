@@ -29,12 +29,12 @@ $(document).ready(function(event) {
 	});
 	
 /* New Board */
-	$('.board-list .new-board-link').on('click', function(event) {
-		event.preventDefault();
-		var $form = $('.board-list .new-board-form');
-		console.log($form);
-		
-		$form.toggleClass('hidden');
-		$form.children('label').children('input').focus();
-	});
+	// $('.board-list .new-board-link').on('click', function(event) {
+	// 	event.preventDefault();
+	// 	var $form = $('.board-list .new-board-form');
+	// 	console.log($form);
+	// 	
+	// 	$form.toggleClass('hidden');
+	// 	$form.children('label').children('input').focus();
+	// });
 });

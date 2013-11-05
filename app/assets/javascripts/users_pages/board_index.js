@@ -1,12 +1,20 @@
 $(document).ready(function () {
 
-	var resetNewBoardForm = function () {
-		$('.new-board-form').addClass('hidden');
+	var resetNewBoardForm = function ($form) {
+		$('.new-board-form').each(function() {
+			if ($(this).data('id') !== $form.data('id')) {
+				$(this).addClass('hidden');
+			}
+		});
+	};
+	
+	var fetchForm = function ($boardLink) {
+		return $boardLink.parent().children('.new-board-form');
 	};
 
-	$('.board-index .new-board-link').on('click', function(event) {
+	$('body .new-board-link').on('click', function(event) {
 		event.preventDefault();
-		var $form = $('.board-index .new-board-form');
+		var $form = fetchForm($(event.target).closest('.new-board-link'));
 		
 		$form.toggleClass('hidden');
 		if (!($form.hasClass('hidden'))) {
@@ -16,21 +24,29 @@ $(document).ready(function () {
 	
 	$('body').on('click', function (event) {
 		var $target = $(event.target);
+		var $form = $();
 		
 		if (
-			!($target.hasClass('new-board-form')) &&
-			!($target.parent().hasClass('new-board-form')) &&
-			!($target.parent().parent().hasClass('new-board-form')) &&
-			!($target.hasClass('new-board-link')) && 
-			!($target.parent().hasClass('new-board-link')) &&
-			!($target.parent().parent().hasClass('new-board-link'))
+			$target.closest('.new-board-form').length !== 0
+			// !($target.hasClass('new-board-form')) &&
+// 			!($target.parent().hasClass('new-board-form')) &&
+// 			!($target.parent().parent().hasClass('new-board-form')) &&
+// 			!($target.hasClass('new-board-link')) && 
+// 			!($target.parent().hasClass('new-board-link')) &&
+// 			!($target.parent().parent().hasClass('new-board-link'))
 		) {
-			resetNewBoardForm();
+			$form = $target.closest('.new-board-form');
+		} else if ( 
+			$target.closest('.new-board-link').length !== 0
+		) {
+			$form = fetchForm($target.closest('.new-board-link'));
 		}
+		
+		resetNewBoardForm($form);		
 	});
 	
-	$('.board-index .new-board-form .exit').on('click', function (event) {
-		resetNewBoardForm();
+	$('.new-board-form .exit').on('click', function (event) {
+		resetNewBoardForm($());
 	});
 
 });

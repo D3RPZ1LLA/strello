@@ -46,10 +46,10 @@
 		<% if user == current_user %>
 		<li>
 			<ul>
-				<li>
+				<li class="new-board-link">
 					New Board...
 				</li>
-				<%= render partial: "boards/new" %>
+				<%= render partial: "boards/new", locals: { id: 2, hidden: true } %>
 			</ul>
 		</li>
 		<li>
