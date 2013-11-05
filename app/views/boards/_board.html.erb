@@ -7,6 +7,7 @@ style="min-width: <%= (board.catagories.count + 1) * 290 %>px;">
     <% board.catagories.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |catagory| %>
     <li class="list" data-id="<%= catagory.id %>" data-idx="<%= catagory.sort_idx %>">
       <h4><%= catagory.title %></h4>
+			<%= render partial: "catagories/title_form", locals: { catagory: catagory } %>
 
       <ul class="group">
         <% catagory.cards.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |card| %>
