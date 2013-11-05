@@ -3,3 +3,26 @@
 	margin: 0 25px;
 	width: 428px;
 }
+
+#user-information h2 {	
+	font-weight: bold;
+	font-size: 105%;
+	width: 100%;
+	padding-bottom: 8px;
+	border-bottom: solid #dcdcdc 1px;
+	color: #484848;
+}
+
+#user-information > ul > li {
+	border-radius: 3px;
+	margin-top: 8px;
+	padding: 13px;
+	text-decoration: underline;
+	color: #484848;
+}
+
+#user-information > ul > li:hover {
+	cursor: pointer;
+	background-color: #dcdcdc;
+	color: #111111;
+}

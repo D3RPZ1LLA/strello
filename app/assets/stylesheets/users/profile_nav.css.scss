@@ -41,6 +41,7 @@
 .user-nav > ul > li {
 	padding: 8px 0;
 	border-top: solid #dcdcdc 1px;
+	color: #444444;
 }
 
 .user-nav ul ul li {
@@ -49,8 +50,13 @@
 	border-radius: 3px;
 }
 
-.user-nav a {
-	color: black;
+.user-nav ul > li a {
+	color: #444444;
+}
+
+.user-nav ul > li:first-child a {
+	font-weight: bold;
+	color: #111111;
 }
 
 .user-nav ul ul li:hover {

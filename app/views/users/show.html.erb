@@ -1,1 +1,13 @@
-<h1><%= @user.email %> Profile</h1>
+<%= render partial: "users/header" %>
+
+<article class="user-pages group">
+	<section class="board-index">
+
+		<h2><%= @user.email %></h2>
+		
+
+	</section>
+
+	<%= render partial: "users/profile_nav", locals: { user: @user } %>
+
+</article>

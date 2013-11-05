@@ -41,11 +41,6 @@
 						Cards
 					</li>
 				</a>
-				<a href="#">
-					<li>
-						Profile
-					</li>
-				</a>
 			</ul>
 		</li>
 		<% if user == current_user %>
@@ -54,6 +49,15 @@
 				<li>
 					New Board...
 				</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<a href="<%= edit_user_url(user) %>">
+					<li>
+						Account Settings
+					</li>
+				</a>
 			</ul>
 		</li>
 		<% end %>

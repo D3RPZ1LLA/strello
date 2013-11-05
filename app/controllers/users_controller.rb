@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :personal_clearance, only: [:update, :destroy]
+  before_filter :personal_clearance, only: [:edit, :update, :destroy]
   before_filter :logged_in_clearance, only: [:home, :edit]
 
   def new
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find_by_id(params[:id])
     render :edit
   end
 
