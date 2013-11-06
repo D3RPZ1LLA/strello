@@ -1,7 +1,16 @@
 <li class="list" 
 data-id="<%= data.id %>"  
 data-idx="<%= data.sort_idx %>">
-	<h4><%= data.title %></h4>
+	<h4>
+		<%= data.title %>
+		<div class="option-icon">
+	    <img alt="Option-icon" src="/assets/option-icon.png">
+		</div>
+	</h4>
+	<%= JST["catagory_delete_menu"]({ 
+		data: data, 
+		form_authenticity_token: form_authenticity_token 
+		}) %>
 	<%= JST["catagory_title_form"]({ 
 		catagory: data, 
 		form_authenticity_token: form_authenticity_token 
