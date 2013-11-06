@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	// render functions
 	var resetRenameListForm = function ($list) {
 		$('.list').each(function () {
 			var $dat = $(this);
@@ -28,7 +29,8 @@ $(document).ready(function () {
 		var $list = $();
 					
 		if (
-			$target.closest('.rename-list').length !== 0 ||
+			$target.closest('.rename-list textarea').length !== 0 ||
+			$target.closest('.rename-list input').length !== 0 ||
 			$target.closest('.list h4').length !== 0 
 		) {
 			$list = $target.closest('.list');
@@ -36,4 +38,7 @@ $(document).ready(function () {
 		
 		resetRenameListForm($list);
 	});
+	
+	// submit functions
+	
 });
