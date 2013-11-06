@@ -25,4 +25,8 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('body').on('ajax:success', '.delete-list', function (event) {
+		$(event.target).closest('.list').remove();
+	});
 });
