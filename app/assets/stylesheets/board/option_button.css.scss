@@ -1,4 +1,4 @@
-.option_icon {
+.option-icon {
 	position: absolute;
 	top: 7px;
 	right: 7px;
@@ -7,14 +7,14 @@
 	visibility:hidden;
 }
 
-.option_icon:hover {
+.option-icon:hover {
 	opacity: 1.0;	
 }
 
-.card:hover .option_icon {
+.card:hover .option-icon {
 	visibility: visible;
 }
 
-.list h4:hover > .option_icon {
+.list h4:hover > .option-icon {
 	visibility: visible;
 }

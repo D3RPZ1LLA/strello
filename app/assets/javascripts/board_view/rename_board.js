@@ -34,7 +34,6 @@ $(document).ready(function() {
 /* Submit Functions */
 	$('#rename-board button').on('click', function(event) {
 		event.preventDefault();
-		console.log('click');
 		$('#rename-board').submit();
 	});
 	

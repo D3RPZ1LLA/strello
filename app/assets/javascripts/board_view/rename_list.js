@@ -12,7 +12,6 @@ $(document).ready(function () {
 	};
 	
   $('body').on('click', '.list h4', function () {
-  	console.log('clicked');
 		var $target = $(event.target);
 		var $form = $target.closest('.list').children('.rename-list');
 		

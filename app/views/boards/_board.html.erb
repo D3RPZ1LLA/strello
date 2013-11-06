@@ -9,10 +9,11 @@ style="min-width: <%= (board.catagories.count + 1) * 290 %>px;">
 
       <h4>
 				<%= catagory.title %>
-				<div class="option_icon">
-					<%= image_tag("option_icon.png")%>
+				<div class="option-icon">
+					<%= image_tag("option-icon.png")%>
 				</div>
 			</h4>
+			<%= render partial: "catagories/delete_menu", locals: { id: catagory.id } %>
 			<%= render partial: "catagories/title_form", locals: { catagory: catagory } %>
 
       <ul class="group">

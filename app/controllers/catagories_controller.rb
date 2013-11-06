@@ -51,17 +51,17 @@ class CatagoriesController < ApplicationController
   end
 
   def destroy
-    if @catagory = Catagory.includes(:board).find_by_id(param[:id])
+    if request.xhr?
+      @catagory = Catagory.find(params[:id])
+      @catagory.destroy
+      
+      head status: 200
+    else      
+      @catagory = Catagory.find(params[:id])
       @board = @catagory.board
-      if @catagory.cards.empty?
-        @catagory.destroy
-      else
-        flash[:errors] = "cannot delete non-empty catagory"
-      end
+      @catagory.destroy
+
       redirect_to board_url(@board)
-    else
-      flash[:errors] = "Catagory not found"
-      redirect_to user_url(current_user)
     end
   end
   

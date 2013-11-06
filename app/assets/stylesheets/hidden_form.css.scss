@@ -2,7 +2,7 @@
 	position: absolute;
 	z-index: 3;
 	background-color: white;
-	width: 271px;
+	width: 261px;
 	padding: 9px 9px 0 9px;
 	border: solid #b9b9b9 1px;
 	border-radius: 3px;
@@ -43,7 +43,7 @@
 }
 
 .hidden-form > label > input {
-	width: 255px;
+	width: 245px;
 	margin-top: 5px;
 	padding: 7px;
 	border: solid gray 1px;
@@ -68,6 +68,21 @@
 }
 
 .hidden-form > ul > li li:hover {
+	background-color: #318ec4;
+	color: white;
+	cursor: pointer;
+}
+
+.hidden-form input[type="submit"] {
+	width: 279px;
+	margin: -10px;
+	padding: 10px;
+	background-color: white;
+	color: #303030;
+	font-weight: bold;
+}
+
+.hidden-form input[type="submit"]:hover {
 	background-color: #318ec4;
 	color: white;
 	cursor: pointer;

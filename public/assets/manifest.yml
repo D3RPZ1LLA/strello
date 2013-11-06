@@ -25,8 +25,8 @@ login.xcf: login-cb0c769fe92c37da60a00501d5f40ae5.xcf
 login/index.xcf: login-cb0c769fe92c37da60a00501d5f40ae5.xcf
 logo.png: logo-1ff55ae46e714c80660c3f3ceeae5229.png
 logo/index.png: logo-1ff55ae46e714c80660c3f3ceeae5229.png
-option_icon.png: option_icon-b6776722458e50b7b61e005a578b1a2d.png
-option_icon/index.png: option_icon-b6776722458e50b7b61e005a578b1a2d.png
+option-icon.png: option-icon-b6776722458e50b7b61e005a578b1a2d.png
+option-icon/index.png: option-icon-b6776722458e50b7b61e005a578b1a2d.png
 people_head.png: people_head-5e49daab988493e44125a7a3489f40d1.png
 people_head/index.png: people_head-5e49daab988493e44125a7a3489f40d1.png
 people_head_blue.png: people_head_blue-b9c7dba14e8a205c83a4fd6dd6dbf3ec.png

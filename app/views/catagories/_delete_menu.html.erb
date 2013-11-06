@@ -1,0 +1,17 @@
+<div class="option-menu hidden-form hidden"
+data-id="<%= id %>">
+	<div class="exit">
+    <%= image_tag("exit.png")%>
+	</div>
+
+	<h1>List Actions</h1>
+	<ul>
+		<li>
+			<ul>
+				<li>
+					<%= button_to "Delete List", catagory_url(id), form_class: "delete-list", method: :delete, remote: true %>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
