@@ -25,6 +25,8 @@ login.xcf: login-cb0c769fe92c37da60a00501d5f40ae5.xcf
 login/index.xcf: login-cb0c769fe92c37da60a00501d5f40ae5.xcf
 logo.png: logo-1ff55ae46e714c80660c3f3ceeae5229.png
 logo/index.png: logo-1ff55ae46e714c80660c3f3ceeae5229.png
+option_icon.png: option_icon-b6776722458e50b7b61e005a578b1a2d.png
+option_icon/index.png: option_icon-b6776722458e50b7b61e005a578b1a2d.png
 people_head.png: people_head-5e49daab988493e44125a7a3489f40d1.png
 people_head/index.png: people_head-5e49daab988493e44125a7a3489f40d1.png
 people_head_blue.png: people_head_blue-b9c7dba14e8a205c83a4fd6dd6dbf3ec.png
@@ -37,7 +39,7 @@ strello.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
 strello/index.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
 application.js: application-32064f074b98e97527c7ed12735fd294.js
 application/index.js: application-32064f074b98e97527c7ed12735fd294.js
-application.css: application-42f71773e00708c8629693ddd19b05ec.css
-application/index.css: application-42f71773e00708c8629693ddd19b05ec.css
+application.css: application-d2b5e77651962d577ea94debba8d1238.css
+application/index.css: application-d2b5e77651962d577ea94debba8d1238.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map

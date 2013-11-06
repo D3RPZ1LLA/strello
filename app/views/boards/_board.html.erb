@@ -6,7 +6,13 @@ style="min-width: <%= (board.catagories.count + 1) * 290 %>px;">
   <ul id="board-lists" class="group">
     <% board.catagories.sort { |x, y| x.sort_idx <=> y.sort_idx }.each do |catagory| %>
     <li class="list" data-id="<%= catagory.id %>" data-idx="<%= catagory.sort_idx %>">
-      <h4><%= catagory.title %></h4>
+
+      <h4>
+				<%= catagory.title %>
+				<div class="option_icon">
+					<%= image_tag("option_icon.png")%>
+				</div>
+			</h4>
 			<%= render partial: "catagories/title_form", locals: { catagory: catagory } %>
 
       <ul class="group">

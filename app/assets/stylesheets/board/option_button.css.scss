@@ -1,0 +1,20 @@
+.option_icon {
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	width: 12px;
+	opacity: 0.6;
+	visibility:hidden;
+}
+
+.option_icon:hover {
+	opacity: 1.0;	
+}
+
+.card:hover .option_icon {
+	visibility: visible;
+}
+
+.list h4:hover > .option_icon {
+	visibility: visible;
+}
