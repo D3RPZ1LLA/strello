@@ -17,16 +17,21 @@
 						Cards
 					</li>
 				</a>
-				<li>
-					Profile
-				</li>
+				<a href="<%= edit_user_url(current_user) %>">
+					<li>
+						Account Settings
+					</li>
+				</a>
 			</ul>
 		</li>
 		<li>
 			<ul>
-				<li>
-					New Board...
-				</li>
+				<a class="new-board-link" href="<%= new_board_url %>">
+					<li>
+						New Board...
+					</li>
+				</a>
+				<%= render partial: "boards/new", locals: { id: -1, hidden: true } %>
 			</ul>
 		</li>
 		<li>
