@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	// render functions
+/* Render Functions */
 	var resetRenameListForm = function ($list) {
 		$('.list').each(function () {
 			var $dat = $(this);
@@ -39,6 +39,9 @@ $(document).ready(function () {
 		resetRenameListForm($list);
 	});
 	
-	// submit functions
-	
+/* Submit Functions */
+	$('body').on('ajax:success', '.rename-list', function (event, data) {
+		$(this).parent().children('h4').html(data.title);
+		resetRenameListForm($());
+	});
 });
