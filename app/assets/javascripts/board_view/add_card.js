@@ -58,7 +58,9 @@ $(document).ready(function () {
   });
   
 /* Sorting Functions */
-	var reorderCards = function () {
+	window.Sort = !!window.Sort ? window.Sort : {};
+	
+	window.Sort.reorderCards = function () {
 		var alteredCards = [];
 		
 		$('#board-lists').children().each(function (idxL, list) {
@@ -105,8 +107,8 @@ $(document).ready(function () {
 			});
 		}
 	};
-	
-  $(".list ul").sortable({
+		
+  window.Sort.sorted = $(".list ul").sortable({
     connectWith: ".list ul",
 		dropOnEmpty: true,
     start: function (event, ui) {
@@ -114,8 +116,9 @@ $(document).ready(function () {
     },
     stop: function (event, ui) {
       // ui.item.toggleClass("highlight");
-			reorderCards();
+			window.Sort.reorderCards();
     }
   });
+	
   $(".list ul").disableSelection();
 });

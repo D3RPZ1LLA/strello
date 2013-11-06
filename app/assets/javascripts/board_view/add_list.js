@@ -51,6 +51,20 @@ $(document).ready(function () {
 		
 		appendList(data);
 		
+		window.Sort.sorted.sortable( "destroy" );
+		
+	  window.Sort.sorted = $(".list ul").sortable({
+	    connectWith: ".list ul",
+			dropOnEmpty: true,
+	    start: function (event, ui) {
+	      // ui.item.toggleClass("highlight");
+	    },
+	    stop: function (event, ui) {
+	      // ui.item.toggleClass("highlight");
+				window.Sort.reorderCards();
+	    }
+	  });
+		
 		$form[0].reset();
 		$form.children('#catagory-sort-idx').val($('#board-lists').children().length - 1);
 		$newCatagoryLi.detach();
