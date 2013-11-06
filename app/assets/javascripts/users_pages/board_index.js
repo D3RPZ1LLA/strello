@@ -28,12 +28,6 @@ $(document).ready(function () {
 		
 		if (
 			$target.closest('.new-board-form').length !== 0
-			// !($target.hasClass('new-board-form')) &&
-// 			!($target.parent().hasClass('new-board-form')) &&
-// 			!($target.parent().parent().hasClass('new-board-form')) &&
-// 			!($target.hasClass('new-board-link')) && 
-// 			!($target.parent().hasClass('new-board-link')) &&
-// 			!($target.parent().parent().hasClass('new-board-link'))
 		) {
 			$form = $target.closest('.new-board-form');
 		} else if ( 
