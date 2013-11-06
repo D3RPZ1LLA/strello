@@ -1,0 +1,19 @@
+.list > h4:hover {
+	cursor: pointer;
+}
+
+.rename-list {
+	margin: 5px;
+}
+
+.rename-list > textarea {
+	padding: 5px;
+	border-radius: 3px;
+	background-color: #d8d8d8;
+	border: solid #aaaaaa 1px;
+	min-width: 258px;
+	max-width: 258px;
+  font-weight: bold;
+	font-size: 90%;
+	color: #393939;
+}

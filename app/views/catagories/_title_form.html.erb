@@ -4,10 +4,6 @@ action="<%= catagory_url(catagory) %>"
 method="POST" 
 accept-charset="utf-8"
 data-remote="true">
-	<!-- <div class="exit">
-	  <%= image_tag("exit.png")%>
-	</div> -->
-
   <input type="hidden" name="_method" value="PUT">
 
 	<input type="hidden"
@@ -17,5 +13,7 @@ data-remote="true">
 		<textarea name="catagory[title]"><%= catagory.title %></textarea>
 	<br>
 
-	<p><input class="save" type="submit" value="Rename"></p>
+	<p>
+		<input class="save" type="submit" value="Rename"> 
+	</p>
 </form>
