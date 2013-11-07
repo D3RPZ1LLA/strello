@@ -39,8 +39,10 @@ $(document).ready(function () {
 	});
 	
 /* Submit Functions */
-	$('body').on('ajax:success', '.rename-list', function (event, data) {
-		$(this).parent().children('h4').html(data.title);
+	$('body').on('submit', '.rename-list', function (event) {		
+		var title = $(this).children('textarea').val();
+
+		$(this).parent().children('h4').html(JST['list_title']({ title: title }));
 		resetRenameListForm($());
 	});
 });
