@@ -1,0 +1,17 @@
+<div class="option-menu hidden-form hidden"
+data-id="<%= id %>">
+	<div class="exit">
+    <%= image_tag("exit.png")%>
+	</div>
+
+	<h1>Card Actions</h1>
+	<ul>
+		<li>
+			<ul>
+				<li>
+					<%= button_to "Delete Card", card_url(id), form_class: "delete-card", method: :delete, remote: true %>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

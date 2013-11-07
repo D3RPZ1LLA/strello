@@ -58,9 +58,9 @@ $(document).ready(function () {
   });
   
 /* Sorting Functions */
-	window.Sort = !!window.Sort ? window.Sort : {};
+	var ST = (window.ST || {});
 	
-	window.Sort.reorderCards = function () {
+	ST.reorderCards = function () {
 		var alteredCards = [];
 		
 		$('#board-lists').children().each(function (idxL, list) {
@@ -108,7 +108,7 @@ $(document).ready(function () {
 		}
 	};
 		
-  window.Sort.sorted = $(".list ul").sortable({
+  ST.sorted = $(".list ul").sortable({
     connectWith: ".list ul",
 		dropOnEmpty: true,
     start: function (event, ui) {
@@ -116,7 +116,7 @@ $(document).ready(function () {
     },
     stop: function (event, ui) {
       // ui.item.toggleClass("highlight");
-			window.Sort.reorderCards();
+			ST.reorderCards();
     }
   });
 	

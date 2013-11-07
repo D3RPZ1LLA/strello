@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	var fetchOptionMenu = function (event) {
+	var ST = (window.ST || {})
+	
+	var fetchOptionMenu = ST.fetchOptionMenu = function (event) {
 		var $target = $(event.target);
 		
 		if ($target.closest('.card').length !== 0) {
@@ -36,7 +38,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	$('body').on('ajax:success', '.delete-list', function (event) {
+	$('body').on('submit', '.delete-list', function (event) {
 		$(event.target).closest('.list').remove();
 	});
 });

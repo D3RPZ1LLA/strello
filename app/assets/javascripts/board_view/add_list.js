@@ -29,6 +29,8 @@ $(document).ready(function () {
 	});
 	
 /* Submit Functions */
+	var ST = (window.ST || {});
+	
 	var appendList = function (data) {
 		$('#new-catagory-li').before(JST['list']({
 			data: data,
@@ -51,9 +53,9 @@ $(document).ready(function () {
 		
 		appendList(data);
 		
-		window.Sort.sorted.sortable( "destroy" );
+		ST.sorted.sortable( "destroy" );
 		
-	  window.Sort.sorted = $(".list ul").sortable({
+	  ST.sorted = $(".list ul").sortable({
 	    connectWith: ".list ul",
 			dropOnEmpty: true,
 	    start: function (event, ui) {
@@ -61,7 +63,7 @@ $(document).ready(function () {
 	    },
 	    stop: function (event, ui) {
 	      // ui.item.toggleClass("highlight");
-				window.Sort.reorderCards();
+				window.ST.reorderCards();
 	    }
 	  });
 		
