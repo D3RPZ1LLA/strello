@@ -31,15 +31,11 @@ $(document).ready(function () {
 	$('body').on('click', '.card-link', function(event) {
 		event.preventDefault();
 		var $target = $(event.target);
-
-		while ( !($target.data('id')) ) {
-			$target = $target.parent();
-		}
-		
+				
 		$('#card-view').removeClass('hidden');
 				
 		$.ajax({
-			url: '/cards/' + $target.data('id'),
+			url: '/cards/' + $target.closest('li').data('id'),
 			type: "GET",
 			dataType: 'json',
 			success: function(resp) {

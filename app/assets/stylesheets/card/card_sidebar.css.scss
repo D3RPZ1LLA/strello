@@ -23,6 +23,14 @@
 	margin-bottom: 5px;
 }
 
+.sidebar #assign-member-button {
+	background-color: #f0f0f0;
+}
+
+.sidebar #assign-member-button:hover {
+	background-color: #0089bb;
+}
+
 .sidebar #assign-member-button .member-icon-white {
 	float: left;
 	width: 20px;
@@ -40,8 +48,4 @@
 	margin-right: 2px;
 	margin-left: 2px;
 	display: none;
-}
-
-.sidebar #assign-member-button:hover .member-icon-blue {
-	display: table;
 }
