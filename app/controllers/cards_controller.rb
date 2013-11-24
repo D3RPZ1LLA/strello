@@ -77,15 +77,14 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    if @card = Card.find_by_id(params[:id])
-      @card.destroy
-      if request.xhr?
-        head status: 200
-      else
-        head status: 200
-      end
-    else
-      head status: 404
+    @card = Card.find(params[:id])
+    @board = @card.board
+    @card.destroy
+    
+    if request.xhr?
+     head status: 200
+    else      
+      redirect_to board_url(@board)
     end
   end
   

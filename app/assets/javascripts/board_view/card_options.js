@@ -27,10 +27,7 @@ $(document).ready(function() {
 	});
 	
 	$('body').on('submit', '.delete-card', function (event) {
-		// event.preventDefault();
-		event.stopPropagation();
-		// this.submit();
-		// $(event.target).closest('option-menu').closest('li').remove();
+		$(event.target).closest('.mini-card').remove();
 	});
 	
 });
