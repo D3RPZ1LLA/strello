@@ -1,0 +1,34 @@
+<li 
+data-id="<%= card.id %>" 
+data-idx="<%= card.sort_idx %>"
+<% if !!catagory %>
+data-catagory-id="<%= catagory.id %>"
+<% end %>
+>
+
+	<a class="card-link" href="#">
+	  <div class="card-text card">
+			<div class="option-icon">
+				<%= image_tag("option-icon.png")%>
+			</div>
+	    <%= card.title %>
+	  </div>
+	</a>
+	<div class="option-menu hidden-form hidden"
+	data-id="<%= id %>">
+		<div class="exit">
+	    <%= image_tag("exit.png")%>
+		</div>
+
+		<h1>Card Actions</h1>
+		<ul>
+			<li>
+				<ul>
+					<li>
+						<%= button_to "Delete Card", card_url(id), form_class: "delete-card", method: :delete, remote: true %>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</li>

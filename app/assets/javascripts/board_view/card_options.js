@@ -5,7 +5,7 @@ $(document).ready(function() {
 		var $target = $(event.target);
 				
 		if ($target.closest('.card').length !== 0) {
-			return $target.closest('.card').children('.option-menu')
+			return $target.closest('li').children('.option-menu')
 		} else {
 			return $target.closest('.list').children('.option-menu');
 		}
@@ -27,7 +27,10 @@ $(document).ready(function() {
 	});
 	
 	$('body').on('submit', '.delete-card', function (event) {
-		$(event.target).closest('li').remove();
+		// event.preventDefault();
+		event.stopPropagation();
+		// this.submit();
+		// $(event.target).closest('option-menu').closest('li').remove();
 	});
 	
 });

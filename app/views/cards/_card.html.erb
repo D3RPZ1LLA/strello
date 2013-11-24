@@ -7,13 +7,12 @@ data-catagory-id="<%= catagory.id %>"
 >
 
 	<a class="card-link" href="#">
-
-  <div class="card-text card">
-		<div class="option-icon">
-			<%= image_tag("option-icon.png")%>
-		</div>
-    <%= card.title %>
-		<%= render partial: "cards/option_menu", locals: { id: card.id } %>
-  </div>
+	  <div class="card-text card">
+			<div class="option-icon">
+				<%= image_tag("option-icon.png")%>
+			</div>
+	    <%= card.title %>
+	  </div>
 	</a>
+	<%= render partial: "cards/option_menu", locals: { id: card.id } %>
 </li>

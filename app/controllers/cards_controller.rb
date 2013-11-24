@@ -79,10 +79,14 @@ class CardsController < ApplicationController
   def destroy
     if @card = Card.find_by_id(params[:id])
       @card.destroy
+      if request.xhr?
+        head status: 200
+      else
+        head status: 200
+      end
     else
-      flash[:errors] = "Card not found"
+      head status: 404
     end
-    redirect_to user_url(current_user)
   end
   
   def reorder
