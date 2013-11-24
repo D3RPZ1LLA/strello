@@ -12,6 +12,7 @@ $(document).ready(function() {
 	}
 	
 	$('body').on('click', '.card .option-icon', function (event) {
+		event.preventDefault();
 		event.stopPropagation();
 		var $optionMenu = ST.fetchOptionMenu(event);
 		
