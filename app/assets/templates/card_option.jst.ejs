@@ -1,0 +1,31 @@
+<div class="option-menu hidden-form hidden"
+data-id="<%= id %>">
+	<div class="exit">
+    <img alt="Exit" src="/assets/exit.png">
+	</div>
+
+	<h1>Card Actions</h1>
+	<ul>
+		<li>
+			<ul>
+				<li>
+					<form class="delete-card"
+					action="/cards/79" 
+					data-remote="true" 
+					method="post">
+						<div>
+							<input name="_method" 
+							type="hidden"
+							value="delete">
+							<input type="submit"
+							value="Delete Card">
+							<input name="authenticity_token" 
+							type="hidden"
+							value="<%= JSON.parse($("#authenticity_token").html()).token %>">
+						</div>
+					</form>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

@@ -34,13 +34,9 @@ $(document).ready(function () {
 
 /* Submit Functions */  
   var appendCard = function($form, data) {
-		$form.parent().parent().parent().children('ul').append(
-			'<li data-id="' + data.id + '" data-idx="' + data.sort_idx + 
-			'" data-catagory-id="' + data.catagory_id + 
-			'"><a class="card-link" href="/cards/' + data.id + 
-			'"><div class="card-text card">' + 
-			data.title + '</div></a></li>'
-		);
+		$form.parent().parent().parent().children('ul').append(JST['card']({
+			data: data
+		}));
   };
 
   $('body').on('click', '.new-card button', function(event) {

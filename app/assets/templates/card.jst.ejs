@@ -1,1 +1,16 @@
-
+<li class='mini-card'
+  data-id="<%= data.id %>" 
+	data-idx="<%= data.sort_idx %>" 
+	data-catagory-id="<%= data.catagory_id %>">
+		
+	<a class="card-link" 
+	href="/cards/<%= data.id %>">
+		<div class="card-text card">
+			<div class="option-icon">
+				<img alt="Option-icon" src="/assets/option-icon.png">
+			</div>
+			<%= data.title %>
+		</div>
+	</a>
+	<%= JST['card_option']({ id: data.id })%>
+</li>

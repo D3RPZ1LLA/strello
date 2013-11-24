@@ -8,16 +8,14 @@
 	<link rel="icon" 
 	      type="image/ico" 
 	      href="/assets/favicon.ico">
-  <style>
-
-  </style>
-
 </head>
 <body>
 
 
 <%= yield %>
 
-
+<script type="application/json" id="authenticity_token">
+	{ "token": "<%= form_authenticity_token %>" }
+</script>
 </body>
 </html>
