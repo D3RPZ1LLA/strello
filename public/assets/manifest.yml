@@ -37,8 +37,8 @@ strello.png: strello-4b86b0e88d8abbd50504c6753ecc1af8.png
 strello/index.png: strello-4b86b0e88d8abbd50504c6753ecc1af8.png
 strello.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
 strello/index.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
-application.js: application-3849cda71b7652a4087247bcd7333806.js
-application/index.js: application-3849cda71b7652a4087247bcd7333806.js
+application.js: application-c2a16e4afacb42cc03b84a39a900aa73.js
+application/index.js: application-c2a16e4afacb42cc03b84a39a900aa73.js
 application.css: application-f90945494ddc2a316aa839514e28f5fb.css
 application/index.css: application-f90945494ddc2a316aa839514e28f5fb.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map

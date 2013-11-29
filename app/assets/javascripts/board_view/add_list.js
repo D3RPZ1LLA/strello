@@ -31,6 +31,8 @@ $(document).ready(function () {
 /* Submit Functions */
 	var ST = (window.ST || {});
 	
+	ST.sorted = (ST.sorted || {});
+	
 	var appendList = function (data) {
 		$('#new-catagory-li').before(JST['list']({
 			data: data,
@@ -53,7 +55,9 @@ $(document).ready(function () {
 		
 		appendList(data);
 		
-		ST.sorted.sortable( "destroy" );
+		if (typeof ST.sorted.sortable !== 'undefined') {
+			ST.sorted.sortable( "destroy" );
+		}
 		
 	  ST.sorted = $(".list ul").sortable({
 	    connectWith: ".list ul",
