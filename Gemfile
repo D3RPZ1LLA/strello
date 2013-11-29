@@ -51,6 +51,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+# gem 'debugger'
 
 
