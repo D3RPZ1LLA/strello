@@ -1,0 +1,15 @@
+<%= form_for current_user, url: user_url(current_user), html: { class: "avatar-upload hidden-form hidden" } do |f| %>
+	<div class="exit">
+    <%= image_tag("exit.png")%>
+	</div>
+
+	<h1>Change Avatar</h1>
+
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<%= f.file_field :avatar %>
+	<br>
+	<%= f.submit "Save", class: "save" %>
+<% end %>

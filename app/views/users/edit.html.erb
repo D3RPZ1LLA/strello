@@ -4,12 +4,23 @@
 	<section id="user-information">
 		<ul>
 			<h2>Account Details</h2>
-			<li>Change Name, Initials, or Bio</li>
-			<li>Change Email Address</li>
-			<li>Change Avatar</li>
-			<li>Change Password</li>
-		</ul>
-			
+			<li>
+				Change Name, Initials, or Bio
+				<%= render partial: "users/edit_forms/meta" %>
+			</li>
+			<li>
+				Change Email Address
+				<%= render partial: "users/edit_forms/email" %>
+			</li>
+			<li>
+				Change Avatar
+				<%= render partial: "users/edit_forms/avatar" %>
+			</li>
+			<li>
+				Change Password
+				<%= render partial: "users/edit_forms/password" %>
+			</li>
+		</ul>			
 	</section>
 	
 	<%= render partial: "users/profile_nav", locals: { user: current_user } %>
