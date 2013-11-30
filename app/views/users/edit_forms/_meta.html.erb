@@ -1,0 +1,35 @@
+<%= form_for current_user, url: user_url(current_user), html: { class: "meta-edit hidden-form " } do |f| %>
+	<div class="exit">
+    <%= image_tag("exit.png")%>
+	</div>
+
+	<h1>Change Name and Bio</h1>
+
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<label>Full Name
+		<input type="text"
+		name="user[full_name]"
+		value="<%= current_user.full_name %>">
+	</label>
+	
+	<label>Initials
+		<input type="text">
+	</label>
+	
+	<label>Username
+		<input type="text"
+		name="user[username]"
+		value="<%= current_user.username %>">
+	</label>
+	
+	<label>Bio
+		<br>
+		<textarea name="user[bio]"><%= current_user.bio %></textarea>
+	</label>
+	
+	<br>
+	<%= f.submit "Save", class: "save" %>
+<% end %>

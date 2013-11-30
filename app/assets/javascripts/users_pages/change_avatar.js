@@ -3,7 +3,7 @@ $(document).ready(function () {
 		if (
 			$(event.target).closest('.big-avatar').length !== 0 
 		) {
-			$('.avatar-upload').toggleClass('hidden');
+			$('.avatar-edit').toggleClass('hidden');
 		}
 	});
 	
@@ -12,7 +12,7 @@ $(document).ready(function () {
 			$(event.target).closest('.avatar-upload').length === 0 &&
 			$(event.target).closest('.big-avatar').length === 0
 		) {
-			$('.avatar-upload').addClass('hidden');
+			$('.avatar-edit').addClass('hidden');
 		}
 	});
 });
