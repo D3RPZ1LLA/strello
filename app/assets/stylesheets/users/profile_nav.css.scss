@@ -38,28 +38,46 @@
 	margin-top: 12px;
 }
 
-.user-nav > ul > li {
+#user-info {
+	margin: 7px;
+}
+
+#user-email {
+	margin: 3px;
+	font-weight: bold;
+	font-size: 90%;
+	display: block;
+}
+
+#user-username {
+	margin: 3px;
+	font-size: 90%;
+	display: block;
+	color: gray;
+}
+
+.user-links {
 	padding: 8px 0;
 	border-top: solid #dcdcdc 1px;
 	color: #444444;
 }
 
-.user-nav ul ul li {
+.user-links ul li {
 	margin: 5px 0;
 	padding: 8px;
 	border-radius: 3px;
 }
 
-.user-nav ul > li a {
+.user-links a {
 	color: #444444;
 }
 
-.user-nav ul > li:first-child a {
+.user-links:first-child a {
 	font-weight: bold;
 	color: #111111;
 }
 
-.user-nav ul ul li:hover {
+.user-links ul li:hover {
 	background-color: #2d82b3;
 	color: white;
 	cursor: pointer;

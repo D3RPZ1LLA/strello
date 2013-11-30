@@ -39,7 +39,7 @@ strello.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
 strello/index.xcf: strello-24fea95fb2fc73ce3923ba286cb3f8c4.xcf
 application.js: application-c2a16e4afacb42cc03b84a39a900aa73.js
 application/index.js: application-c2a16e4afacb42cc03b84a39a900aa73.js
-application.css: application-f90945494ddc2a316aa839514e28f5fb.css
-application/index.css: application-f90945494ddc2a316aa839514e28f5fb.css
+application.css: application-6e443f3d6c5dedceaa992027f6df6903.css
+application/index.css: application-6e443f3d6c5dedceaa992027f6df6903.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map

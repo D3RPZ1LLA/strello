@@ -7,12 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(
-  email: 'kitty',
+  email: 'kitty@gmail.com',
   password: 'codefu',
   password_verify: 'codefu'
 )
 
 guest = User.create(
+  username: 'guest',
+  full_name: 'Guest User',
   email: 'guest@strello.heroku.com',
   password: 'password',
   password_verify: 'password'

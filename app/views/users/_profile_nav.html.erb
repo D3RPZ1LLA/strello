@@ -1,4 +1,4 @@
-<nav class="user-nav">
+<section class="user-nav">
 	<div class="big-avatar <%= "clickable" if user == current_user %>">
 		<% if user.avatar.exists? %>
       <%= image_tag user.avatar.url(:big) %>
@@ -29,7 +29,11 @@
 			<% end %>
 		<% end %>
 	<ul>
-		<li>
+		<li id="user-info">
+			<span id="user-email"><%= user.full_name %></span>
+			<span id="user-username">@<%= user.username %></span>
+		</li>
+		<li class="user-links">
 			<ul>
 				<a href="<%= user_boards_url(user) %>">
 					<li>
@@ -44,7 +48,7 @@
 			</ul>
 		</li>
 		<% if user == current_user %>
-		<li>
+		<li class="user-links">
 			<ul>
 				<li class="new-board-link">
 					New Board...
@@ -52,7 +56,7 @@
 				<%= render partial: "boards/new", locals: { id: 2, hidden: true } %>
 			</ul>
 		</li>
-		<li>
+		<li class="user-links">
 			<ul>
 				<a href="<%= edit_user_url(user) %>">
 					<li>
@@ -63,4 +67,4 @@
 		</li>
 		<% end %>
 	</ul>
-</nav>
+</section>
