@@ -1,0 +1,24 @@
+<%= form_for current_user, url: user_url(current_user), html: { class: "email-edit hidden-form hidden" } do |f| %>
+	<div class="exit">
+    <%= image_tag("exit.png")%>
+	</div>
+
+	<h1>Change Email</h1>
+
+	<p>
+		Your email address is currently
+		<br>
+		<strong><%= current_user.email %></strong>
+	</p>
+
+	<input type="hidden"
+	name="authenticity_token"
+	value="<%= form_authenticity_token %>">
+
+	<label>New Email Address
+		<input type="text"
+		name="user[email]">
+	</label>
+	<br>
+	<%= f.submit "Send Confirmation Email", class: "save" %>
+<% end %>
