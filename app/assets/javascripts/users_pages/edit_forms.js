@@ -12,8 +12,9 @@ $(document).ready(function () {
 			return $(this).data('type') === dataType;
 		});
 		
-		var $otherForms = $('#account-settings form').filter( function(index) {
-			return $(this).data('type') !== dataType;
+		var $otherForms = $('.hidden-form').filter( function(index) {
+			return $(this).data('type') !== dataType ||
+			$(this).closest('#account-settings').length === 0;
 		})
 		
 		$form.toggleClass('hidden');
