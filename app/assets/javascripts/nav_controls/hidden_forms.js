@@ -1,5 +1,7 @@
 $(document).ready(function () {
-	$('body').on('click', '.exit', function(event) {
+	$('.hidden-form').on('click', function(event) {
+		event.stopPropagation();
+		
 		var $target = $(event.target);
 				
 		if ($target.closest('.exit').length !== 0) {

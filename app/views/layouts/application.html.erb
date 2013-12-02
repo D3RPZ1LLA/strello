@@ -4,6 +4,9 @@
   <title>Strello</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+	<script type="application/json" id="authenticity_token">
+		{ "token": "<%= form_authenticity_token %>" }
+	</script>
   <%= csrf_meta_tags %>
 	<link rel="icon" 
 	      type="image/ico" 
@@ -14,8 +17,6 @@
 
 <%= yield %>
 
-<script type="application/json" id="authenticity_token">
-	{ "token": "<%= form_authenticity_token %>" }
-</script>
+
 </body>
 </html>

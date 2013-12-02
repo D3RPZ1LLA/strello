@@ -73,6 +73,10 @@
 	cursor: pointer;
 }
 
+.hidden-form input[type="file"] {
+	max-width: 260px;
+}
+
 .logout {
 	width: 279px;
 	margin: -10px;

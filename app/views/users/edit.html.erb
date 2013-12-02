@@ -1,25 +1,25 @@
 <%= render partial: "users/header", locals: { board: @board } %>
 
 <article class="user-pages group">
-	<section id="user-information">
+	<section id="account-settings">
 		<ul>
 			<h2>Account Details</h2>
-			<li>
+			<li data-type="meta">
 				Change Name, Initials, or Bio
 			</li>
 			<%= render partial: "users/edit_forms/meta" %>
 			
-			<li>
+			<li data-type="email">
 				Change Email Address
 			</li>
 			<%= render partial: "users/edit_forms/email" %>
 			
-			<li>
+			<li data-type="avatar">
 				Change Avatar
 			</li>
 			<%= render partial: "users/edit_forms/avatar" %>
 			
-			<li>
+			<li data-type="password">
 				Change Password
 			</li>
 			<%= render partial: "users/edit_forms/password" %>
