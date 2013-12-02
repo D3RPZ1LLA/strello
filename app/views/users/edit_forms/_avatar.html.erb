@@ -1,15 +1,34 @@
-<%= form_for current_user, url: user_url(current_user), html: { class: "avatar-edit hidden-form hidden" } do |f| %>
+<form accept-charset="UTF-8"
+action="<%= user_url(current_user) %>"
+class="avatar-edit hidden-form hidden"
+data-type="avatar"
+enctype="multipart/form-data"
+method="post">
 	<div class="exit">
     <%= image_tag("exit.png")%>
 	</div>
 
 	<h1>Change Avatar</h1>
 
+	<input name="utf8" 
+	type="hidden" 
+	value="✓">
+
+	<input type="hidden"
+	name="_method"
+	value="put">
+
 	<input type="hidden"
 	name="authenticity_token"
 	value="<%= form_authenticity_token %>">
 
-	<%= f.file_field :avatar %>
+	<input id="user_avatar"
+	type="file"
+	name="user[avatar]">
 	<br>
-	<%= f.submit "Save", class: "save" %>
-<% end %>
+	
+	<input class="save"
+	type="submit"
+	name="commit"
+	value="Save">
+</form>
