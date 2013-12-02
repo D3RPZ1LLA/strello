@@ -25,7 +25,9 @@ method="post">
 	</label>
 	
 	<label>Initials
-		<input type="text">
+		<input type="text"
+		name="user[initials]"
+		value="<%= current_user.initials %>">
 	</label>
 	
 	<label>Username

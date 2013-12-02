@@ -5,17 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-User.create(
-  email: 'kitty@gmail.com',
-  password: 'codefu',
-  password_verify: 'codefu'
-)
-
 guest = User.create(
   username: 'guest',
   full_name: 'Guest Users',
-  email: 'guest@strello.heroku.com',
+  initials: 'GU',
+  bio: 'I love LAMP!',
+  email: 'guest@strello.herokuapp.com',
   password: 'password',
   password_verify: 'password'
 )

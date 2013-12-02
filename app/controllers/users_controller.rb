@@ -33,7 +33,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes(params[:user])
+  
+    @user.update_attributes(strong_user_params)
+    
+    update_password if params[:user].include?(:password)
+    update_email if params[:user].include?(:email)
+    
     if request.xhr?
       render json: @user
     else
@@ -46,5 +51,18 @@ class UsersController < ApplicationController
 
   def home
     render :home
+  end
+  
+  private
+  def strong_user_params
+    params[:user].select do |k,v|
+      ["username", "avatar", "full_name", "initials", "bio"].include?(k)
+    end
+  end
+  
+  def update_password
+  end
+  
+  def update_email
   end
 end

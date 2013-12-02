@@ -24,4 +24,13 @@ $(document).ready(function () {
 	$('body').on('click', function(event) {
 		$('#account-settings form').addClass('hidden');
 	});
+	
+	$('#account-settings form').on('submit', function(event) {
+		var dataType = $(this).data('type');
+		
+		if (dataType === 'email' || dataType === 'password' || dataType === 'meta') {
+			event.preventDefault();
+			alert('Changing guest ' + dataType + ' is not supported.');
+		}
+	});
 });
