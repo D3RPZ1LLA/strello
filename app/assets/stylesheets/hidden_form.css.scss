@@ -44,11 +44,46 @@
 
 .hidden-form > label > input {
 	width: 245px;
-	margin-top: 5px;
+	margin: 5px 0;
 	padding: 7px;
-	border: solid gray 1px;
+	border: solid #bfbfbf 1px;
 	border-radius: 3px;
 	font-size: 95%;
+	color: #393954;
+	background-color: #e9e9e9;
+	transition: border 0.3s, background-color 0.3s;
+}
+
+.hidden-form > label > input:hover {
+	border: solid #777777 1px;
+}
+
+.hidden-form > label > input:focus {
+	border: solid #318ec4 1px;
+	background-color: #fcfcfc;	
+}
+
+.hidden-form textarea {
+	max-width: 245px;
+	min-width: 245px;
+	min-height: 50px;
+	margin-top: 5px;
+	padding: 7px;
+	border: solid #bfbfbf 1px;
+	border-radius: 3px;
+	font-size: 95%;
+	color: #393954;
+	background-color: #e9e9e9;
+	transition: border 0.3s, background-color 0.3s;
+}
+
+.hidden-form textarea:hover {
+	border: solid #777777 1px;
+}
+
+.hidden-form textarea:focus {
+	border: solid #318ec4 1px;
+	background-color: #fcfcfc;	
 }
 
 .hidden-form > ul > li {
@@ -99,6 +134,7 @@
   font-weight: bold;
   font-size: 90%;
   padding: 5px 15px;
+	margin: 5px 0;
 }
 
 .save:hover {

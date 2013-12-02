@@ -14,7 +14,7 @@ User.create(
 
 guest = User.create(
   username: 'guest',
-  full_name: 'Guest User',
+  full_name: 'Guest Users',
   email: 'guest@strello.heroku.com',
   password: 'password',
   password_verify: 'password'
