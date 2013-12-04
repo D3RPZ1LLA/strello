@@ -28,7 +28,12 @@ $(document).ready(function () {
 	$('#account-settings form').on('submit', function(event) {
 		var dataType = $(this).data('type');
 		
-		if (dataType === 'email' || dataType === 'password' || dataType === 'meta') {
+		if (
+			$('#user-username') === '@guest' &&
+			  ( dataType === 'email' ||
+					dataType === 'password' ||
+					dataType === 'meta'
+				) ) {
 			event.preventDefault();
 			alert('Changing guest ' + dataType + ' is not supported.');
 		}

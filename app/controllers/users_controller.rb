@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       login!(@user)
       redirect_to root_url
+      
     else
       render :new
     end
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
   def show
     if @user = User.includes(:member_boards, :cards).find_by_id(params[:id])
       render :show
+      
     else
       flash[:errors] = "User not found"
       redirect_to new_user_url
@@ -31,18 +33,16 @@ class UsersController < ApplicationController
     render :edit
   end
 
-  def update
-    @user = User.find(params[:id])
-  
-    @user.update_attributes(strong_user_params)
+  def update  
+    @current_user.update_attributes(strong_user_params)
     
     update_password if params[:user].include?(:password)
     update_email if params[:user].include?(:email)
     
     if request.xhr?
-      render json: @user
+      render json: @current_user
     else
-      redirect_to root_url
+      redirect_to edit_user_url(@current_user)
     end
   end
 
@@ -60,7 +60,27 @@ class UsersController < ApplicationController
     end
   end
   
-  def update_password
+  def update_password    
+    if @current_user.has_password? (params[:user][:password])
+
+      if params[:user][:new_password] == params[:user][:new_password_again]
+
+        if User.is_valid_password? (params[:user][:new_password])
+         
+          puts "changing pw"
+          @current_user.change_password (params[:user][:new_password])
+          
+        else
+          flash[:errors] = "Password must be 6-20 characters"
+        end
+        
+      else
+        flash[:errors] = "Passwords do not match."
+      end
+
+    else
+      flash[:errors] = "Invalid password."
+    end
   end
   
   def update_email

@@ -48,11 +48,24 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
-    return user && BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
+    return user && user.has_password?(password) ? user : nil
+  end
+  
+  def self.is_valid_password? (password)
+    password.length >= 6 && password.length <= 20
   end
 
   def set_token
     self.token = User.generate_token
+  end
+  
+  def has_password? (password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+  
+  def change_password (new_password)
+    self.password_digest = BCrypt::Password.create(new_password)
+    self.save
   end
 
   private
