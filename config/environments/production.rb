@@ -74,4 +74,15 @@ Clairvoyance::Application.configure do
       :s3_host_name => 's3.amazonaws.com' # or whatever your region host name is
     }
   }
+  
+  config.action_mailer.default_url_options = { host: 'example.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'example.com',
+    user_name:            'strelloapp@gmail.com',
+    password:             'passwordfu',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
 end
